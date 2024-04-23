@@ -1,0 +1,54 @@
+.text-red {
+  color: $color-red;
+}
+
+.text-black {
+  color: $color-black;
+}
+
+.text-gray-2 {
+  color: $color-gray-2;
+}
+
+.font-normal {
+  font-weight: 400;
+}
+
+.font-medium {
+  font-weight: 500;
+}
+
+.font-bold {
+  font-weight: 700;
+}
+
+.font-extrabold {
+  font-weight: 800;
+}
+
+.text-center {
+  text-align: center;
+}
+
+p:has(button) {
+  margin-bottom: 0;
+}
+
+@for $i from 0 through 100 {
+  .mt-#{$i} {
+    margin-top: #{rem($i * 4)}
+  }
+
+  .mr-#{$i} {
+    margin-right: #{rem($i * 4)}
+  }
+
+  .mb-#{$i} {
+    margin-bottom: #{rem($i * 4)}
+  }
+
+  .ml-#{$i} {
+    margin-left: #{rem($i * 4)}
+  }
+}
+

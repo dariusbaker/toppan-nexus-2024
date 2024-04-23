@@ -1,0 +1,17 @@
+mixin buttonTag(type = "")
+  if type === "button"
+    button(type="button")&attributes(attributes)
+      block
+  else if type === "submit"
+    button(type="submit")&attributes(attributes)
+      block
+  else
+    a&attributes(attributes)
+      block
+
+mixin button(label, type = "")
+  +buttonTag(type)&attributes(attributes).h-btn
+    span.h-btn__label
+      span.text-base.font-bold.text-uppercase.h-btn__text= label
+    span.h-btn__icon
+      i.fa-regular.fa-arrow-right.h-btn__arrow

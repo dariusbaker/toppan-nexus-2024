@@ -1,0 +1,72 @@
+{
+  "name": "web-template",
+  "title": "Web Template",
+  "description": "Web template use es6, pug, scss",
+  "version": "3.0.1",
+  "author": "keinguyen2212@gmail.com",
+  "homepage": "https://github.com/keinguyen/web-template",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/keinguyen/web-template.git"
+  },
+  "keywords": [
+    "web",
+    "template",
+    "es6",
+    "pug",
+    "scss"
+  ],
+  "engines": {
+    "node": "16.20.2"
+  },
+  "scripts": {
+    "list-tasks": "gulp --tasks",
+    "start": "gulp",
+    "dev": "gulp",
+    "build": "gulp build",
+    "deploy": "rm -rf dist; npm run build; aws s3 sync --delete --acl public-read dist s3://sit-html/sit10"
+  },
+  "dependencies": {
+    "bootstrap": "^5.3.2",
+    "function.name": "^1.0.13"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.23.6",
+    "@babel/eslint-parser": "^7.23.3",
+    "@babel/plugin-proposal-class-properties": "^7.5.5",
+    "@babel/plugin-proposal-decorators": "^7.23.6",
+    "@babel/plugin-syntax-dynamic-import": "^7.8.3",
+    "@babel/plugin-transform-runtime": "^7.23.6",
+    "@babel/preset-env": "^7.23.6",
+    "@babel/runtime": "^7.23.6",
+    "babel-loader": "^8.0.6",
+    "browser-sync": "^2.29.3",
+    "del": "^5.0.0",
+    "express": "^4.18.2",
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^6.1.0",
+    "gulp-cached": "^1.1.1",
+    "gulp-clean-css": "^4.3.0",
+    "gulp-cli": "^2.3.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-eslint": "^6.0.0",
+    "gulp-html-replace": "^1.6.2",
+    "gulp-merge-json": "^2.1.2",
+    "gulp-nodemon": "^2.5.0",
+    "gulp-notify": "^4.0.0",
+    "gulp-pug": "5.0.0",
+    "gulp-rename": "^2.0.0",
+    "gulp-rtlcss": "^2.0.0",
+    "gulp-sass": "^5.1.0",
+    "gulp-sass-unicode": "^1.0.5",
+    "gulp-uglify": "^3.0.2",
+    "node-sass": "^9.0.0",
+    "organizze-gulp-sass-bulk-import": "^0.1.1",
+    "pug": "^3.0.2",
+    "require-dir": "^1.2.0",
+    "strip-indent": "^3.0.0",
+    "vinyl-named": "^1.1.0",
+    "webpack-stream": "^7.0.0"
+  }
+}

@@ -1,0 +1,78 @@
+include ../_mixins/all
+
+- const isRTL = $translator.isRTL
+- const dir = isRTL ? 'rtl' : 'ltr'
+- const rtlSuffix = isRTL ? '-rtl' : ''
+-
+  const viewports = [
+    'width=device-width',
+    'initial-scale=1',
+    'shrink-to-fit=no'
+  ].join(',')
+
+block vars
+  - let useHeader = true
+  - let useFooter = true
+  - let title = 'Layout'
+  - let namespace = ''
+  - let menuIndex = 0
+
+doctype html
+html.no-js(lang=$localeName dir=dir)
+  head
+    title=title
+    meta(http-equiv="X-UA-Compatible" content="IE=edge")
+    meta(charset="utf-8")
+    meta(name="viewport" content!=viewports)
+    link(rel="preconnect" href="https://cdn.jsdelivr.net")
+    link(rel="preconnect" href="https://cdnjs.cloudflare.com")
+    link(rel="preconnect" href="https://kit.fontawesome.com")
+    link(
+      rel="preload"
+      href="fonts/HelveticaNowDisplay-Medium.ttf"
+      as="font"
+      type="font/ttf"
+      crossorigin="anonymous"
+    )
+    link(
+      rel="preload"
+      href="fonts/HelveticaNowDisplay-Bold.ttf"
+      as="font"
+      type="font/ttf"
+      crossorigin="anonymous"
+    )
+    link(
+      rel="preload"
+      href="fonts/HelveticaNowDisplay-ExtraBold.ttf"
+      as="font"
+      type="font/ttf"
+      crossorigin="anonymous"
+    )
+    link(
+      rel="preload"
+      href="https://ka-p.fontawesome.com/releases/v6.5.1/webfonts/pro-fa-regular-400-0.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin="anonymous"
+    )
+
+    include ../_blocks/meta
+    include ../_blocks/favicon
+    include ../_blocks/styles
+
+    block styles
+
+  body(class=namespace)
+    noscript JavaScript is off. Please enable to view full site.
+
+    if useHeader
+      include ../_blocks/header
+
+    main(role="main")
+      block container
+
+    block scripts
+      script.
+        var staticJsAssetsPath = window.location.origin + '/js/';
+
+    include ../_blocks/scripts

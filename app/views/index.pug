@@ -1,0 +1,9 @@
+extends _layouts/layout
+
+block append vars
+  - title = 'This is the page title'
+  - menuActive = 'home'
+  - namespace = 'home'
+
+block container
+  +button('Button label')(href="https://google.com").mb-3
