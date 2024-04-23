@@ -2,17 +2,17 @@ mixin accordion(title, icon = "plus", divider = false)
   div(class=`.h-accordion ${divider ? 'h-accordion--divider' : ''}`)
     details.h-accordion__details
       summary.h-accordion__summary
-        span.h-accordion__title.font-extrabold= title
+        span.h-accordion__title.font-extrabold.text-black= title
         if icon === "plus"
           span.h-accordion__icon
-            i.fa-regular.fa-plus
+            i.fa-regular.fa-plus.text-black
           span.h-accordion__icon.h-accordion__icon--open
-            i.fa-regular.fa-minus
+            i.fa-regular.fa-minus.text-black
         else
           span.h-accordion__icon
-            i.fa-regular.fa-arrow-down
+            i.fa-regular.fa-arrow-down.text-black
           span.h-accordion__icon.h-accordion__icon--open
-            i.fa-regular.fa-arrow-up
-      div.h-accordion__content!= content
+            i.fa-regular.fa-arrow-up.text-black
+      div.h-accordion__content.text-black
         if block
           block

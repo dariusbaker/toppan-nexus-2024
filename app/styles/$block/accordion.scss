@@ -22,16 +22,11 @@
   }
 
   &__title {
-    color: $color-black;
     font-size: rem(16);
     text-transform: uppercase;
   }
 
   &__icon {
-    i {
-      color: $color-black;
-    }
-
     [open] & {
       display: none;
     }
@@ -43,9 +38,5 @@
         display: block;
       }
     }
-  }
-
-  &__content {
-    color: $color-black;
   }
 }
