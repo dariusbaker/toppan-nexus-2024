@@ -1,4 +1,11 @@
 extends _layouts/layout
 
 block container
-  +button('Button label')(href="https://google.com").mb-3
+  +button({
+    icon: 'arrow-circled',
+    style: 'primary',
+    size: 'large',
+    reverse: false,
+    large: true,
+  })(href="https://google.com").mb-3
+    | Foo bar

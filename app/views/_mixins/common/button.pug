@@ -9,9 +9,34 @@ mixin buttonTag(type = "")
     a&attributes(attributes)
       block
 
-mixin button(label, type = "")
-  +buttonTag(type)&attributes(attributes).h-btn
-    span.h-btn__label
-      span.text-base.font-bold.text-uppercase.h-btn__text= label
-    span.h-btn__icon
-      i.fa-regular.fa-arrow-right.h-btn__arrow
+// @param {Object} options
+// @param {mixin} options.icon
+// @param {string} options.label
+// @param {boolean} options.large
+// @param {boolean} options.light
+// @param {boolean} options.reverse
+// @param {string} options.style ('primary', 'secondary', 'ghost', 'text')
+mixin button(options = {})
+  - var style = options.style || 'primary'
+  - var theme = options.theme || 'dark'
+  - var size = options.size || 'large'
+  - var hasIcon = options.icon != undefined
+  - var iconHref = hasIcon ? '#' + options.icon : ''
+  - var iconOnly = block == undefined && options.icon != undefined
+  -
+    classes = [
+      'h-btn',
+      'h-btn--' + style,
+      options.light == true && 'h-btn--light',
+      options.large == true && 'h-btn--large',
+      options.reverse == true && 'h-btn--reverse',
+      iconOnly == false && hasIcon == true && 'h-btn--icon',
+      iconOnly == true && 'h-btn--iconOnly'
+    ]
+  +buttonTag(type)&attributes(attributes)(class=classes)
+    if block
+      span.h-btn__label
+        block
+    if options.icon
+      svg.h-btn__icon
+        use(href=iconHref)

@@ -1,3 +1,127 @@
 .h-btn {
-  display: unset;
+  display: inline-flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  gap: rem(8);
+  justify-content: center;
+
+  margin: 0;
+  border: none;
+  height: rem(40);
+
+  font-size: rem(14);
+  font-weight: 800;
+  line-height: 1;
+  text-transform: uppercase;
+  text-decoration: none;
+
+  &--reverse {
+    flex-direction: row-reverse;
+  }
+
+  &--primary,
+  &--secondary,
+  &--ghost {
+    padding: 0 rem(28);
+    border-radius: rem(20);
+
+    @media (hover: hover) {
+      transition: transform 125ms ease-in-out;
+      transform-origin: center;
+
+      &:hover {
+        transform: scale(1.025);
+      }
+    }
+  }
+
+  &--primary {
+    background-color: $color-primary;
+    color: $color-white;
+  }
+
+  &--primary#{&}--light {
+    background-color: $color-white;
+    color: $color-black;
+  }
+
+  &--secondary {
+    background-color: $color-cyan;
+    color: $color-black;
+  }
+
+  &--ghost {
+    background-color: $color-white;
+    border: 1px solid $color-gray-50;
+    transition: background-color 125ms linear;
+    color: $color-black;
+
+    @media (hover: hover) {
+      &:hover {
+        background-color: $color-gray-25;
+      }
+    }
+  }
+
+  &--text {
+    color: $color-primary;
+    font-size: rem(16);
+    font-weight: 500;
+    line-height: rem(24);
+    text-transform: capitalize;
+
+    @media (hover: hover) {
+      text-decoration: underline;
+      text-decoration-thickness: rem(2);
+      text-underline-offset: rem(4);
+    }
+  }
+
+  &--large {
+    height: rem(60);
+    padding: rem(0) rem(40);
+    border-radius: rem(30);
+    gap: rem(10)
+  }
+
+  &--iconOnly {
+    padding: 0;
+    width: rem(40);
+    height: rem(40);
+  }
+
+  &--iconOnly#{&}--large {
+    width: rem(50);
+    height: rem(50);
+  }
+
+  &--icon {
+    padding-left: rem(20);
+    padding-right: rem(8);
+
+    svg {
+      color: currentColor;
+      width: rem(24);
+      height: rem(24);
+    }
+  }
+
+  &--icon#{&}--large {
+    padding-right: rem(16);
+
+    svg {
+      width: rem(36);
+      height: rem(36);
+    }
+  }
+
+  &--icon#{&}--reverse {
+    padding-right: rem(20);
+    padding-left: rem(8);
+  }
+
+  &--icon#{&}--large#{&}--reverse {
+    padding-left: rem(16);
+  }
 }
