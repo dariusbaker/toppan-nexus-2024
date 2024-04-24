@@ -8,6 +8,7 @@
     text-transform: uppercase;
   }
 
+  &__connect,
   &__footnote,
   &__contacts-list {
     display: grid;
@@ -68,6 +69,78 @@
 
         @include mq(map-get($grid-breakpoints, 'md')) {
           display: none;
+        }
+      }
+    }
+  }
+
+  &__connect {
+    padding-block-start: rem(72);
+    padding-block-end: rem(48);
+    border-block-end: rem(1) solid $color-gray-200;
+
+    &__left {
+      // full width on mobile
+      grid-column: 1 / -1;
+
+      @include mq(map-get($grid-breakpoints, 'md')) {
+        grid-column: span 2 / span 2;
+      }
+    }
+
+    &__right {
+      // full width on mobile
+      grid-column: 1 / -1;
+
+      @include mq(map-get($grid-breakpoints, 'md')) {
+        grid-column: span 2 / span 2;
+      }
+
+      @include mq(map-get($grid-breakpoints, 'xl')) {
+        grid-column: 5 / span 4;
+      }
+
+      &-header {
+        font-size: rem(40);
+        line-height: .85;
+        text-transform: uppercase;
+
+        @include mq(map-get($grid-breakpoints, 'md')) {
+          font-size: rem(50);
+        }
+
+        @include mq(map-get($grid-breakpoints, 'xl')) {
+          font-size: rem(70);
+        }
+      }
+
+      &-socials {
+        list-style: none;
+        margin-bottom: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        gap: rem(16);
+
+        @include mq(map-get($grid-breakpoints, 'md')) {
+          flex-direction: row;
+          align-items: center;
+        }
+
+        &__item {
+          font-size: rem(12);
+
+          i {
+            font-size: rem(20);
+            width: rem(22);
+          }
+
+          a {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            text-decoration: none;
+          }
         }
       }
     }

@@ -57,7 +57,35 @@
     }
   ]
 
+  const socials = [
+    {
+      icon: 'weixin',
+      href: 'https://mp.weixin.qq.com/s/VS7nJpa5wFELhe2iOTBoXg',
+      label: 'Follow our WeChat',
+    },
+    {
+      icon: 'linkedin-in',
+      href: 'https://www.linkedin.com/showcase/42864666',
+      label: 'Follow us on LinkedIn',
+    }
+  ]
+
 footer.footer.container-t
+  section.footer__connect
+    img(inline src="/images/toppan-nexus-logo.svg" alt="Toppan Nexus Logo").footer__connect__left
+    div.footer__connect__right
+      h2.footer__connect__right-header.font-extrabold.text-black.mb-8
+        span.text-black Connecting
+        br
+        span.text-blue Possibilities
+      ul.footer__connect__right-socials
+        for social in socials
+          li.footer__connect__right-socials__item
+            a(href=social.href target="_blank" rel="noreferrer noopener").footer__connect__right-socials__item-link
+              i(class=`fa-brands fa-${social.icon} text-black mr-1`)
+              span.text-black.font-extrabold= social.label
+        li.footer__connect__right-socials__item
+          +button('Contact Us')(href="/contact-us" class="footer__connect__right-socials__item-link")
   section.footer__contacts.mb-8
     h2.footer__contacts-title.font-extrabold.text-black.mt-8 OFFICES
     ul.mt-8.footer__contacts-list
@@ -85,5 +113,5 @@ footer.footer.container-t
         ul.footer__footnote__right-list
           for link in tncLinks
             li.footer__footnote__right-list__item
-              +link(link.label)(href=link.href).footer__footnote__right-list__item-link.text-blue
+              +link(link.label)(href=link.href target="_blank" rel="noreferrer noopener").footer__footnote__right-list__item-link.text-blue
                 | #{link.label}
