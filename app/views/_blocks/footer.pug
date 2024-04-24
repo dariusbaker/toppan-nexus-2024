@@ -85,7 +85,13 @@ footer.footer.container-t
               i(class=`fa-brands fa-${social.icon} text-black mr-1`)
               span.text-black.font-extrabold= social.label
         li.footer__connect__right-socials__item
-          +button('Contact Us')(href="/contact-us" class="footer__connect__right-socials__item-link")
+          +button({
+            style: 'primary',
+            size: 'large',
+            reverse: false,
+            large: true,
+          })(href="/contact-us" class="footer__connect__right-socials__item-btn")
+            | Get in touch
   section.footer__contacts.mb-8
     h2.footer__contacts-title.font-extrabold.text-black.mt-8 OFFICES
     ul.mt-8.footer__contacts-list

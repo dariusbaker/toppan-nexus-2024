@@ -78,6 +78,7 @@
     padding-block-start: rem(72);
     padding-block-end: rem(48);
     border-block-end: rem(1) solid $color-gray-200;
+    gap: rem(24);
 
     &__left {
       // full width on mobile
@@ -91,10 +92,6 @@
     &__right {
       // full width on mobile
       grid-column: 1 / -1;
-
-      @include mq(map-get($grid-breakpoints, 'md')) {
-        grid-column: span 2 / span 2;
-      }
 
       @include mq(map-get($grid-breakpoints, 'xl')) {
         grid-column: 5 / span 4;
@@ -135,7 +132,7 @@
             width: rem(22);
           }
 
-          a {
+          &-link {
             display: flex;
             flex-direction: row;
             align-items: center;
