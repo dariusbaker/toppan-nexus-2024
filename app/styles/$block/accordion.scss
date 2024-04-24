@@ -1,0 +1,42 @@
+.h-accordion {
+  &__summary {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-block-start: rem(8);
+    padding-block-end: rem(8);
+
+    &::-webkit-details-marker,
+    &::marker {
+      content: '';
+    }
+
+    .h-accordion--divider & {
+      border-block-start: rem(1) solid $color-gray-200;
+      border-block-end: rem(1) solid $color-gray-200;
+    }
+
+    [open] & {
+      border-block-end: none;
+    }
+  }
+
+  &__title {
+    font-size: rem(16);
+    text-transform: uppercase;
+  }
+
+  &__icon {
+    [open] & {
+      display: none;
+    }
+
+    &--open {
+      display: none;
+
+      [open] & {
+        display: block;
+      }
+    }
+  }
+}

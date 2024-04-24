@@ -1,0 +1,19 @@
+.t-container {
+  width: 100%;
+  margin-inline-start: auto;
+  margin-inline-end: auto;
+  padding-inline-start: rem(16);
+  padding-inline-end: rem(16);
+
+  @include mq(map-get($grid-breakpoints, 'xl')) {
+    max-width: map-get($container-max-widths, 'xl');
+    padding-inline-start: rem(50);
+    padding-inline-end: rem(50);
+  }
+
+  @include mq(map-get($grid-breakpoints, 'xxl')) {
+    max-width: map-get($container-max-widths, 'xxl');
+    padding-inline-start: rem(124);
+    padding-inline-end: rem(124);
+  }
+}

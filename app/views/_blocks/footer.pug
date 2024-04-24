@@ -1,2 +1,123 @@
-footer.footer
-  | This is the footer.
+-
+  const contactData = [
+    {
+      title: 'HONG KONG, CHINA',
+      address: [
+        '8th Floor, Gloucester Tower',
+        'The Landmark',
+        '15 Queen\'s Road Central',
+        'Central, Hong Kong'
+      ],
+      tel: '+852 2877 8773'
+    },
+    {
+      title: 'Beijing, China',
+      address: [
+        'Unit 01-05, 27th Floor',
+        'Tower B, Sini-Ocean Office Park',
+        '10 Jintong Road West, Chaoyang District',
+        'Beijing, PRC 100020',
+      ],
+      tel: '+86 10 8637 0000'
+    },
+    {
+      title: 'Shenzhen, China',
+      address: [
+        'Unit 1001-1003,1006',
+        'Tower 1, Novel Park',
+        '4078 Dongbin Road, Nanshan District',
+        'Shenzhen, PRC 518054',
+      ],
+      tel: '+86 755 8606 3635'
+    },
+    {
+      title: 'Singapore',
+      address: [
+        '3 Church Street',
+        '#10-03',
+        'Samsung Hub',
+        'Singapore, 049483',
+      ],
+      tel: '+65 6578 6522'
+    }
+  ]
+
+  const tncLinks = [
+    {
+      label: 'Privacy Notice',
+      href: '/privacy-notice',
+    },
+    {
+      label: 'Cookie Notice',
+      href: '/cookie-notice',
+    },
+    {
+      label: 'Term of Use',
+      href: '/term-of-use',
+    }
+  ]
+
+  const socials = [
+    {
+      icon: 'weixin',
+      href: 'https://mp.weixin.qq.com/s/VS7nJpa5wFELhe2iOTBoXg',
+      label: 'Follow our WeChat',
+    },
+    {
+      icon: 'linkedin-in',
+      href: 'https://www.linkedin.com/showcase/42864666',
+      label: 'Follow us on LinkedIn',
+    }
+  ]
+
+footer.footer.t-container
+  section.footer__connect
+    img(inline src="/images/toppan-nexus-logo.svg" alt="Toppan Nexus Logo").footer__connect__left
+    div.footer__connect__right
+      h2.footer__connect__right-header.font-extrabold.text-black.mb-8
+        span.text-black Connecting
+        br
+        span.text-blue Possibilities
+      ul.footer__connect__right-socials
+        for social in socials
+          li.footer__connect__right-socials__item
+            a(href=social.href target="_blank" rel="noreferrer noopener").footer__connect__right-socials__item-link
+              i(class=`fa-brands fa-${social.icon} text-black mr-1`)
+              span.text-black.font-extrabold= social.label
+        li.footer__connect__right-socials__item
+          +button({
+            style: 'primary',
+            size: 'large',
+            reverse: false,
+            large: true,
+          })(href="/contact-us" class="footer__connect__right-socials__item-btn")
+            | Get in touch
+  section.footer__contacts.mb-8
+    h2.footer__contacts-title.font-extrabold.text-black.mt-8 OFFICES
+    ul.mt-8.footer__contacts-list
+      for contact in contactData
+        li.footer__contacts-list__item
+          div.footer__contacts-list__item--desktop
+            h3.text-black.font-extrabold.footer__contacts-list__item-title.mb-2= contact.title
+            address.footer__contacts-list__item-addr
+              for address in contact.address
+                | #{address}
+                br
+              a(href=`tel:${contact.tel}`, class="footer__contacts-list__item-link")= contact.tel
+
+          +accordion(contact.title, 'arrow', false, 'footer__contacts-list__item--mobile')
+            address.footer__contacts-list__item-addr
+              for address in contact.address
+                | #{address}
+                br
+              a(href=`tel:${contact.tel}`, class="footer__contacts-list__item-link")= contact.tel
+
+    div.mt-8.footer__footnote
+      div.footer__footnote__left
+        small © TOPPAN Nexus 2023
+      div.footer__footnote__right
+        ul.footer__footnote__right-list
+          for link in tncLinks
+            li.footer__footnote__right-list__item
+              +link(link.label)(href=link.href target="_blank" rel="noreferrer noopener").footer__footnote__right-list__item-link.text-blue
+                | #{link.label}

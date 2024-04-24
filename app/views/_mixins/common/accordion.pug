@@ -1,0 +1,18 @@
+mixin accordion(title, icon = "plus", divider = false, classes)
+  div(class=`.h-accordion ${divider ? 'h-accordion--divider' : ''} ${classes}`)
+    details.h-accordion__details
+      summary.h-accordion__summary
+        span.h-accordion__title.font-extrabold.text-black= title
+        if icon === "plus"
+          span.h-accordion__icon
+            i.fa-regular.fa-plus.text-black
+          span.h-accordion__icon.h-accordion__icon--open
+            i.fa-regular.fa-minus.text-black
+        else
+          span.h-accordion__icon
+            i.fa-regular.fa-arrow-down.text-black
+          span.h-accordion__icon.h-accordion__icon--open
+            i.fa-regular.fa-arrow-up.text-black
+      div.h-accordion__content
+        if block
+          block

@@ -71,6 +71,9 @@ html.no-js(lang=$localeName dir=dir)
     main(role="main")
       block container
 
+    if useFooter
+      include ../_blocks/footer
+
     block scripts
       script.
         var staticJsAssetsPath = window.location.origin + '/js/';
