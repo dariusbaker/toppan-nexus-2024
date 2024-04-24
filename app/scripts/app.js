@@ -12,6 +12,11 @@ const DEFAULT_FADE_UP_ANIMATION = {
   y: 50,
 };
 
+/**
+ *
+ * @param {Selector} target
+ * @param {Timeline} timeline
+ */
 function createScrollTrigger(target, timeline) {
   ScrollTrigger.create({
     trigger: target,
@@ -20,11 +25,41 @@ function createScrollTrigger(target, timeline) {
   });
 }
 
+/**
+ * Add functionality to tab carousel for partners.
+ * @param {Selector} $grid
+ */
+function initPartnerGrid($grid) {
+  const $buttons = $('button', $grid);
+
+  $buttons.click((e) => {
+    const $this = $(e.currentTarget);
+    const $active = $('.active', $grid);
+    const $activeButton = $('button.active', $grid);
+    const $panes = $('.partner-grid__panes', $grid);
+
+    if ($active.length) {
+      $active.removeClass('active');
+    }
+
+    $activeButton.attr('aria-selected', 'false');
+
+    const index = $this.data('index') * 1;
+    const $content = $(`#content-${index}`, $grid);
+    const $logos = $(`#logos-${index}`, $grid);
+
+    $content.addClass('active');
+    $logos.addClass('active');
+    $this.addClass('active').attr('aria-selected', 'true');
+    $panes.css('transform', `translateX(${index * -100}%)`);
+  });
+}
+
 $(function() {
   gsap.registerPlugin(ScrollTrigger);
   gsap.registerPlugin(ScrollToPlugin);
 
-  $('[animate-stagger]').each(function () {
+  $('[animate-stagger]').each(function() {
     const $this = $(this);
     const $items = $this.find('[animate-fade-up]');
     let tl = gsap.timeline({ paused: true });
@@ -32,5 +67,9 @@ $(function() {
     tl.from($items, DEFAULT_FADE_UP_ANIMATION);
 
     createScrollTrigger($this, tl);
+  });
+
+  $('.partner-grid').each(function() {
+    initPartnerGrid($(this));
   });
 });
