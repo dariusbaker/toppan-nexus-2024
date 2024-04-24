@@ -188,7 +188,19 @@ header.header.header--show(id='toppan-header')
 
   //- search panel
   div.header__search
-    p this is search panel, TODO
+    div.header__search-wrapper
+      div.header__search__input
+        svg(role='presentation').header__search__input-icon
+          use(href='#search')
+        input.header__search__input-field(type='text' placeholder='Search')
+      +button({
+        style: 'primary',
+        size: 'large',
+        reverse: false,
+        large: false,
+        type: 'button',
+      })(id="search-btn")
+        | Search
 
   div.header-wrapper
     a(href='/').header__logo
