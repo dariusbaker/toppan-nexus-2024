@@ -15,6 +15,7 @@ mixin buttonTag(type = "")
 // @param {boolean} options.large
 // @param {boolean} options.light
 // @param {boolean} options.reverse
+// @param {boolean} options.hoverAnimation
 // @param {string} options.style ('primary', 'secondary', 'ghost', 'text')
 mixin button(options = {})
   - var style = options.style || 'primary'
@@ -30,6 +31,7 @@ mixin button(options = {})
       options.light == true && 'h-btn--light',
       options.large == true && 'h-btn--large',
       options.reverse == true && 'h-btn--reverse',
+      options.hoverAnimation == true && 'h-btn--animated',
       iconOnly == false && hasIcon == true && 'h-btn--icon',
       iconOnly == true && 'h-btn--iconOnly'
     ]
@@ -38,5 +40,5 @@ mixin button(options = {})
       span.h-btn__label
         block
     if options.icon
-      svg.h-btn__icon
+      svg(role="presentation").h-btn__icon
         use(href=iconHref)

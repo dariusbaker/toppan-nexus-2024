@@ -1,4 +1,7 @@
-.h-btn {
+$module: 'h-btn';
+
+.#{$module} {
+  position: relative;
   display: inline-flex;
   flex-direction: row;
   flex-wrap: nowrap;
@@ -20,20 +23,25 @@
 
   &--reverse {
     flex-direction: row-reverse;
+    vertical-align: bottom;
   }
 
   &--primary,
   &--secondary,
   &--ghost {
-    padding: 0 rem(28);
+    padding-block: 0;
+    padding-inline: rem(28);
     border-radius: rem(20);
+  }
 
+  &--primary:not(&--animated),
+  &--secondary,
+  &--ghost {
     @media (hover: hover) {
       transition: transform 125ms ease-in-out;
-      transform-origin: center;
 
       &:hover {
-        transform: scale(1.025);
+        transform: translateY(#{rem(-2)});
       }
     }
   }
@@ -91,40 +99,79 @@
     padding: 0;
     width: rem(40);
     height: rem(40);
-  }
 
-  &--iconOnly#{&}--large {
-    width: rem(50);
-    height: rem(50);
+    &.#{$module}--large {
+      width: rem(50);
+      height: rem(50);
+    }
   }
 
   &--icon {
-    padding-left: rem(20);
-    padding-right: rem(8);
-
     svg {
-      color: currentColor;
+      display: block;
+      flex: 0 0 auto;
       width: rem(24);
       height: rem(24);
+      color: currentColor;
     }
-  }
 
-  &--icon#{&}--large {
-    padding-right: rem(16);
-
-    svg {
+    &.#{$module}--large svg {
       width: rem(36);
       height: rem(36);
     }
+
+    &:not(.#{$module}--animated) {
+      padding-left: rem(20);
+      padding-right: rem(8);
+
+      &.#{$module}--large {
+        padding-right: rem(16);
+      }
+
+      &.#{$module}--reverse {
+        padding-right: rem(20);
+        padding-left: rem(8);
+      }
+
+      &.#{$module}--large#{$module}--reverse {
+        padding-left: rem(16);
+      }
+    }
   }
 
-  &--icon#{&}--reverse {
-    padding-right: rem(20);
-    padding-left: rem(8);
-  }
+  &--animated {
+    --offset: #{rem(8)};
 
-  &--icon#{&}--large#{&}--reverse {
-    padding-left: rem(16);
+    &.#{$module}--large {
+      --offset: #{rem(16)};
+    }
+
+    .#{$module}__icon {
+      position: absolute;
+      top: auto;
+      right: var(--offset);
+    }
+
+    .#{$module}__label,
+    .#{$module}__icon {
+      transition: opacity 125ms linear, transform 125ms ease-in-out;
+    }
+
+    .#{$module}__icon {
+      opacity: 0;
+      transform: translateX(calc(var(--offset) * -1));
+    }
+
+    @media (hover: hover) {
+      &:hover .#{$module}__icon {
+        opacity: 1;
+        transform: translateX(0);
+      }
+
+      &:hover .#{$module}__label {
+        transform: translateX(calc((var(--offset) + #{rem(6)}) * -1));
+      }
+    }
   }
 
   &[disabled] {

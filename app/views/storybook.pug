@@ -3,13 +3,24 @@ extends _layouts/layout
 block container
   +button({
     icon: 'arrow-circled',
-    style: 'text',
+    style: 'primary',
     size: 'large',
     reverse: false,
-    large: true,
+    large: false,
+    hoverAnimation: true,
   })(href="https://google.com").mb-3
     | Foo bar
-  
+
+  +button({
+    icon: 'arrow-circled',
+    style: 'primary',
+    size: 'large',
+    reverse: false,
+    large: false,
+    hoverAnimation: false,
+  })(href="https://google.com").mb-3
+    | Foo bar
+
   +accordion('Accordion title1', 'plus', true)
     p paragraph
   +accordion('Accordion title', 'arrow-down')
