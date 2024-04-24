@@ -1,0 +1,14 @@
+mixin searchPanel(classes)
+  div(class=`search-panel ${classes}`)
+      div.search-panel__input
+        svg(role='presentation').search-panel__input-icon
+          use(href='#search')
+        input.search-panel__input-field(type='text' placeholder='Search')
+      +button({
+        style: 'primary',
+        size: 'large',
+        reverse: false,
+        large: false,
+        type: 'button',
+      })(id="search-btn")
+        | Search

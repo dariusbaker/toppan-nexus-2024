@@ -90,49 +90,6 @@ $nav-height: rem(72);
       padding-block-start: rem(48);
       padding-block-end: rem(48);
     }
-
-    &-wrapper, &__input {
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-    }
-
-    &-wrapper {
-      gap: rem(16);
-      margin: 0 auto;
-
-      @include mq(map-get($grid-breakpoints, 'md')) {
-        max-width: rem(800);
-      }
-    }
-
-    &__input {
-      position: relative;
-      flex: 1 1 auto;
-      &-icon {
-        display: block;
-        width: rem(24);
-        height: rem(24);;
-        margin-inline-end: rem(8);
-        color: $color-black;
-      }
-
-      &-field {
-        width: 100%;
-        border: 0;
-        outline: none;
-      }
-
-      &::after {
-        position: absolute;
-        bottom: rem(-6);
-        content: '';
-        display: block;
-        width: 100%;
-        height: rem(2);
-        background-color: $color-black;
-      }
-    }
   }
 
   &-wrapper {
