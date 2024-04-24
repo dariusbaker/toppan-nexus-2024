@@ -1,0 +1,16 @@
+// @param {string[]} text
+// @param {number} level
+// @param {boolean} animate
+// @param {string} size ('lg', 'xl', 'xxl')
+mixin animated_header(text = [], size = 'xl', level = 2, animate = true)
+  - var tag = "h" + level;
+  -
+    var classes = [
+      'animated-header',
+      size == 'lg' && 'fit-text-lg',
+      size == 'xl' && 'fit-text-xl',
+      size == 'xxl' && 'fit-text-xxl',
+    ]
+  #{tag}(class=classes animate-stagger=animate)&attributes(attributes)
+    each word in text
+      span(animate-fade-up)!= word

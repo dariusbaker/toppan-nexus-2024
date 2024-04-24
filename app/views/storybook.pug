@@ -21,6 +21,9 @@ block container
   })(href="https://google.com").mb-3
     | Foo bar
 
+  +animated_header(['foo', 'bar']).text-black
+  +animated_header(['foo', '<span class="text-blue">bar</span>'], 'xxl', 3, false).text-black
+
   +accordion('Accordion title1', 'plus', true)
     p paragraph
   +accordion('Accordion title', 'arrow-down')
