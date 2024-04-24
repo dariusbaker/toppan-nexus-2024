@@ -355,11 +355,13 @@ $nav-height: rem(72);
       width: 100%;
       padding: rem(32);
       background-color: $color-white;
-      z-index: 998;
+      z-index: -1;
       border-block-start: rem(1) solid $color-gray-50;
+      transition: transform 0.3s ease-out;
+      transform: translateY(0);
 
       &[aria-hidden="true"] {
-        display: none;
+        transform: translateY(-200%);
       }
 
       &-item-title {

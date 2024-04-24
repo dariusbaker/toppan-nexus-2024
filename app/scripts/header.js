@@ -8,6 +8,7 @@ const CLASSES = {
   SUBMENU_TOGGLER: 'header__nav__submenu-toggler',
   SEARCH_TOGGLER: 'header__right__search-btn',
   SEARCH_OPEN: 'search-open',
+  SEARCH_PANEL: 'header__search'
 };
 
 const IDS = {
@@ -32,6 +33,7 @@ export default class Header {
     this._$submenuTogglers = $(`.${CLASSES.SUBMENU_TOGGLER}`);
     this._$searchTogglers = $(`.${CLASSES.SEARCH_TOGGLER}`);
     this._$lastSubMenuDrawer = null;
+    this._$searchPanel = $(`.${CLASSES.SEARCH_PANEL}`);
 
     this._init();
   }
@@ -51,6 +53,8 @@ export default class Header {
         $toggler.on('click', () => {
           this._searchOpen = !this._searchOpen;
           this._$header.toggleClass(CLASSES.SEARCH_OPEN);
+
+          this._$searchPanel.attr('aria-hidden', this._searchOpen ? 'false' : 'true');
 
           // lock body scroll
           $('body').css('overflow-y', this._searchOpen ? 'hidden' : 'auto');
