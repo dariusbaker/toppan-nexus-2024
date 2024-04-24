@@ -186,6 +186,10 @@ header.header.header--show(id='toppan-header')
         })(href='https://google.com')
           | Connect
 
+  //- search panel
+  div.header__search
+    p this is search panel, TODO
+
   div.header-wrapper
     a(href='/').header__logo
       img(src='/images/toppan-nexus-logo.svg' alt='Toppan Nexus Logo')
@@ -243,7 +247,7 @@ header.header.header--show(id='toppan-header')
         large: false,
         iconOnly: true,
         type: 'button',
-      })(id='mobile-nav-search-btn' class='header__right__search-btn')
+      })(class='header__right__search-btn')
 
       +button({
         style: 'primary',
@@ -269,7 +273,7 @@ header.header.header--show(id='toppan-header')
         large: false,
         iconOnly: true,
         type: 'button',
-      })(id='desktop-nav-search-btn' class='header__right__search-btn')
+      })(class='header__right__search-btn')
 
       +button({
         style: 'secondary',

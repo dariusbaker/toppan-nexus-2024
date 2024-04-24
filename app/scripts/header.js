@@ -6,6 +6,8 @@ const CLASSES = {
   ANIMATING: 'animating',
   SHOW_HEADER: 'header--show',
   SUBMENU_TOGGLER: 'header__nav__submenu-toggler',
+  SEARCH_TOGGLER: 'header__right__search-btn',
+  SEARCH_OPEN: 'search-open',
 };
 
 const IDS = {
@@ -27,6 +29,7 @@ export default class Header {
     this._$header = $(`#${IDS.HEADER}`);
     this._$navToggleBtn = $(`#${IDS.NAV_TOGGLER}`);
     this._$submenuTogglers = $(`.${CLASSES.SUBMENU_TOGGLER}`);
+    this._$searchTogglers = $(`.${CLASSES.SEARCH_TOGGLER}`);
     this._$lastSubMenuDrawer = null;
 
     this._init();
@@ -36,6 +39,21 @@ export default class Header {
     this._initSubmenuTogglers();
     this._initNavToggleBtn();
     this._initPeekableHeader();
+    this._initSearchTogglers();
+  }
+
+  _initSearchTogglers() {
+    if (this._$searchTogglers) {
+      this._$searchTogglers.each((i, toggler) => {
+        const $toggler = $(toggler);
+
+        console.log($toggler)
+
+        $toggler.on('click', () => {
+          this._$header.toggleClass(CLASSES.SEARCH_OPEN);
+        });
+      });
+    }
   }
 
   _initPeekableHeader() {

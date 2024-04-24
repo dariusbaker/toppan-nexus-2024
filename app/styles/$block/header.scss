@@ -43,7 +43,8 @@ $nav-height: rem(72);
   transition: transform 0.3s ease-out;
 
   &.drawer-open,
-  &.subnav-drawer-open {
+  &.subnav-drawer-open,
+  &.search-open {
     overflow: unset;
   }
 
@@ -62,8 +63,35 @@ $nav-height: rem(72);
     }
   }
 
+  &__search {
+    position: absolute;
+    top: $nav-height;
+    left: 0;
+    overflow-y: auto;
+    display: block;
+    width: 100%;
+    height: 100vh;
+    padding-inline-start: rem(16);
+    padding-inline-end: rem(16);
+    // hack to make the whole nav items content scrollable
+    padding-block-end: rem(164);
+    background-color: $color-white;
+    z-index: -1;
+    transition: transform 0.3s ease-out;
+    transform: translateY(-200%);
+
+    .search-open & {
+      transform: translateY(0);
+    }
+
+    @include mq(map-get($grid-breakpoints, 'md')) {
+      height: auto;
+      padding-block-start: rem(24);
+      padding-block-end: rem(24);
+    }
+  }
+
   &-wrapper {
-    position: relative;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -71,14 +99,6 @@ $nav-height: rem(72);
     padding-inline-start: rem(24);
     padding-inline-end: rem(24);
     background-color: $color-white;
-    z-index: 998;
-
-    // temp fix making sure drawer is animating behind the
-    // header + the sub menu is visible if the position is unset
-    // TODO: clean this up
-    @include mq(map-get($grid-breakpoints, 'xl')) {
-      position: unset;
-    }
   }
 
   &__logo img {
@@ -143,7 +163,7 @@ $nav-height: rem(72);
     // hack to make the whole nav items content scrollable
     padding-block-end: rem(164);
     background-color: $color-white;
-    z-index: 997;
+    z-index: -1;
     transition: transform 0.3s ease-out;
     transform: translateY(-200%);
 
