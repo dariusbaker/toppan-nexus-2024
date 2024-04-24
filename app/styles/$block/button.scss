@@ -16,6 +16,8 @@
   text-transform: uppercase;
   text-decoration: none;
 
+  cursor: pointer;
+
   &--reverse {
     flex-direction: row-reverse;
   }
@@ -123,5 +125,17 @@
 
   &--icon#{&}--large#{&}--reverse {
     padding-left: rem(16);
+  }
+
+  &[disabled] {
+    pointer-events: none;
+    opacity: .3;
+  }
+
+  &:focus-visible {
+    outline-color: $color-primary;
+    outline-offset: rem(4);
+    outline-style: solid;
+    outline-width: rem(4);
   }
 }
