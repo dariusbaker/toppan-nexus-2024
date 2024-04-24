@@ -34,9 +34,22 @@
 $nav-height: rem(72);
 
 .header {
+  position: fixed;
+  width: 100%;
   height: $nav-height;
   overflow: hidden;
   z-index: 999;
+  transform: translateY(-100%);
+  transition: transform 0.3s ease-out;
+
+  &.drawer-open,
+  &.subnav-drawer-open {
+    overflow: unset;
+  }
+
+  &--show {
+    transform: translateY(0);
+  }
 
   ol {
     list-style: none;
@@ -50,6 +63,7 @@ $nav-height: rem(72);
   }
 
   &-wrapper {
+    position: relative;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -57,7 +71,14 @@ $nav-height: rem(72);
     padding-inline-start: rem(24);
     padding-inline-end: rem(24);
     background-color: $color-white;
-    z-index: 999;
+    z-index: 998;
+
+    // temp fix making sure drawer is animating behind the
+    // header + the sub menu is visible if the position is unset
+    // TODO: clean this up
+    @include mq(map-get($grid-breakpoints, 'xl')) {
+      position: unset;
+    }
   }
 
   &__logo img {
@@ -93,7 +114,7 @@ $nav-height: rem(72);
       height: rem(2);
       border-radius: rem(2);
 
-      .header-drawer-open & {
+      .drawer-open & {
         &:nth-child(1) {
           transform: translateY(rem(4)) rotate(45deg);
         }
@@ -126,7 +147,7 @@ $nav-height: rem(72);
     transition: transform 0.3s ease-out;
     transform: translateY(-200%);
 
-    .header-drawer-open & {
+    .drawer-open & {
       transform: translateY(0);
     }
 
@@ -146,7 +167,7 @@ $nav-height: rem(72);
       padding: 0;
     }
 
-    @include mq(map-get($grid-breakpoints, 'lg')) {
+    @include mq(map-get($grid-breakpoints, 'xl')) {
       display: none;
     }
 
@@ -265,7 +286,7 @@ $nav-height: rem(72);
     align-items: center;
     flex: 0 1 auto;
 
-    @include mq(map-get($grid-breakpoints, 'lg')) {
+    @include mq(map-get($grid-breakpoints, 'xl')) {
       display: flex;
     }
 
@@ -424,14 +445,14 @@ $nav-height: rem(72);
       margin-left: rem(8);
     }
 
-    @include mq(map-get($grid-breakpoints, 'lg')) {
+    @include mq(map-get($grid-breakpoints, 'xl')) {
       display: flex;
     }
 
     &--mobile {
       display: flex;
 
-      @include mq(map-get($grid-breakpoints, 'lg')) {
+      @include mq(map-get($grid-breakpoints, 'xl')) {
         display: none;
       }
     }

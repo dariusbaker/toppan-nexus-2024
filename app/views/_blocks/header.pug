@@ -112,7 +112,7 @@ mixin navItemWithChevron(label, href, classes)
 
 mixin navItemCard(img, title, description, href, isMobile = false)
   a(href=href class=`${isMobile ? 'header__mobile-nav__card' : 'header__nav__card'}`)
-    img(class=`${isMobile ? 'header__mobile-nav__card-img' : 'header__nav__card-img'}`)(src=img alt=title)
+    img(class=`${isMobile ? 'header__mobile-nav__card-img' : 'header__nav__card-img'}` src=img alt=title)
     div
       h2(class=`${isMobile ? 'header__mobile-nav__card-title' : 'header__nav__card-title'}`).font-extrabold= title
 
@@ -123,7 +123,7 @@ mixin navItemCard(img, title, description, href, isMobile = false)
 a(href='#toppan-nexus-main-content').skip-to-main
   | Skip to content
 
-header.header(id='toppan-header')
+header.header.header--show(id='toppan-header')
   //- mobile nav
   nav.header__mobile-nav
     ol.header__mobile-nav__items
