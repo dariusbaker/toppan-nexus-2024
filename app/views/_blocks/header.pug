@@ -1,2 +1,304 @@
-header.header
-  | This is the header
+-
+  const menuItems = [
+    {
+      label: 'Products & Solutions',
+      type: 'submenu',
+      items: [
+        {
+          label: 'Capital Market Transactions',
+          items: [
+            {
+              label: 'IPO',
+              href: '/ipo'
+            },
+            {
+              label: 'Global Depositary Receipts',
+              href: '/global-depositary-receipts'
+            },
+            {
+              label: 'Merger & Acquisition',
+              href: '/merger-acquisition'
+            },
+            {
+              label: 'Bond Offerings',
+              href: '/bond-offerings'
+            }
+          ]
+        },
+        {
+          label: 'Compliance & Regulatory Disclosure',
+          items: [
+            {
+              label: 'Financial Reports (Annual / ESG)',
+              href: '/financial-reports'
+            },
+            {
+              label: 'Regulatory Filings',
+              href: '/regulatory-filings'
+            },
+            {
+              label: 'XBRL',
+              href: '/xbrl'
+            },
+            {
+              label: 'Stock Exchange Filing',
+              href: '/stock-exchange-filing'
+            }
+          ]
+        },
+        {
+          label: 'Marketing & Communications',
+          items: [
+            {
+              label: 'Marketing & Communications',
+              href: '/marketing-communications'
+            }
+          ]
+        }
+      ]
+    },
+    {
+      label: 'Why Nexus',
+      type: 'cards',
+      items: [
+        {
+          img: '/images/400x280.jpeg',
+          title: 'State of the art Security',
+          href: '/state-of-the-art-security',
+          description: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.'
+        },
+        {
+          img: '/images/400x280.jpeg',
+          title: '24/7/365 for you',
+          href: '/247',
+          description: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.'
+        },
+        {
+          img: '/images/400x280.jpeg',
+          title: 'Speed & Accuracy',
+          href: '/speed-accuracy',
+          description: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.'
+        },
+        {
+          img: '/images/400x280.jpeg',
+          title: 'Exceptional Experience',
+          href: '/exceptional-experience',
+          description: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.'
+        }
+      ]
+    },
+    {
+      label: 'About',
+      type: 'single',
+      href: '/about'
+    },
+    {
+      label: 'Join us',
+      type: 'single',
+      href: '/join-us'
+    },
+    {
+      label: 'Support',
+      type: 'single',
+      href: '/support'
+    },
+  ]
+
+mixin navItemWithChevron(label, href, classes)
+  a(href=href class=`font-medium ${classes}`)
+    span= label
+    i(class='fa-regular fa-chevron-right ml-2')
+
+
+mixin navItemCard(img, title, description, href, isMobile = false)
+  a(href=href class=`${isMobile ? 'header__mobile-nav__card' : 'header__nav__card'}`)
+    img(class=`${isMobile ? 'header__mobile-nav__card-img' : 'header__nav__card-img'}` src=img alt=title)
+    div
+      h2(class=`${isMobile ? 'header__mobile-nav__card-title' : 'header__nav__card-title'}`).font-extrabold= title
+
+      if isMobile === false
+        p.header__nav__card-desc.font-medium= description
+
+//- Header content
+a(href='#toppan-nexus-main-content').skip-to-main
+  | Skip to content
+
+header.header.header--show(id='toppan-header')
+  //- mobile nav
+  nav.header__mobile-nav
+    ol.header__mobile-nav__items
+      each menuItem in menuItems
+        if menuItem.type === 'submenu' || menuItem.type === 'cards'
+          li.header__mobile-nav__item
+            +accordion(
+              menuItem.label,
+              'plus',
+              false,
+              'header__mobile-nav__accordion'
+            )
+              //- second level of nav item content in accordion
+              if menuItem.type === 'submenu'
+                //- second level of nav item
+                ol.header__mobile-nav__submenu
+                  for subMenuItem in menuItem.items
+                    li.header__mobile-nav__submenu-item
+                      h2.header__mobile-nav__submenu-item-title.font-extrabold= subMenuItem.label
+
+                      //- third level of nav item
+                      ol.header__mobile-nav__submenu-items
+                        for subSubMenuItem in subMenuItem.items
+                          li.header__mobile-nav__submenu-items__item
+                            +navItemWithChevron(
+                              subSubMenuItem.label,
+                              subSubMenuItem.href,
+                              'header__mobile-nav__subitem-link'
+                            )
+              else
+                //- second level of nav item, card type
+                ol.header__mobile-nav__cards
+                  for subMenuItem in menuItem.items
+                    li.header__mobile-nav__cards__item
+                      +navItemCard(
+                        subMenuItem.img,
+                        subMenuItem.title,
+                        subMenuItem.description, subMenuItem.href,
+                        true
+                      )
+        else
+          li.header__mobile-nav__item.header__mobile-nav__item--link
+            a(href=menuItem.href).font-extrabold.header__mobile-nav__item-link= menuItem.label
+    ul.header__mobile-nav__footer
+      li.header__mobile-nav__footer__item
+        +button({
+          style: 'secondary',
+          size: 'light',
+          reverse: false,
+          large: false,
+        })(href='https://google.com')
+          | Login
+
+      li.header__mobile-nav__footer__item
+        +button({
+          style: 'primary',
+          size: 'light',
+          reverse: false,
+          large: false,
+        })(href='https://google.com')
+          | Connect
+
+  //- search panel
+  div.header__search
+    div.header__search-wrapper
+      div.header__search__input
+        svg(role='presentation').header__search__input-icon
+          use(href='#search')
+        input.header__search__input-field(type='text' placeholder='Search')
+      +button({
+        style: 'primary',
+        size: 'large',
+        reverse: false,
+        large: false,
+        type: 'button',
+      })(id="search-btn")
+        | Search
+
+  div.header-wrapper
+    a(href='/').header__logo
+      img(src='/images/toppan-nexus-logo.svg' alt='Toppan Nexus Logo')
+
+    //- desktop nav
+    nav.header__nav
+      //- first level of nav item
+      ol.header__nav__items
+        each menuItem, idx in menuItems
+          if menuItem.type === 'submenu' || menuItem.type === 'cards'
+            li.header__nav__item
+              button.font-extrabold.header__nav__submenu-toggler(
+                aria-controls=`submenu-drawer-${idx}`,
+                aria-haspopup='true',
+                aria-expanded='false'
+              )
+                | #{menuItem.label}
+
+              //- second level of nav item
+              ol(
+                id=`submenu-drawer-${idx}` aria-hidden='true' class=`header__nav__submenu header__nav__submenu--${menuItem.type}`
+              )
+                for subMenuItem in menuItem.items
+                  li.header__nav__submenu-item
+                    if menuItem.type === 'submenu'
+                      h2.header__nav__submenu-item-title.font-extrabold= subMenuItem.label
+
+                      //- third level of nav item
+                      ol.header__nav__submenu-items
+                        for subSubMenuItem in subMenuItem.items
+                          li.header__nav__submenu-items__item
+                            +navItemWithChevron(
+                              subSubMenuItem.label,
+                              subSubMenuItem.href,
+                              'header__nav__subitem-link'
+                            )
+                    else
+                      //- second level of nav item, card type
+                      +navItemCard(
+                        subMenuItem.img,
+                        subMenuItem.title,
+                        subMenuItem.description, subMenuItem.href
+                      )
+          else
+            li.header__nav__item
+              a(href=menuItem.href).font-extrabold.header__nav__item-link= menuItem.label
+
+    //- mobile right side
+    div.header__right.header__right--mobile
+      +button({
+        icon: 'search',
+        style: 'ghost',
+        size: 'light',
+        reverse: false,
+        large: false,
+        iconOnly: true,
+        type: 'button',
+      })(class='header__right__search-btn')
+
+      +button({
+        style: 'primary',
+        size: 'light',
+        reverse: false,
+        large: false,
+        type: 'button',
+      })(id='nav-menu-toggle')
+        div.header__nav-menu-toggle
+          div.header__hamburger
+            span(role='presentation').header__hamburger__line
+            span(role='presentation').header__hamburger__line
+            span(role='presentation').header__hamburger__line
+          span Menu
+
+    //- desktop right side
+    div.header__right
+      +button({
+        icon: 'search',
+        style: 'ghost',
+        size: 'light',
+        reverse: false,
+        large: false,
+        iconOnly: true,
+        type: 'button',
+      })(class='header__right__search-btn')
+
+      +button({
+        style: 'secondary',
+        size: 'light',
+        reverse: false,
+        large: false,
+      })(href='https://google.com')
+        | Login
+
+      +button({
+        style: 'primary',
+        size: 'light',
+        reverse: false,
+        large: false,
+      })(href='https://google.com')
+        | Connect

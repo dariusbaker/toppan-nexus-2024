@@ -1,3 +1,5 @@
+@import '../_cores/helpers.scss';
+
 $module: 'h-btn';
 
 .#{$module} {
@@ -181,9 +183,6 @@ $module: 'h-btn';
   }
 
   &:focus-visible {
-    outline-color: $color-primary;
-    outline-offset: rem(4);
-    outline-style: solid;
-    outline-width: rem(4);
+    @extend .focus-visible-style;
   }
 }

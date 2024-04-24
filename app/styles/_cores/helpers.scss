@@ -60,3 +60,10 @@ p:has(button) {
   }
 }
 
+.focus-visible-style {
+  outline-color: $color-primary;
+  outline-offset: rem(4);
+  outline-style: solid;
+  outline-width: rem(4);
+}
+

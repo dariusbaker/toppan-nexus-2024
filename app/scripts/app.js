@@ -3,6 +3,7 @@ import './polyfill/ie';
 
 // Initializations
 import './cores/prototype';
+import * as Header from './header';
 
 const DEFAULT_FADE_UP_ANIMATION = {
   duration: .75,
@@ -55,7 +56,9 @@ function initPartnerGrid($grid) {
   });
 }
 
-$(function() {
+$(document).ready(() => {
+  new Header.default();
+
   gsap.registerPlugin(ScrollTrigger);
   gsap.registerPlugin(ScrollToPlugin);
 

@@ -70,16 +70,16 @@
     }
   ]
 
-footer.footer.t-container
+footer.footer.t-container.content-inertable
   section.footer__connect
-    img(inline src="/images/toppan-nexus-logo.svg" alt="Toppan Nexus Logo").footer__connect__left
+    img(inline src='/images/toppan-nexus-logo.svg' alt='Toppan Nexus Logo').footer__connect__left
     div.footer__connect__right
       +animated_header(['Connecting', '<span class="text-blue">Possibilities</span>'], 'lg').text-black.mb-8
 
-      ul.footer__connect__right-socials
+      ol.footer__connect__right-socials
         for social in socials
           li.footer__connect__right-socials__item
-            a(href=social.href target="_blank" rel="noreferrer noopener").footer__connect__right-socials__item-link
+            a(href=social.href target='_blank' rel='noreferrer noopener').footer__connect__right-socials__item-link
               i(class=`fa-brands fa-${social.icon} text-black mr-1`)
               span.text-black.font-extrabold= social.label
         li.footer__connect__right-socials__item
@@ -88,11 +88,11 @@ footer.footer.t-container
             size: 'large',
             reverse: false,
             large: true,
-          })(href="/contact-us" class="footer__connect__right-socials__item-btn")
+          })(href='/contact-us' class='footer__connect__right-socials__item-btn')
             | Get in touch
   section.footer__contacts.mb-8
     h2.footer__contacts-title.font-extrabold.text-black.mt-8 OFFICES
-    ul.mt-8.footer__contacts-list
+    ol.mt-8.footer__contacts-list
       for contact in contactData
         li.footer__contacts-list__item
           div.footer__contacts-list__item--desktop
@@ -101,21 +101,21 @@ footer.footer.t-container
               for address in contact.address
                 | #{address}
                 br
-              a(href=`tel:${contact.tel}`, class="footer__contacts-list__item-link")= contact.tel
+              a(href=`tel:${contact.tel}`, class='footer__contacts-list__item-link')= contact.tel
 
           +accordion(contact.title, 'arrow', false, 'footer__contacts-list__item--mobile')
             address.footer__contacts-list__item-addr
               for address in contact.address
                 | #{address}
                 br
-              a(href=`tel:${contact.tel}`, class="footer__contacts-list__item-link")= contact.tel
+              a(href=`tel:${contact.tel}`, class='footer__contacts-list__item-link')= contact.tel
 
     div.mt-8.footer__footnote
       div.footer__footnote__left
         small © TOPPAN Nexus 2023
       div.footer__footnote__right
-        ul.footer__footnote__right-list
+        ol.footer__footnote__right-list
           for link in tncLinks
             li.footer__footnote__right-list__item
-              +link(link.label)(href=link.href target="_blank" rel="noreferrer noopener").footer__footnote__right-list__item-link.text-blue
+              +link(link.label)(href=link.href target='_blank' rel='noreferrer noopener').footer__footnote__right-list__item-link.text-blue
                 | #{link.label}
