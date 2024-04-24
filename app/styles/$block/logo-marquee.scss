@@ -1,0 +1,54 @@
+$module: 'logos-marquee';
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(calc(-100% - var(--gap)));
+  }
+}
+
+.#{$module} {
+  margin-block-start: rem(24);
+  margin-block-end: rem(24);
+
+  &__title {
+    font-size: rem(14);
+    color: $color-black;
+  }
+
+  &__wrapper {
+    --gap: #{rem(48)};
+
+    @include mq(map-get($grid-breakpoints, 'md')) {
+      --gap: #{rem(116)};
+    }
+    position: relative;
+    display: flex;
+    overflow: hidden;
+    user-select: none;
+    gap: var(--gap);
+  }
+
+  &__items {
+    flex-shrink: 0;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    min-width: 100%;
+    gap: var(--gap);
+    animation: marquee 20s linear infinite;
+
+    &__item {
+      &-img {
+        width: auto;
+        height: rem(40);
+        transform: translate3d(0, 0, 0);
+      }
+    }
+  }
+}

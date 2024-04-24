@@ -1,0 +1,21 @@
+//- items consists of object array with the following field
+//- items: [
+//-   {
+//-     img: 'https://via.placeholder.com/150',
+//-     title: 'Title',
+//-   },
+//- ]
+mixin logoMarquee(items, title, classes)
+  div(class=`logos-marquee ${classes || ''}`)
+    div.t-container.mb-3
+      h2.logos-marquee__title.font-medium= title
+    div.logos-marquee__wrapper
+      ul.logos-marquee__items
+        each item in items
+          li.logos-marquee__item
+            +img(item.img, item.title).logos-marquee__item-img
+      // this is to make infinite loop works properly
+      ul.logos-marquee__items(aria-hidden='true')
+        each item in items
+          li.logos-marquee__item
+            +img(item.img, item.title).logos-marquee__item-img

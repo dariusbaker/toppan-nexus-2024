@@ -30,3 +30,41 @@ block container
     h2 header 2
 
   include ./_blocks/partner-grid
+
+  -
+    const logosMarquee = [
+      {
+        title: 'Title 1',
+        img: '/images/184x80.jpeg'
+      },
+      {
+        title: 'Title 2',
+        img: '/images/184x80.jpeg'
+      },
+      {
+        title: 'Title 3',
+        img: '/images/184x80.jpeg'
+      },
+      {
+        title: 'Title 4',
+        img: '/images/184x80.jpeg'
+      },
+      {
+        title: 'Title 5',
+        img: '/images/184x80.jpeg'
+      },
+      {
+        title: 'Title 6',
+        img: '/images/184x80.jpeg'
+      },
+      {
+        title: 'Title 7',
+        img: '/images/184x80.jpeg'
+      },
+      {
+        title: 'Title 8',
+        img: '/images/184x80.jpeg'
+      }
+    ]
+
+  +logoMarquee(logosMarquee, 'Logos Marquee')
