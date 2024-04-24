@@ -1,2 +1,172 @@
+-
+  const menuItems = [
+    {
+      label: 'Products & Solutions',
+      type: 'submenu',
+      items: [
+        {
+          label: 'Capital Market Transaction',
+          items: [
+            {
+              label: 'IPO',
+              href: '/ipo'
+            },
+            {
+              label: 'Global Depositary Receipts',
+              href: '/global-depositary-receipts'
+            },
+            {
+              label: 'Merger & Acquisition',
+              href: '/merger-acquisition'
+            },
+            {
+              label: 'Bond Offerings',
+              href: '/bond-offerings'
+            }
+          ]
+        },
+        {
+          label: 'Compliance & Regulatory Disclosure',
+          items: [
+            {
+              label: 'Financial Reports (Annual / ESG)',
+              href: '/financial-reports'
+            },
+            {
+              label: 'Regulatory Filings',
+              href: '/regulatory-filings'
+            },
+            {
+              label: 'XBRL',
+              href: '/xbrl'
+            },
+            {
+              label: 'Stock Exchange Filing',
+              href: '/stock-exchange-filing'
+            }
+          ]
+        },
+        {
+          label: 'Marketing & Communications',
+          items: [
+            {
+              label: 'Marketing & Communications',
+              href: '/marketing-communications'
+            }
+          ]
+        }
+      ]
+    },
+    {
+      label: 'Why Nexus',
+      type: 'cards',
+      items: [
+        {
+          img: '/images/400x280.jpeg',
+          title: 'State of the art Security',
+          href: '/state-of-the-art-security',
+          description: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.'
+        },
+        {
+          img: '/images/400x280.jpeg',
+          title: '24/7/365 for you',
+          href: '/247',
+          description: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.'
+        },
+        {
+          img: '/images/400x280.jpeg',
+          title: 'Speed & Accuracy',
+          href: '/speed-accuracy',
+          description: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.'
+        },
+        {
+          img: '/images/400x280.jpeg',
+          title: 'Exceptional Experience',
+          href: '/exceptional-experience',
+          description: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.'
+        }
+      ]
+    },
+    {
+      label: 'About',
+      type: 'single',
+      href: '/about'
+    },
+    {
+      label: 'Join us',
+      type: 'single',
+      href: '/join-us'
+    },
+    {
+      label: 'Support',
+      type: 'single',
+      href: '/support'
+    },
+  ]
+
+a(href="#toppan-nexus-main-content").skip-to-main
+  | Skip to content
 header.header
-  | This is the header
+  div.header-wrapper
+    a(href="/").header__logo
+      img(src="/images/toppan-nexus-logo.svg" alt="Toppan Nexus Logo")
+    nav.header__nav
+      ol.header__nav__items
+        for menuItem in menuItems
+          if menuItem.type === 'submenu' || menuItem.type === 'cards'
+            li.header__nav__item
+              button.font-extrabold
+                | #{menuItem.label}
+          else
+            li.header__nav__item
+              a(href=menuItem.href).font-extrabold= menuItem.label
+    div.header__right.header__right--mobile
+      +button({
+        icon: 'search',
+        style: 'ghost',
+        size: 'light',
+        reverse: false,
+        large: false,
+        iconOnly: true,
+        type: 'button',
+      })(id="mobile-nav-search-btn" class="header__right__search-btn")
+
+      +button({
+        style: 'primary',
+        size: 'light',
+        reverse: false,
+        large: false,
+        type: 'button',
+      })(id="nav-menu-toggle")
+        div.header__nav-menu-toggle
+          div.header__hamburger
+            span(role="presentation").header__hamburger__line
+            span(role="presentation").header__hamburger__line
+            span(role="presentation").header__hamburger__line
+          span Menu
+    div.header__right
+      +button({
+        icon: 'search',
+        style: 'ghost',
+        size: 'light',
+        reverse: false,
+        large: false,
+        iconOnly: true,
+        type: 'button',
+      })(id="desktop-nav-search-btn" class="header__right__search-btn")
+
+      +button({
+        style: 'secondary',
+        size: 'light',
+        reverse: false,
+        large: false,
+      })(href="https://google.com")
+        | Login
+
+      +button({
+        style: 'primary',
+        size: 'light',
+        reverse: false,
+        large: false,
+      })(href="https://google.com")
+        | Connect
