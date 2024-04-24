@@ -1,1 +1,86 @@
 @import "./functions.scss";
+
+.text-base {
+  font-size: rem(16);
+  line-height: rem(20);
+}
+
+.text-xs {
+  font-size: rem(12);
+  line-height: rem(12);
+}
+
+.text-sm {
+  font-size: rem(14);
+  line-height: rem(16);
+}
+
+.text-lg {
+  font-size: rem(18);
+  line-height: rem(22);
+}
+
+.text-xl {
+  font-size: rem(20);
+  line-height: rem(24);
+}
+
+.text-2xl {
+  font-size: rem(24);
+  line-height: rem(28);
+}
+
+.text-3xl {
+  font-size: rem(30);
+  line-height: rem(32);
+}
+
+.text-4xl {
+  font-size: rem(36);
+  line-height: rem(36);
+}
+
+.text-5xl {
+  font-size: rem(48);
+  line-height: .875;
+}
+
+.text-6xl {
+  font-size: rem(60);
+  line-height: .875;
+}
+
+.text-7xl {
+  font-size: rem(72);
+  line-height: .875;
+}
+
+.text-8xl {
+  font-size: rem(80);
+  line-height: .875;
+}
+
+.text-9xl {
+  font-size: rem(96);
+  line-height: .875;
+}
+
+.text-10xl {
+  font-size: rem(144);
+  line-height: .875;
+}
+
+.fit-text-lg {
+  font-size: clamp(#{rem(35)}, calc(35 / 414 * 100vw), #{rem(70)});
+  line-height: .85;
+}
+
+.fit-text-xl {
+  font-size: clamp(#{rem(40)}, calc(40 / 414 * 100vw), #{rem(80)});
+  line-height: .85;
+}
+
+.fit-text-xxl {
+  font-size: clamp(#{rem(50)}, calc(50 / 414 * 100vw), #{rem(100)});
+  line-height: .85;
+}

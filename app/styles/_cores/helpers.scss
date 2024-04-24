@@ -14,6 +14,10 @@
   color: $color-gray-200;
 }
 
+.text-gray-500 {
+  color: $color-gray-500;
+}
+
 .font-normal {
   font-weight: 400;
 }
@@ -32,21 +36,6 @@
 
 .text-center {
   text-align: center;
-}
-
-.fit-text-lg {
-  font-size: clamp(#{rem(35)}, calc(35 / 414 * 100vw), #{rem(70)});
-  line-height: .85;
-}
-
-.fit-text-xl {
-  font-size: clamp(#{rem(40)}, calc(40 / 414 * 100vw), #{rem(80)});
-  line-height: .85;
-}
-
-.fit-text-xxl {
-  font-size: clamp(#{rem(50)}, calc(50 / 414 * 100vw), #{rem(100)});
-  line-height: .85;
 }
 
 p:has(button) {
