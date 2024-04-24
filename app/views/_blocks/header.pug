@@ -125,7 +125,7 @@ a(href='#toppan-nexus-main-content').skip-to-main
 
 header.header.header--show(id='toppan-header')
   //- mobile nav
-  nav.header__mobile-nav
+  nav.header__mobile-nav(aria-hidden='true')
     ol.header__mobile-nav__items
       each menuItem in menuItems
         if menuItem.type === 'submenu' || menuItem.type === 'cards'
