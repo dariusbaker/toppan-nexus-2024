@@ -90,7 +90,8 @@ $module: 'h-btn';
 
   &--large {
     height: rem(60);
-    padding: rem(0) rem(40);
+    padding-block: 0;
+    padding-inline: rem(40);
     border-radius: rem(30);
     gap: rem(10)
   }
@@ -121,20 +122,20 @@ $module: 'h-btn';
     }
 
     &:not(.#{$module}--animated) {
-      padding-left: rem(20);
-      padding-right: rem(8);
+      padding-inline-start: rem(20);
+      padding-inline-end: rem(8);
 
       &.#{$module}--large {
-        padding-right: rem(16);
+        padding-inline-end: rem(16);
       }
 
       &.#{$module}--reverse {
-        padding-right: rem(20);
-        padding-left: rem(8);
+        padding-inline-start: rem(8);
+        padding-inline-end: rem(20);
       }
 
       &.#{$module}--large#{$module}--reverse {
-        padding-left: rem(16);
+        padding-inline-start: rem(16);
       }
     }
   }
