@@ -70,13 +70,13 @@
     }
   ]
 
-footer.footer.t-container
+footer.footer.t-container.content-inertable
   section.footer__connect
     img(inline src="/images/toppan-nexus-logo.svg" alt="Toppan Nexus Logo").footer__connect__left
     div.footer__connect__right
       +animated_header(['Connecting', '<span class="text-blue">Possibilities</span>'], 'lg').text-black.mb-8
 
-      ul.footer__connect__right-socials
+      ol.footer__connect__right-socials
         for social in socials
           li.footer__connect__right-socials__item
             a(href=social.href target="_blank" rel="noreferrer noopener").footer__connect__right-socials__item-link
@@ -92,7 +92,7 @@ footer.footer.t-container
             | Get in touch
   section.footer__contacts.mb-8
     h2.footer__contacts-title.font-extrabold.text-black.mt-8 OFFICES
-    ul.mt-8.footer__contacts-list
+    ol.mt-8.footer__contacts-list
       for contact in contactData
         li.footer__contacts-list__item
           div.footer__contacts-list__item--desktop
@@ -114,7 +114,7 @@ footer.footer.t-container
       div.footer__footnote__left
         small © TOPPAN Nexus 2023
       div.footer__footnote__right
-        ul.footer__footnote__right-list
+        ol.footer__footnote__right-list
           for link in tncLinks
             li.footer__footnote__right-list__item
               +link(link.label)(href=link.href target="_blank" rel="noreferrer noopener").footer__footnote__right-list__item-link.text-blue
