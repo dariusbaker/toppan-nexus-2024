@@ -25,6 +25,7 @@ export default class Header {
     this._isAtTop = true;
     this._scrolled = false;
     this._show = true;
+    this._searchOpen = false;
 
     this._$header = $(`#${IDS.HEADER}`);
     this._$navToggleBtn = $(`#${IDS.NAV_TOGGLER}`);
@@ -47,10 +48,12 @@ export default class Header {
       this._$searchTogglers.each((i, toggler) => {
         const $toggler = $(toggler);
 
-        console.log($toggler)
-
         $toggler.on('click', () => {
+          this._searchOpen = !this._searchOpen;
           this._$header.toggleClass(CLASSES.SEARCH_OPEN);
+
+          // lock body scroll
+          $('body').css('overflow-y', this._searchOpen ? 'hidden' : 'auto');
         });
       });
     }
