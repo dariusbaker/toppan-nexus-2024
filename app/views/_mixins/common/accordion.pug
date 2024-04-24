@@ -1,5 +1,5 @@
 mixin accordion(title, icon = 'plus', divider = false, classes)
-  div(class=`.h-accordion ${divider ? 'h-accordion--divider' : ''} ${classes}`)
+  div(class=`h-accordion ${divider ? 'h-accordion--divider' : ''} ${classes}`)
     details.h-accordion__details
       summary.h-accordion__summary
         span.h-accordion__title.font-extrabold.text-black= title
