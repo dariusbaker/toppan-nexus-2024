@@ -26,15 +26,35 @@
 
     left: 50%;
     top: rem(8);
+
+    @extend .focus-visible-style;
   }
 }
 
+$nav-height: rem(72);
+
 .header {
+  height: $nav-height;
+  overflow: hidden;
+
+  ol {
+    list-style: none;
+    margin-bottom: 0;
+  }
+
+  a, button {
+    &:focus-visible {
+      @extend .focus-visible-style;
+    }
+  }
+
   &-wrapper {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: rem(16) rem(24);
+    height: 100%;
+    padding-inline-start: rem(24);
+    padding-inline-end: rem(24);
     background-color: $color-white;
     z-index: 999;
   }
@@ -98,20 +118,115 @@
       display: flex;
     }
 
+    &__card {
+      display: block;
+      width: 100%;
+      text-decoration: none;
+      color: $color-gray-500;
+
+      &-img {
+        width: 100%;
+        height: auto;
+
+        border-radius: rem(16);
+
+        margin-block-end: rem(16);
+      }
+
+      &-title {
+        font-size: rem(24);
+        color: $color-black;
+      }
+
+      &:focus-visible {
+        @extend .focus-visible-style;
+      }
+    }
+
     &__items {
       display: flex;
       flex-direction: row;
       align-items: center;
       gap: rem(24);
-      list-style: none;
-      margin-bottom: 0;
       padding: 0;
+    }
+
+    &__submenu {
+      position: absolute;
+      left: 0;
+      top: $nav-height;
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      gap: rem(64);
+      width: 100%;
+      padding: rem(32);
+      background-color: $color-white;
+      z-index: 998;
+      border-block-start: rem(1) solid $color-gray-50;
+
+      &[aria-hidden="true"] {
+        display: none;
+      }
+
+      &-item-title {
+        font-size: rem(24);
+      }
+
+      &-item {
+        max-width: rem(250);
+
+        .header__nav__submenu--cards & {
+          max-width: none;
+          flex-basis: rem(310);
+        }
+      }
+
+      &--cards {
+        gap: rem(24);
+        padding: rem(32) rem(24);
+      }
+    }
+
+    &__submenu-items {
+      padding: 0;
+      &__item {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        height: rem(46);
+
+        i {
+          color: $color-primary;
+        }
+      }
+    }
+
+    &__subitem-link,
+    &__item-link {
+      color: $color-black;
+      text-decoration: none;
+      color: inherit;
+
+      &::after {
+        content: '';
+        display: block;
+        width: 100%;
+        height: rem(2);
+        background-color: $color-primary;
+        transition: transform 0.3s ease-out;
+        transform: scale(0);
+      }
+
+      &:hover::after {
+        transform: scale(1);
+      }
     }
 
     &__item {
       color: $color-black;
 
-      a, button {
+      &-link, button {
         text-decoration: none;
         text-transform: uppercase;
         color: inherit;

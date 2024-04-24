@@ -5,7 +5,7 @@
       type: 'submenu',
       items: [
         {
-          label: 'Capital Market Transaction',
+          label: 'Capital Market Transactions',
           items: [
             {
               label: 'IPO',
@@ -104,22 +104,39 @@
     },
   ]
 
-a(href="#toppan-nexus-main-content").skip-to-main
+a(href='#toppan-nexus-main-content').skip-to-main
   | Skip to content
 header.header
   div.header-wrapper
-    a(href="/").header__logo
-      img(src="/images/toppan-nexus-logo.svg" alt="Toppan Nexus Logo")
+    a(href='/').header__logo
+      img(src='/images/toppan-nexus-logo.svg' alt='Toppan Nexus Logo')
     nav.header__nav
       ol.header__nav__items
-        for menuItem in menuItems
+        each menuItem, idx in menuItems
           if menuItem.type === 'submenu' || menuItem.type === 'cards'
             li.header__nav__item
-              button.font-extrabold
+              button.font-extrabold.header__nav__submenu-toggler(aria-controls=`submenu-drawer-${idx}`)
                 | #{menuItem.label}
+
+              ol(id=`submenu-drawer-${idx}` aria-hidden='true' class=`header__nav__submenu header__nav__submenu--${menuItem.type}`)
+                for subMenuItem in menuItem.items
+                  li.header__nav__submenu-item
+                    if menuItem.type === 'submenu'
+                      h2.header__nav__submenu-item-title.font-extrabold= subMenuItem.label
+                      ol.header__nav__submenu-items
+                        for subSubMenuItem in subMenuItem.items
+                          li.header__nav__submenu-items__item
+                            a(href=subSubMenuItem.href).font-medium.header__nav__subitem-link
+                              span= subSubMenuItem.label
+                              i(class='fa-regular fa-chevron-right ml-2')
+                    else
+                      a(href=subMenuItem.href).header__nav__card
+                        img.header__nav__card-img(src=subMenuItem.img alt=subMenuItem.title)
+                        h2.header__nav__card-title.font-extrabold= subMenuItem.title
+                        p.header__nav__card-desc.font-medium= subMenuItem.description
           else
             li.header__nav__item
-              a(href=menuItem.href).font-extrabold= menuItem.label
+              a(href=menuItem.href).font-extrabold.header__nav__item-link= menuItem.label
     div.header__right.header__right--mobile
       +button({
         icon: 'search',
@@ -129,7 +146,7 @@ header.header
         large: false,
         iconOnly: true,
         type: 'button',
-      })(id="mobile-nav-search-btn" class="header__right__search-btn")
+      })(id='mobile-nav-search-btn' class='header__right__search-btn')
 
       +button({
         style: 'primary',
@@ -137,12 +154,12 @@ header.header
         reverse: false,
         large: false,
         type: 'button',
-      })(id="nav-menu-toggle")
+      })(id='nav-menu-toggle')
         div.header__nav-menu-toggle
           div.header__hamburger
-            span(role="presentation").header__hamburger__line
-            span(role="presentation").header__hamburger__line
-            span(role="presentation").header__hamburger__line
+            span(role='presentation').header__hamburger__line
+            span(role='presentation').header__hamburger__line
+            span(role='presentation').header__hamburger__line
           span Menu
     div.header__right
       +button({
@@ -153,14 +170,14 @@ header.header
         large: false,
         iconOnly: true,
         type: 'button',
-      })(id="desktop-nav-search-btn" class="header__right__search-btn")
+      })(id='desktop-nav-search-btn' class='header__right__search-btn')
 
       +button({
         style: 'secondary',
         size: 'light',
         reverse: false,
         large: false,
-      })(href="https://google.com")
+      })(href='https://google.com')
         | Login
 
       +button({
@@ -168,5 +185,5 @@ header.header
         size: 'light',
         reverse: false,
         large: false,
-      })(href="https://google.com")
+      })(href='https://google.com')
         | Connect
