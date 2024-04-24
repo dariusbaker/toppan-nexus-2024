@@ -127,6 +127,8 @@ export default class Header {
     const nearBottom =
       document.body.clientHeight - currentScrollY - window.innerHeight <= 50;
 
+    this._isAtTop = window.scrollY <= 0;
+
     // hide the nav once scrolling down
     if (
       !this._isAtTop &&
@@ -159,7 +161,6 @@ export default class Header {
       this._showNav();
     }
 
-    this._isAtTop = window.scrollY <= 0;
     this._lastScrollY = window.scrollY;
   };
 
