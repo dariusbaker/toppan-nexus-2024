@@ -1,0 +1,21 @@
+//- items consists of object array with the following field
+//- items: [
+//-   {
+//-     img: 'https://via.placeholder.com/150',
+//-     title: 'Title',
+//-     desc: 'Description',
+//-   },
+//- ]
+mixin certifications(items, title, description, classes)
+  section.t-container.certifications
+    if title
+      +animated_header(['Fully'], 'lg').text-black.mb-8
+    if description
+      p.certifications__desc= description
+
+    ul.certifications__items
+      each item in items
+        li.certifications__item
+          +img(item.img, item.title).certifications__item-img.mb-4
+          h3.certifications__item-title.font-extrabold= item.title
+          p.certifications__item-desc.font-medium= item.desc
