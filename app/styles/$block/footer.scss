@@ -1,0 +1,117 @@
+.footer {
+  &__contacts {
+    width: 100%;
+  }
+
+  &__contacts-title {
+    font-size: rem(20);
+    text-transform: uppercase;
+  }
+
+  &__footnote,
+  &__contacts-list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: rem(16);
+
+    @include mq(map-get($grid-breakpoints, 'md')) {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    @include mq(map-get($grid-breakpoints, 'lg')) {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: rem(24);
+    }
+
+    @include mq(map-get($grid-breakpoints, 'xl')) {
+      grid-template-columns: repeat(8, minmax(0, 1fr));
+      gap: rem(32);
+    }
+  }
+
+  &__contacts-list {
+    list-style: none;
+    margin-bottom: 0;
+    padding: 0;
+
+    &__item {
+      // full width on mobile
+      grid-column: 1 / -1;
+
+      @include mq(map-get($grid-breakpoints, 'md')) {
+        grid-column: span 2 / span 2;
+      }
+
+      &-title {
+        font-size: rem(16);
+        text-transform: uppercase;
+      }
+
+      &-addr {
+        font-size: rem(14);
+      }
+
+      &-link {
+        color: $color-gray-500;
+      }
+
+      &--desktop {
+        display: none;
+
+        @include mq(map-get($grid-breakpoints, 'md')) {
+          display: block;
+        }
+      }
+
+      &--mobile {
+        display: block;
+
+        @include mq(map-get($grid-breakpoints, 'md')) {
+          display: none;
+        }
+      }
+    }
+  }
+
+  &__footnote {
+    &__left {
+      // full width on mobile
+      grid-column: 1 / -1;
+
+      @include mq(map-get($grid-breakpoints, 'md')) {
+        grid-column: span 2 / span 2;
+      }
+    }
+
+    &__right {
+      // full width on mobile
+      grid-column: 1 / -1;
+
+      @include mq(map-get($grid-breakpoints, 'md')) {
+        grid-column: span 2 / span 2;
+      }
+
+      @include mq(map-get($grid-breakpoints, 'xl')) {
+        grid-column: 7 / span 2;
+      }
+
+      &-list {
+        list-style: none;
+        margin-bottom: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: row;
+
+        gap: rem(8);
+
+        &__item {
+          font-size: rem(14);
+
+          &-link {
+            text-decoration: none;
+          }
+        }
+      }
+    }
+  }
+}
