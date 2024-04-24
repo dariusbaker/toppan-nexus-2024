@@ -24,6 +24,7 @@ mixin button(options = {})
   - var hasIcon = options.icon != undefined
   - var iconHref = hasIcon ? '#' + options.icon : ''
   - var iconOnly = block == undefined && options.icon != undefined
+  - var type = options.type || ''
   -
     classes = [
       'h-btn',
