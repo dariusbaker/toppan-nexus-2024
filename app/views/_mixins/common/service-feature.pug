@@ -1,0 +1,45 @@
+-
+  var default_options = {
+    icon: 'arrow-trend-up',
+    image: '',
+    link_label: 'More',
+    link_url: '#',
+    theme: 'cyan',
+    title: 'Lorem ipsum',
+  }
+
+mixin service_feature_image(url = '')
+  .sf-card.sf-card--full
+    img(src=url).sf-card__image
+
+
+mixin service_feature_card(options = default_options)
+  article(
+    class=["sf-card", "bg-" + options.theme]
+    style="background-image: url('" + options.image + "')"
+  )
+    .sf-card__icon
+      i(class=["fa-solid", "fa-" + options.icon])
+
+    h3.sf-card__title= options.title
+
+    if block
+      p.sf-card__body
+        block
+
+    +button({
+      icon: 'arrow-right',
+      light: options.theme != 'green' && options.theme != 'cyan',
+      style: 'text',
+    })(href=options.link_url)= options.link_label
+
+mixin service_feature(header = [], body = '')
+  .service-feature
+    .service-feature__header.mb-12
+      +animated_header(header).mb-4.text-black
+      p.mb-0
+        =body
+
+    .service-feature__scroller
+      .service-feature__content
+        block

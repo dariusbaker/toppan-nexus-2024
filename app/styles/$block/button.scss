@@ -77,16 +77,25 @@ $module: 'h-btn';
   }
 
   &--text {
+    padding-block: 0;
+    padding-inline: 0;
+
     color: $color-primary;
     font-size: rem(16);
     font-weight: 500;
     line-height: rem(24);
     text-transform: capitalize;
 
+    &.#{$module}--light {
+      color: $color-white;
+    }
+
     @media (hover: hover) {
-      text-decoration: underline;
-      text-decoration-thickness: rem(2);
-      text-underline-offset: rem(4);
+      &:hover {
+        text-decoration: underline;
+        text-decoration-thickness: rem(2);
+        text-underline-offset: rem(4);
+      }
     }
   }
 
@@ -123,7 +132,7 @@ $module: 'h-btn';
       height: rem(36);
     }
 
-    &:not(.#{$module}--animated) {
+    &:not(.#{$module}--animated):not(.#{$module}--text) {
       padding-inline-start: rem(20);
       padding-inline-end: rem(8);
 
