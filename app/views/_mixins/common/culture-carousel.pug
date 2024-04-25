@@ -1,0 +1,44 @@
+//- items consists of object array with the following field
+//- items: [
+//-   {
+//-     img: 'https://via.placeholder.com/150',
+//-     title: 'Title',
+//-     desc: 'Description',
+//-     href: 'https://google.com',
+//-   },
+//- ]
+mixin cultureCarousel(theme, items, title, carouselId = 'culture-carousel')
+  section(class=`culture-carousel culture-carousel--${theme}` culture-carousel)
+    div.culture-carousel__wrapper.t-container
+      div.culture-carousel__media
+        each item, idx in items
+          div(class=`culture-carousel__img-wrapper ${idx === 0 ? 'culture-carousel__img-wrapper--active' : ''}`)
+            +img(item.img, item.title)(
+              id=`${carouselId}-img-${idx}`
+              role='tabpanel'
+              aria-labelledby=`${carouselId}-tab-${idx}`
+              tabindex='0'
+            ).culture-carousel__img
+      div.culture-carousel__content
+        p.culture-carousel__title.font-medium= title
+        div.culture-carousel__tabs
+          each item, idx in items
+            div(
+              aria-controls=`${carouselId}-img-${idx}, ${carouselId}-content-${idx}`
+              aria-selected=idx === 0 ? 'true' : 'false'
+              class=['culture-carousel__tab', idx === 0 && 'culture-carousel__tab--active', 'font-extrabold']
+              data-index=idx
+              id=`${carouselId}-${idx}-tab`
+              role='tab'
+              type='button'
+            )= item.title
+        div.culture-carousel__panels
+          each item, idx in items
+            div(
+              aria-labelledby=`${carouselId}-tab-${idx}`
+              class=['culture-carousel__panel', idx === 0 && 'culture-carousel__panel--active']
+              id=`${carouselId}-content-${idx}`
+              role='tabpanel'
+              tabindex='0'
+            )
+              div.culture-carousel__panel-desc.font-medium!= item.desc
