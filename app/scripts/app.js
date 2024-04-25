@@ -5,6 +5,7 @@ import './polyfill/ie';
 import './cores/prototype';
 import Header from './header';
 import LogoMarquee from './logo-marquee';
+import ProfileCarousel from './profile-carousel';
 
 const DEFAULT_FADE_UP_ANIMATION = {
   duration: .75,
@@ -63,6 +64,9 @@ $(document).ready(() => {
 
   // init logo marquee component
   new LogoMarquee();
+
+  // init profile carousel component
+  new ProfileCarousel();
 
   gsap.registerPlugin(ScrollTrigger);
   gsap.registerPlugin(ScrollToPlugin);

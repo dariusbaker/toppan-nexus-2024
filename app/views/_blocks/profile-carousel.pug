@@ -1,0 +1,74 @@
+-
+  const carouselItems = [
+    {
+      img: '/images/740x1100.jpeg',
+      name: 'John Doe',
+      position: 'CEO',
+      dept: 'Marketing',
+      desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+    },
+    {
+      img: '/images/740x1100.jpeg',
+      name: 'Jane Doe',
+      position: 'CTO',
+      dept: 'Technology',
+      desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+    },
+    {
+      img: '/images/740x1100.jpeg',
+      name: 'Oompa Loompa',
+      position: 'COO',
+      dept: 'Goofball',
+      desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+    }
+  ]
+
+section.profile-carousel(profile-carousel)
+  div.t-container.profile-carousel__header
+    +animated_header([
+      'Great',
+      '<span class="text-blue">People</span>'
+    ]).profile-carousel__title
+
+    div.profile-carousel__nav
+      +button({
+        icon: 'arrow-right',
+        style: 'primary',
+        size: 'light',
+        reverse: false,
+        large: false,
+        hoverAnimation: false,
+        iconOnly: true,
+        type: 'button'
+      }).profile-carousel__nav__btn.profile-carousel__nav__btn--left(profile-carousel-prev)
+
+      +button({
+        icon: 'arrow-right',
+        style: 'primary',
+        size: 'light',
+        reverse: false,
+        large: false,
+        hoverAnimation: false,
+        iconOnly: true,
+        type: 'button'
+      }).profile-carousel__nav__btn(profile-carousel-next)
+
+  div.profile-carousel__viewport(profile-carousel-viewport)
+    each item in carouselItems
+      div.profile-carousel__item
+        +profileCard(item)
+
+  div.t-container.profile-carousel__footer
+    h3.profile-carousel__footer__title.font-medium
+      | Feel like you'd be a good fit on our team?
+    p.profile-carousel__footer__content.font-medium
+      | Great. We're always on the look out for talented, ambitious people. Come explore our careers page & start your journey with us today.
+    +button({
+      icon: 'arrow-right',
+      style: 'text',
+      size: 'light',
+      reverse: false,
+      large: false,
+      hoverAnimation: false,
+    })(href="https://google.com").profile-carousel__footer__btn
+      | Explore Careers
