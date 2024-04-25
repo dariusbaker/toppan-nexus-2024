@@ -7,6 +7,7 @@ import Header from './header';
 import LogoMarquee from './logo-marquee';
 
 const DEFAULT_FADE_UP_ANIMATION = {
+  delay: .25,
   duration: .75,
   ease: 'expo.out',
   opacity: 0,
@@ -57,6 +58,38 @@ function initPartnerGrid($grid) {
   });
 }
 
+/**
+ *
+ * @param {*} $element
+ * @returns {number}
+ */
+function calcScrollAmount($element) {
+  return Math.min(0, -1 * ($element.scrollWidth - $element.parentElement.offsetWidth));
+}
+
+/**
+ *
+ * @param {Selector} $service
+ */
+function initServiceFeature($service) {
+  const $scroller = $('.service-feature__content', $service);
+  const tween = gsap.to($scroller, {
+    x: () => calcScrollAmount($scroller[0]),
+    duration: 3,
+    ease: 'none',
+  });
+
+  ScrollTrigger.create({
+    trigger: $service,
+    start: 'top',
+    end: () => `+=${calcScrollAmount($scroller[0]) * -1}`,
+    pin: true,
+    animation: tween,
+    scrub: 1,
+    invalidateOnRefresh: true,
+  });
+}
+
 $(document).ready(() => {
   // init header
   new Header();
@@ -67,6 +100,15 @@ $(document).ready(() => {
   gsap.registerPlugin(ScrollTrigger);
   gsap.registerPlugin(ScrollToPlugin);
 
+  $('.partner-grid').each(function() {
+    initPartnerGrid($(this));
+  });
+
+  $('.service-feature').each(function() {
+    initServiceFeature($(this));
+  });
+
+  // this has to come last otherwise they don't seem to initialise
   $('[animate-stagger]').each(function() {
     const $this = $(this);
     const $items = $this.find('[animate-fade-up]');
@@ -75,9 +117,5 @@ $(document).ready(() => {
     tl.from($items, DEFAULT_FADE_UP_ANIMATION);
 
     createScrollTrigger($this, tl);
-  });
-
-  $('.partner-grid').each(function() {
-    initPartnerGrid($(this));
   });
 });
