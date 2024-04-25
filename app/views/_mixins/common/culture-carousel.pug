@@ -5,6 +5,7 @@
 //-     title: 'Title',
 //-     desc: 'Description',
 //-     href: 'https://google.com',
+//-     ctaLabel: 'Learn more'
 //-   },
 //- ]
 mixin cultureCarousel(theme, items, title, carouselId = 'culture-carousel')
@@ -42,3 +43,13 @@ mixin cultureCarousel(theme, items, title, carouselId = 'culture-carousel')
               tabindex='0'
             )
               div.culture-carousel__panel-desc.font-medium!= item.desc
+
+              if (item.href && item.ctaLabel)
+                +button({
+                  style: 'ghost',
+                  size: 'large',
+                  reverse: false,
+                  large: false,
+                  hoverAnimation: true,
+                })(href=item.href).mt-3= item.ctaLabel
+
