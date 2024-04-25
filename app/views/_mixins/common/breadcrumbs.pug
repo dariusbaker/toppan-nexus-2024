@@ -1,0 +1,19 @@
+//- items consists of object array with the following field
+//- items: [
+//-   {
+//-     label: 'Home',
+//-     href: '/',
+//-   },
+//- ]
+mixin breadcrumbs(items)
+  nav.t-container.breadcrumbs
+    ol.breadcrumbs__list
+      each item, idx in items
+        li.breadcrumbs__item
+          if idx < items.length - 1
+            +link(item.href, item.label).breadcrumbs__link
+          else
+            span.breadcrumbs__text= item.label
+          if idx < items.length - 1
+            span.breadcrumbs__separator
+              i(class='fa-regular fa-chevron-right ml-2')
