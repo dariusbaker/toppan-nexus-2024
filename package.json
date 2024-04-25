@@ -29,7 +29,8 @@
   },
   "dependencies": {
     "bootstrap": "^5.3.2",
-    "function.name": "^1.0.13"
+    "function.name": "^1.0.13",
+    "slick-carousel": "^1.8.1"
   },
   "devDependencies": {
     "@babel/core": "^7.23.6",
