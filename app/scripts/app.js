@@ -3,7 +3,8 @@ import './polyfill/ie';
 
 // Initializations
 import './cores/prototype';
-import * as Header from './header';
+import Header from './header';
+import LogoMarquee from './logo-marquee';
 
 const DEFAULT_FADE_UP_ANIMATION = {
   duration: .75,
@@ -57,7 +58,11 @@ function initPartnerGrid($grid) {
 }
 
 $(document).ready(() => {
-  new Header.default();
+  // init header
+  new Header();
+
+  // init logo marquee component
+  new LogoMarquee();
 
   gsap.registerPlugin(ScrollTrigger);
   gsap.registerPlugin(ScrollToPlugin);
