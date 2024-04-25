@@ -57,3 +57,18 @@ section.profile-carousel(profile-carousel)
     each item in carouselItems
       div.profile-carousel__item
         +profileCard(item)
+
+  div.t-container.profile-carousel__footer
+    h3.profile-carousel__footer__title.font-medium
+      | Feel like you'd be a good fit on our team?
+    p.profile-carousel__footer__content.font-medium
+      | Great. We're always on the look out for talented, ambitious people. Come explore our careers page & start your journey with us today.
+    +button({
+      icon: 'arrow-right',
+      style: 'text',
+      size: 'light',
+      reverse: false,
+      large: false,
+      hoverAnimation: true,
+    })(href="https://google.com").profile-carousel__footer__btn
+      | Explore Careers
