@@ -3,6 +3,7 @@ $module: 'profile-card';
 .#{$module} {
   display: flex;
   flex-direction: column;
+  padding: rem(16);
 
   @include mq(map-get($grid-breakpoints, 'lg')) {
     flex-direction: row;

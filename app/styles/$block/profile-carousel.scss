@@ -1,0 +1,44 @@
+$module: 'profile-carousel';
+
+.#{$module} {
+  margin-block-start: rem(72);
+  margin-block-end: rem(42);
+
+  @include mq(map-get($grid-breakpoints, 'lg')) {
+    margin-block-end: rem(140);
+  }
+
+  &__header {
+    display: flex;
+    flex-direction: column;
+    gap: rem(24);
+    align-items: flex-start;
+    margin-block-end: rem(32);
+
+    @include mq(map-get($grid-breakpoints, 'lg')) {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-block-end: rem(60);
+    }
+  }
+
+  &__nav {
+    &__btn + &__btn {
+      margin-inline-start: rem(10);
+    }
+
+    &__btn {
+      .h-btn__icon {
+        width: rem(24);
+        height: rem(24);
+      }
+
+      &--left {
+        .h-btn__icon {
+          transform: rotate(180deg);
+        }
+      }
+    }
+  }
+}
