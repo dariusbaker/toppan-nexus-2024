@@ -69,7 +69,19 @@ $module: 'profile-carousel';
 
     &__btn {
       text-transform: capitalize;
-      padding-inline-start: 0;
+      text-decoration: none;
+
+      &.h-btn--icon:not(.h-btn--animated) {
+        padding-inline-start: 0;
+      }
+
+      .h-btn__icon {
+        transition: transform 125ms ease-in-out;
+      }
+
+      &:hover .h-btn__icon {
+        transform: translateX(rem(4));
+      }
     }
   }
 }
