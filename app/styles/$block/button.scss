@@ -186,7 +186,8 @@ $module: 'h-btn';
     }
   }
 
-  &[disabled] {
+  &[disabled],
+  &[aria-disabled='true'] {
     pointer-events: none;
     opacity: .3;
   }
