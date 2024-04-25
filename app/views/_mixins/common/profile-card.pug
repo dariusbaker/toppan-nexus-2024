@@ -1,0 +1,15 @@
+//- user is an object with the following properties
+//- img
+//- name
+//- position
+//- dept
+//- desc
+mixin profileCard(user)
+  div.profile-card
+    div.profile-card__img-wrapper
+      +img(user.img, user.name).profile-card__img
+    div.profile-card__content
+      p.profile-card__content__eyebrow.font-bold= user.dept
+      h3.profile-card__content__name.font-bold= user.name
+      p.profile-card__content__position.font-medium= user.position
+      q.profile-card__content__desc.font-medium= user.desc
