@@ -38,6 +38,66 @@
   text-align: center;
 }
 
+.bg-cyan {
+  background-color: $color-cyan;
+}
+
+.bg-purple {
+  background-color: $color-purple;
+}
+
+.bg-red {
+  background-color: $color-red;
+}
+
+.bg-white {
+  background-color: $color-white;
+}
+
+.bg-green {
+  background-color: $color-green;
+}
+
+.bg-blue-500 {
+  background-color: $color-blue-500;
+}
+
+.bg-blue-400 {
+  background-color: $color-blue-400;
+}
+
+.bg-blue-300 {
+  background-color: $color-blue-300;
+}
+
+.bg-blue-200 {
+  background-color: $color-blue-200;
+}
+
+.bg-gray-500 {
+  background-color: $color-gray-500;
+}
+
+.bg-gray-400 {
+  background-color: $color-gray-400;
+}
+
+.bg-gray-300 {
+  background-color: $color-gray-300;
+}
+
+.bg-gray-200 {
+  background-color: $color-gray-200;
+}
+
+.bg-gray-50 {
+  background-color: $color-gray-50;
+}
+
+.bg-gray-25 {
+  background-color: $color-gray-25;
+}
+
 p:has(button) {
   margin-bottom: 0;
 }
