@@ -3,3 +3,9 @@ body {
   font-family: 'Helvetica Now Display', Arial, Helvetica, sans-serif;
   color: $color-gray-500;
 }
+
+$headers-height: rem(72);
+
+main {
+  padding-block-start: $headers-height;
+}
