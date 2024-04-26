@@ -9,6 +9,7 @@ import ProfileCarousel from './profile-carousel';
 import CultureCarousel from './culture-carousel';
 import PeopleCarousel from './people-carousel';
 import GalleryCarousel from './gallery-carousel';
+import Stastistics from './statistics';
 
 const DEFAULT_FADE_UP_ANIMATION = {
   delay: .25,
@@ -94,25 +95,18 @@ function initServiceFeature($service) {
   });
 }
 
+function initAnimateNumber() {
+  $('[animate-number]').each(function () {
+    const t = $(this);
+    const n = t.attr('animate-number');
+
+    let tl = gsap.timeline({ paused: true });
+    tl.to(t, { innerText: n, snap: { innerText: n.includes('.') ? .1 : 1 }, duration: 3 });
+    createScrollTrigger(t, tl);
+  });
+}
+
 $(document).ready(() => {
-  // init header
-  new Header();
-
-  // init logo marquee component
-  new LogoMarquee();
-
-  // init profile carousel component
-  new ProfileCarousel();
-
-  // init culture carousel component
-  new CultureCarousel();
-
-  // init people carousel component
-  new PeopleCarousel();
-
-  // init gallery carousel component
-  new GalleryCarousel();
-
   gsap.registerPlugin(ScrollTrigger);
   gsap.registerPlugin(ScrollToPlugin);
 
@@ -134,4 +128,28 @@ $(document).ready(() => {
 
     createScrollTrigger($this, tl);
   });
+
+  // init header
+  new Header();
+
+  // init logo marquee component
+  new LogoMarquee();
+
+  // init profile carousel component
+  new ProfileCarousel();
+
+  // init culture carousel component
+  new CultureCarousel();
+
+  // init people carousel component
+  new PeopleCarousel();
+
+  // init gallery carousel component
+  new GalleryCarousel();
+
+  // init statistics component
+  new Stastistics();
+
+  // init animate number
+  initAnimateNumber();
 });
