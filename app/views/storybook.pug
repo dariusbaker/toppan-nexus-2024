@@ -12,10 +12,35 @@ block container
     },
   ])
 
-  +galleryCarouselCard('Title', 'Body', {
-    768: '/images/668x376.jpeg',
-    default: '/images/3000x1516.jpeg',
-  })
+  +galleryCarousel(
+    'COLLABORATIVE FACILITIES',
+    'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Cum sociis natoque penatibus et magnis dis parturient.',
+    [
+      {
+        title: 'Title 1',
+        body: 'Body 1',
+        imgSrcSet: {
+          768: '/images/668x376.jpeg',
+          default: '/images/3000x1516.jpeg',
+        },
+      },
+      {
+        title: 'Title 2',
+        body: 'Body 2',
+        imgSrcSet: {
+          768: '/images/668x376.jpeg',
+          default: '/images/3000x1516.jpeg',
+        },
+      },
+      {
+        title: 'Title 3',
+        body: 'Body 3',
+        imgSrcSet: {
+          768: '/images/668x376.jpeg',
+          default: '/images/3000x1516.jpeg',
+        },
+      },
+    ])
 
   +button({
     icon: 'arrow-circled',

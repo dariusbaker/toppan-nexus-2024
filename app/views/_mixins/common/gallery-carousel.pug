@@ -1,0 +1,57 @@
+//- cards consists of object array with the following field
+//- cards: [
+//-   {
+//-     title: 'title',
+//-     body: 'body',
+//-     imgSrcSet: {
+//-       768: '/images/668x376.jpeg',
+//-       default: '/images/3000x1516.jpeg',
+//-     },
+//-   },
+//- ]
+mixin galleryCarousel(title, body, cards)
+  section.gallery-carousel(gallery-carousel)
+    div.t-container.gallery-carousel__header
+      -
+        const titles = title.split(' ').map((title, index) => {
+          return index % 2 ? `<span class="text-blue">${title}</span>` : title
+        })
+      +animated_header(titles, 'lg').text-black.gallery-carousel__header__title
+
+      p.gallery-carousel__header__body.font-medium= body
+
+    div.gallery-carousel__carousel(gallery-carousel-viewport)
+      each card in cards
+        div.gallery-carousel__carousel__item
+          +galleryCarouselCard(
+            card.title,
+            card.body,
+            card.imgSrcSet
+          )
+
+    div.t-container.gallery-carousel__footer
+      div.gallery-carousel__footer__progress
+        div.gallery-carousel__footer__progress-bar
+        div.gallery-carousel__footer__progress-bar-active(gallery-carousel-progress-bar)
+      div.gallery-carousel__footer__nav
+        +button({
+          icon: 'arrow-right',
+          style: 'primary',
+          size: 'light',
+          reverse: false,
+          large: false,
+          hoverAnimation: false,
+          iconOnly: true,
+          type: 'button'
+        }).gallery-carousel__footer__nav__btn.gallery-carousel__footer__nav__btn--left(gallery-carousel-prev)
+
+        +button({
+          icon: 'arrow-right',
+          style: 'primary',
+          size: 'light',
+          reverse: false,
+          large: false,
+          hoverAnimation: false,
+          iconOnly: true,
+          type: 'button'
+        }).gallery-carousel__footer__nav__btn(gallery-carousel-next)

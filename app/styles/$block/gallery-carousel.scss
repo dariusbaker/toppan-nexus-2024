@@ -1,0 +1,112 @@
+$module: 'gallery-carousel';
+
+.#{$module} {
+  background-color: $color-green;
+  padding-block-start: rem(80);
+  padding-block-end: rem(80);
+
+  @include mq(map-get($grid-breakpoints, 'xl')) {
+    padding-block-start: rem(140);
+    padding-block-end: rem(140);
+  }
+
+  &__header {
+    display: flex;
+    flex-direction: column;
+    margin-block-end: rem(24);
+
+    @include mq(map-get($grid-breakpoints, 'xl')) {
+      margin-block-end: rem(56);
+    }
+
+    @include mq(map-get($grid-breakpoints, 'xl')) {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+
+    &__title {
+      margin-block-end: rem(32);
+
+      @include mq(map-get($grid-breakpoints, 'xl')) {
+        margin-block-end: 0;
+      }
+    }
+
+    &__body {
+      max-width: rem(500);
+      color: $color-gray-900;
+    }
+  }
+
+  &__carousel {
+    margin-block-end: rem(44);
+
+    &__item {
+      width: 88vw;
+
+      padding-inline-start: rem(16);
+
+      @include mq(map-get($grid-breakpoints, 'lg')) {
+        padding-inline-start: rem(32);
+      }
+    }
+  }
+
+  &__footer {
+    display: flex;
+    align-items: center;
+    gap: rem(24);
+
+    &__progress {
+      position: relative;
+      flex: 1 1 auto;
+      height: rem(2);
+
+      &-bar {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        background-color: $color-gray-100;
+      }
+
+      &-bar-active {
+        position: absolute;
+        top: 0;
+        left: 0;
+        content: '';
+        display: block;
+        width: 0;
+        height: 100%;
+        background-color: $color-black;
+
+        transition: width 0.3s ease-in-out;
+      }
+    }
+
+    &__nav {
+      display: none;
+
+      @include mq(map-get($grid-breakpoints, 'lg')) {
+        display: block;
+      }
+
+      &__btn + &__btn {
+        margin-inline-start: rem(10);
+      }
+
+      &__btn {
+        .h-btn__icon {
+          width: rem(24);
+          height: rem(24);
+        }
+
+        &--left {
+          .h-btn__icon {
+            transform: rotate(180deg);
+          }
+        }
+      }
+    }
+  }
+}

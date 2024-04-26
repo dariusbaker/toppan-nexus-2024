@@ -29,8 +29,8 @@ $module: 'gallery-carousel-card';
 
     @include mq(map-get($grid-breakpoints, 'lg')) {
       position: absolute;
-      left: rem(24);
-      bottom: rem(24);
+      left: rem(32);
+      bottom: rem(32);
     }
   }
 
