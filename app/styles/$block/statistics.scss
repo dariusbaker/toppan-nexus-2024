@@ -1,0 +1,96 @@
+$module: 'statistics';
+
+.#{$module} {
+  padding-block-start: rem(76);
+  padding-block-end: rem(76);
+
+  @include mq(map-get($grid-breakpoints, 'lg')) {
+    padding-block-start: rem(116);
+    padding-block-end: rem(116);
+  }
+
+  &__title {
+    margin-block-end: rem(16);
+
+    @include mq(map-get($grid-breakpoints, 'lg')) {
+      margin-block-end: rem(24);
+    }
+  }
+
+  &__desc {
+    color: $color-gray-900;
+    margin-block-end: rem(24);
+
+    @include mq(map-get($grid-breakpoints, 'lg')) {
+      max-width: rem(628);
+      font-size: rem(18);
+      margin-block-end: rem(48);
+    }
+  }
+
+  &__stats {
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    margin-bottom: 0;
+    padding: 0;
+    flex-wrap: nowrap;
+    overflow-y: hidden;
+    overflow-x: auto;
+    scroll-snap-type: x;
+
+    @include mq(map-get($grid-breakpoints, 'lg')) {
+      // TODO: clean this up
+      width: 100%;
+      margin-inline-start: auto;
+      margin-inline-end: auto;
+      padding-inline-start: rem(16);
+      padding-inline-end: rem(16);
+      display: grid;
+      gap: rem(20);
+      overflow: hidden;
+      scroll-snap-type: none;
+      grid-template-columns: repeat(6, minmax(0, 1fr));
+    }
+
+    @include mq(map-get($grid-breakpoints, 'xl')) {
+      max-width: map-get($container-max-widths, 'xl');
+      padding-inline-start: rem(50);
+      padding-inline-end: rem(50);
+    }
+
+    @include mq(map-get($grid-breakpoints, 'xxl')) {
+      max-width: map-get($container-max-widths, 'xxl');
+      padding-inline-start: rem(124);
+      padding-inline-end: rem(124);
+    }
+
+    &__item {
+      width: 88vw;
+      flex-shrink: 0;
+      scroll-snap-align: end;
+      padding: 0 rem(16);
+
+      @include mq(map-get($grid-breakpoints, 'lg')) {
+        max-width: none;
+        width: 100%;
+        padding: 0;
+        grid-column: span 2 / span 2;
+
+        &:nth-child(1),
+        &:nth-child(5) {
+          grid-column: 3 / span 2;
+        }
+      }
+    }
+  }
+
+  &__progress {
+    display: block;
+    width: 100%;
+
+    @include mq(map-get($grid-breakpoints, 'lg')) {
+      display: none;
+    }
+  }
+}

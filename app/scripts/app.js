@@ -9,6 +9,7 @@ import ProfileCarousel from './profile-carousel';
 import CultureCarousel from './culture-carousel';
 import PeopleCarousel from './people-carousel';
 import GalleryCarousel from './gallery-carousel';
+import Stastistics from './statistics';
 
 const DEFAULT_FADE_UP_ANIMATION = {
   delay: .25,
@@ -145,6 +146,9 @@ $(document).ready(() => {
 
   // init gallery carousel component
   new GalleryCarousel();
+
+  // init statistics component
+  new Stastistics();
 
   // init animate number
   initAnimateNumber();

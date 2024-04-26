@@ -1,0 +1,50 @@
+-
+  const stats = [
+    {
+      value: '60',
+      title: 'IPO Market Share',
+      body: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam, voluptates.',
+      valueUnit: '%',
+      theme: 'green',
+    },
+    {
+      value: '500',
+      title: 'Experts Worldwide',
+      body: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam, voluptates.',
+      valueUnit: '+',
+      theme: 'blue-200',
+    },
+    {
+      value: '2.4',
+      title: 'Successful IPO\'s',
+      body: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam, voluptates.',
+      valueUnit: 'K',
+      theme: 'blue-400',
+    },
+    {
+      value: '62',
+      title: 'Fund raised by IPO\'s',
+      body: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam, voluptates.',
+      valueUnit: 'BN',
+      theme: 'blue',
+    },
+    {
+      value: '200',
+      title: 'Fortune 500 Clients',
+      body: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam, voluptates.',
+      valueUnit: '+',
+      theme: 'cyan',
+    }
+  ]
+
+section.statistics(statistics)
+  div.t-container
+    +animated_header(['Exceptional', '<span class="text-blue">Experience</span>']).text-black.statistics__title
+    p.statistics__desc.font-medium
+      | Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Cum sociis natoque penatibus et magnis dis parturient.
+  ul.statistics__stats(statistics-stats)
+    each stat in stats
+      li.statistics__stats__item
+        +statCard(stat)
+  div.t-container.statistics__progress.mt-6
+    +progressBar()(statistics-progress)
