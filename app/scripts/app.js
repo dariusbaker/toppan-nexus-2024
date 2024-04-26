@@ -7,6 +7,7 @@ import Header from './header';
 import LogoMarquee from './logo-marquee';
 import ProfileCarousel from './profile-carousel';
 import CultureCarousel from './culture-carousel';
+import PeopleCarousel from './people-carousel';
 
 const DEFAULT_FADE_UP_ANIMATION = {
   delay: .25,
@@ -104,6 +105,9 @@ $(document).ready(() => {
 
   // init culture carousel component
   new CultureCarousel();
+
+  // init people carousel component
+  new PeopleCarousel();
 
   gsap.registerPlugin(ScrollTrigger);
   gsap.registerPlugin(ScrollToPlugin);

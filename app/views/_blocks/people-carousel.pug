@@ -1,0 +1,98 @@
+//- items consists of object array with the following field
+//- items: [
+//-   {
+//-     img: 'https://via.placeholder.com/150',
+//-     name: 'Title',
+//-     quote: 'Description',
+//-     position: 'Position',
+//-     href: 'https://google.com',
+//-     ctaLabel: 'Learn more'
+//-   },
+//- ]
+
+-
+  const items = [
+    {
+      img: '/images/1640x1800.jpeg',
+      name: 'Jane Doe',
+      quote: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit.',
+      href: 'https://google.com',
+      ctaLabel: 'Learn more',
+      position: 'CTO',
+    },
+    {
+      img: '/images/1640x1800.jpeg',
+      name: 'John Doe',
+      quote : 'Lorem ipsum dolor sit, amet consectetur adipisicing elit.',
+      position: 'Ompa Loompa',
+    },
+    {
+      img: '/images/1640x1800.jpeg',
+      name: 'Title 3',
+      quote: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit.',
+      position: 'yada yada',
+      href: 'https://google.com',
+      ctaLabel: 'Learn more',
+    },
+  ];
+
+section.people-carousel.bg-green(people-carousel data-active-slide=0)
+  div.visually-hidden(aria-live='polite' aria-atomic='true' people-carousel-status)
+    | Item 1 of #{items.length}
+  div.people-carousel__header.t-container
+    div.people-carousel__title
+      +animated_header(['People', '<span class="text-blue">First</span>'], 'lg').text-black
+
+    div.people-carousel__desc.font-medium
+      | Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Cum sociis natoque penatibus et magnis dis parturient.
+  div.people-carousel__wrapper.t-container
+    div.people-carousel__media
+      each item, idx in items
+        div(class=`people-carousel__img-wrapper ${idx === 0 ? 'people-carousel__img-wrapper--active' : ''}`)
+          +img(item.img, item.title)(
+            id=`${carouselId}-img-${idx}`
+            role='presentation'
+          ).people-carousel__img
+    div.people-carousel__content
+      div.people-carousel__slides
+        each item, idx in items
+          div(
+            class=['people-carousel__slide', idx === 0 && 'people-carousel__slide--active']
+          )
+            q.people-carousel__slide-quote.font-bold.mb-3!= item.quote
+
+            cite.people-carousel__slide-cite.font-extrabold.mb-2= item.name
+
+            span.people-carousel__slide-position.font-medium= item.position
+
+            if (item.href && item.ctaLabel)
+              +button({
+                style: 'primary',
+                size: 'large',
+                reverse: false,
+                large: true,
+                hoverAnimation: false,
+              })(href=item.href).mt-12= item.ctaLabel
+
+      div.people-carousel__nav.mt-12
+        +button({
+          icon: 'arrow-right',
+          style: 'primary',
+          size: 'light',
+          reverse: false,
+          large: false,
+          hoverAnimation: false,
+          iconOnly: true,
+          type: 'button'
+        }).people-carousel__nav__btn.people-carousel__nav__btn--left(people-carousel-prev disabled)
+
+        +button({
+          icon: 'arrow-right',
+          style: 'primary',
+          size: 'light',
+          reverse: false,
+          large: false,
+          hoverAnimation: false,
+          iconOnly: true,
+          type: 'button'
+        }).people-carousel__nav__btn(people-carousel-next)

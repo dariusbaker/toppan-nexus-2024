@@ -127,3 +127,14 @@ p:has(button) {
   outline-width: rem(4);
 }
 
+.visually-hidden {
+  position: relative;
+  width: auto;
+  height: auto;
+  margin: inherit;
+  padding: inherit;
+  overflow: hidden;
+  clip: unset;
+  border: inherit;
+}
+
