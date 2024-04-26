@@ -1,0 +1,43 @@
+$module: 'breadcrumbs';
+
+.#{$module} {
+  margin-block-start: rem(24);
+  margin-block-end: rem(24);
+
+  &__list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: rem(8);
+    list-style: none;
+    padding: 0;
+    margin-bottom: 0;
+  }
+
+  &__link,
+  &__text {
+    font-size: rem(14);
+  }
+
+  &__link {
+    color: $color-primary;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+
+    &:focus-visible {
+      @extend .focus-visible-style;
+    }
+  }
+
+  &__text {
+    color: $color-gray-500;
+  }
+
+  &__separator {
+    display: inline-block;
+    font-size: rem(14);
+  }
+}
