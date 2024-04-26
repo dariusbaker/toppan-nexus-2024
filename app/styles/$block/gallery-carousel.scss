@@ -59,29 +59,7 @@ $module: 'gallery-carousel';
     gap: rem(24);
 
     &__progress {
-      position: relative;
       flex: 1 1 auto;
-      height: rem(2);
-
-      &-bar {
-        position: relative;
-        width: 100%;
-        height: 100%;
-        background-color: $color-gray-100;
-      }
-
-      &-bar-active {
-        position: absolute;
-        top: 0;
-        left: 0;
-        content: '';
-        display: block;
-        width: 0;
-        height: 100%;
-        background-color: $color-black;
-
-        transition: width 0.3s ease-in-out;
-      }
     }
 
     &__nav {
