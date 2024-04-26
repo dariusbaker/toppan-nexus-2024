@@ -20,6 +20,10 @@ $module: 'stat-card';
     background-color: $color-blue-200;
   }
 
+  &--blue-400 {
+    background-color: $color-blue-400;
+  }
+
   &--cyan {
     background-color: $color-cyan;
   }
@@ -61,6 +65,10 @@ $module: 'stat-card';
     &-unit {
       font-size: rem(50);
       text-transform: uppercase;
+
+      &--inherit {
+        font-size: inherit;
+      }
     }
 
     &[aria-hidden='true'] {

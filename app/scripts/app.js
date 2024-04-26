@@ -97,11 +97,10 @@ function initServiceFeature($service) {
 function initAnimateNumber() {
   $('[animate-number]').each(function () {
     const t = $(this);
-    console.log(t)
     const n = t.attr('animate-number');
 
     let tl = gsap.timeline({ paused: true });
-    tl.to(t, { innerText: n, snap: { innerText: 1 }, duration: 3 });
+    tl.to(t, { innerText: n, snap: { innerText: n.includes('.') ? .1 : 1 }, duration: 3 });
     createScrollTrigger(t, tl);
   });
 }
