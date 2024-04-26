@@ -14,7 +14,6 @@ mixin statCard(options = {})
         span(animate-number=options.value).font-extrabold
         if options.valueUnit
           span.stat-card__value-unit.font-extrabold(class=unitClass)= options.valueUnit
-    div.stat-card__value-wrapper
       div.stat-card__value(aria-hidden="true")
         span.font-extrabold= options.value
         if options.valueUnit
