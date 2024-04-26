@@ -94,25 +94,19 @@ function initServiceFeature($service) {
   });
 }
 
+function initAnimateNumber() {
+  $('[animate-number]').each(function () {
+    const t = $(this);
+    console.log(t)
+    const n = t.attr('animate-number');
+
+    let tl = gsap.timeline({ paused: true });
+    tl.to(t, { innerText: n, snap: { innerText: 1 }, duration: 3 });
+    createScrollTrigger(t, tl);
+  });
+}
+
 $(document).ready(() => {
-  // init header
-  new Header();
-
-  // init logo marquee component
-  new LogoMarquee();
-
-  // init profile carousel component
-  new ProfileCarousel();
-
-  // init culture carousel component
-  new CultureCarousel();
-
-  // init people carousel component
-  new PeopleCarousel();
-
-  // init gallery carousel component
-  new GalleryCarousel();
-
   gsap.registerPlugin(ScrollTrigger);
   gsap.registerPlugin(ScrollToPlugin);
 
@@ -134,4 +128,25 @@ $(document).ready(() => {
 
     createScrollTrigger($this, tl);
   });
+
+  // init header
+  new Header();
+
+  // init logo marquee component
+  new LogoMarquee();
+
+  // init profile carousel component
+  new ProfileCarousel();
+
+  // init culture carousel component
+  new CultureCarousel();
+
+  // init people carousel component
+  new PeopleCarousel();
+
+  // init gallery carousel component
+  new GalleryCarousel();
+
+  // init animate number
+  initAnimateNumber();
 });

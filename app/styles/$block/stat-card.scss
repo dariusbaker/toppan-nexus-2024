@@ -1,0 +1,77 @@
+$module: 'stat-card';
+
+.#{$module} {
+  display: flex;
+  flex-direction: column;
+  background-color: $color-primary;
+  padding: rem(24);
+  border-radius: rem(20);
+
+  @include mq(map-get($grid-breakpoints, 'lg')) {
+    padding: rem(32);
+    border-radius: rem(40);
+  }
+
+  &--green {
+    background-color: $color-green;
+  }
+
+  &--blue-200 {
+    background-color: $color-blue-200;
+  }
+
+  &--cyan {
+    background-color: $color-cyan;
+  }
+
+  &__value,
+  &__body,
+  &__title {
+    color: $color-white;
+
+    .#{$module}--green &,
+    .#{$module}--cyan & {
+      color: $color-black;
+    }
+  }
+
+  &__body {
+    font-size: rem(14);
+    margin-block-end: rem(16);
+
+    @include mq(map-get($grid-breakpoints, 'lg')) {
+      max-width: 80%;
+      font-size: rem(16);
+      margin-block-end: rem(60);
+    }
+  }
+
+  &__value-wrapper {
+    margin-left: auto;
+  }
+
+  &__value {
+    font-size: rem(70);
+    line-height: 1;
+
+    @include mq(map-get($grid-breakpoints, 'lg')) {
+      font-size: rem(80);
+    }
+
+    &-unit {
+      font-size: rem(50);
+      text-transform: uppercase;
+    }
+
+    &[aria-hidden='true'] {
+      height: 0;
+      opacity: 0;
+    }
+  }
+
+  &__title {
+    @include mq(map-get($grid-breakpoints, 'lg')) {
+      font-size: rem(18);
+    }
+  }
+}

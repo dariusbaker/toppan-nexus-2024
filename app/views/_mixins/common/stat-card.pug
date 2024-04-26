@@ -1,0 +1,20 @@
+//- options: {Object}
+//- options.value: {String}
+//- options.title: {String}
+//- options.body: {String}
+//- options.valueUnit: {String}
+//- options.theme: {String}, blue, green, blue-200, cyan
+mixin statCard(options = {})
+  div(class=`stat-card stat-card--${options.theme}`)
+    div.stat-card__body= options.body
+    div.stat-card__value-wrapper
+      div.stat-card__value
+        span(animate-number=options.value).font-extrabold
+        if options.valueUnit
+          span.stat-card__value-unit.font-extrabold= options.valueUnit
+    div.stat-card__value-wrapper
+      div.stat-card__value(aria-hidden="true")
+        span.font-extrabold= options.value
+        if options.valueUnit
+          span.stat-card__value-unit.font-extrabold= options.valueUnit
+      div.stat-card__title.font-bold= options.title
