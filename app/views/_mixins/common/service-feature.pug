@@ -34,12 +34,16 @@ mixin service_feature_card(options = default_options)
     })(href=options.link_url)= options.link_label
 
 mixin service_feature(header = [], body = '')
-  .service-feature
-    .service-feature__header.mb-12
-      +animated_header(header).mb-4.text-black
-      p.mb-0
-        =body
+  //- this need to be wrap, because the scroller pin 
+  //- will be added in the root otherwise, and it cause
+  //- the scroller to be fixed in the wrong place
+  section
+    .service-feature
+      .service-feature__header.mb-12
+        +animated_header(header).mb-4.text-black
+        p.mb-0
+          =body
 
-    .service-feature__scroller
-      .service-feature__content
-        block
+      .service-feature__scroller
+        .service-feature__content
+          block
