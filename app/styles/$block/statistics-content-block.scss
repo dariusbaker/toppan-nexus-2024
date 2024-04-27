@@ -1,0 +1,116 @@
+$module: 'statistics-content-block';
+
+.#{$module} {
+  &-card {
+    &__value {
+      font-size: rem(70);
+      line-height: 1;
+      color: $color-primary;
+
+      @include mq(map-get($grid-breakpoints, 'lg')) {
+        font-size: rem(80);
+      }
+
+      &-unit {
+        font-size: rem(50);
+        text-transform: uppercase;
+
+        &--inherit {
+          font-size: inherit;
+        }
+      }
+    }
+
+    &__title {
+      font-size: rem(16);
+      color: $color-black;
+
+      @include mq(map-get($grid-breakpoints, 'lg')) {
+        font-size: rem(18);
+      }
+    }
+
+    &__body {
+      font-size: rem(14);
+      margin-bottom: 0;
+      color: $color-gray-500;
+      margin-block-start: rem(16);
+
+      @include mq(map-get($grid-breakpoints, 'lg')) {
+        max-width: rem(370);
+        font-size: rem(16);
+      }
+    }
+  }
+
+  &-wrapper {
+    padding-block-start: rem(70);
+    padding-block-end: rem(70);
+
+    @include mq(map-get($grid-breakpoints, 'lg')) {
+      padding-block-start: rem(140);
+      padding-block-end: rem(140);
+    }
+  }
+
+  &__header {
+    margin-block-end: rem(32);
+
+    @include mq(map-get($grid-breakpoints, 'lg')) {
+      margin-block-end: rem(48);
+    }
+
+    @include mq(map-get($grid-breakpoints, 'xl')) {
+      margin-block-end: rem(60);
+    }
+
+    &__body {
+      color: $color-black;
+      max-width: rem(560);
+      margin-bottom: 0;
+      margin-block-start: rem(32);
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: rem(32);
+
+    @include mq(map-get($grid-breakpoints, 'lg')) {
+      flex-direction: row;
+      justify-content: space-between;
+      gap: rem(64);
+    }
+
+    &__img-wrapper {
+      flex-shrink: 0;
+      position: relative;
+
+      @include mq(map-get($grid-breakpoints, 'lg')) {
+        flex-basis: 64%;
+      }
+    }
+
+    &__img {
+      width: 100%;
+      height: auto;
+    }
+
+    &__stats {
+      list-style: none;
+      margin-bottom: 0;
+      padding: 0;
+
+      &__item {
+        & + & {
+          margin-block-start: rem(24);
+
+          @include mq(map-get($grid-breakpoints, 'lg')) {
+            margin-block-start: rem(56);
+          }
+        }
+      }
+    }
+  }
+}
