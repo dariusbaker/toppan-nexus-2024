@@ -12,7 +12,6 @@ block container
     },
   ])
 
-
   include ./_blocks/statistics-content-block
 
   +contentBlockCard(
@@ -43,6 +42,8 @@ block container
       },
     ],
   })
+
+  +image_wiper('https://placehold.co/1600x900', ['foo', 'bar'])(alt="Foobar" loading="eager")
 
   +contentBlock({
     imgSrcSet: {
