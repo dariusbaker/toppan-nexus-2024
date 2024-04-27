@@ -7,7 +7,7 @@
 mixin statCard(options = {})
   - const unitClass = options.valueUnit === '+' ? 'stat-card__value-unit--inherit' : ''
 
-  div(class=`stat-card stat-card--${options.theme}`)
+  article(class=`stat-card stat-card--${options.theme}`)
     div.stat-card__body= options.body
     div.stat-card__value-wrapper
       div.stat-card__value
