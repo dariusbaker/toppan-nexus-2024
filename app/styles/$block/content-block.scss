@@ -1,0 +1,168 @@
+$module: 'content-block';
+
+.#{$module} {
+  &-card {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: rem(32);
+
+    @include mq(map-get($grid-breakpoints, 'lg')) {
+      gap: rem(56);
+    }
+
+    &__img {
+      width: rem(100);
+      height: auto;
+    }
+
+    &__title,
+    &__body {
+      color: $color-black;
+
+      .#{$module}--blue & {
+        color: $color-white;
+      }
+    }
+
+    &__title {
+      font-size: rem(16);
+
+      @include mq(map-get($grid-breakpoints, 'lg')) {
+        font-size: rem(18);
+      }
+    }
+
+    &__body {
+      font-size: rem(14);
+      margin-bottom: 0;
+
+      @include mq(map-get($grid-breakpoints, 'lg')) {
+        font-size: rem(16);
+      }
+    }
+  }
+
+  &--blue {
+    background-color: $color-primary;
+  }
+
+  &-wrapper {
+    display: flex;
+    flex-direction: column;
+
+    padding-block-start: rem(70);
+    padding-block-end: rem(70);
+    gap: rem(32);
+
+    @include mq(map-get($grid-breakpoints, 'lg')) {
+      flex-direction: row;
+      gap: rem(64);
+      padding-block-start: rem(140);
+      padding-block-end: rem(140);
+    }
+
+    @include mq(map-get($grid-breakpoints, 'xl')) {
+      gap: rem(128);
+    }
+
+    .#{$module}--right & {
+      flex-direction: column-reverse;
+
+      @include mq(map-get($grid-breakpoints, 'lg')) {
+        flex-direction: row-reverse;
+      }
+    }
+  }
+
+  &__media,
+  &__content {
+    position: relative;
+    flex-basis: 100%;
+  }
+
+  &__media {
+    @include mq(map-get($grid-breakpoints, 'lg')) {
+      flex-basis: 48%;
+    }
+  }
+
+  &__content {
+    @include mq(map-get($grid-breakpoints, 'lg')) {
+      flex-basis: 52%;
+    }
+  }
+
+  &__img-wrapper {
+    position: relative;
+    display: block;
+    flex-shrink: 0;
+    width: 100%;
+    height: rem(240);
+
+    border-radius: rem(40);
+    overflow: hidden;
+
+    @include mq(map-get($grid-breakpoints, 'lg')) {
+      height: auto;
+    }
+  }
+
+  &__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  &__title {
+    margin-block-start: 0;
+    margin-block-end: rem(32);
+
+    @include mq(map-get($grid-breakpoints, 'lg')) {
+      margin-block-start: rem(32);
+    }
+
+    @include mq(map-get($grid-breakpoints, 'xl')) {
+      margin-block-start: rem(48);
+    }
+  }
+
+  &__body,
+  &__cards {
+    max-width: 100%;
+
+    @include mq(map-get($grid-breakpoints, 'lg')) {
+      max-width: rem(560);
+    }
+  }
+
+  &__body {
+    color: $color-black;
+
+    .#{$module}--blue & {
+      color: $color-white;
+    }
+  }
+
+  &__cards {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 0;
+
+    margin-block-start: rem(48);
+
+    @include mq(map-get($grid-breakpoints, 'lg')) {
+      margin-block-start: rem(64);
+    }
+
+    @include mq(map-get($grid-breakpoints, 'xl')) {
+      margin-block-start: rem(100);
+    }
+
+    &__item {
+      & + & {
+        margin-block-start: rem(16);
+      }
+    }
+  }
+}
