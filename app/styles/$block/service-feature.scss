@@ -1,6 +1,12 @@
 $module: 'service-feature';
 
 .#{$module} {
+  &-wrapper {
+    // https://gsap.com/community/forums/topic/31924-scrolltrigger-resizing-issue-with-pin/?do=findComment&comment=159693
+    // full width without scrollbar
+    width: calc(100vw - (100vw - 100%));
+  }
+
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
