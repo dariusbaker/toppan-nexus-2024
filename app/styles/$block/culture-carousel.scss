@@ -175,7 +175,7 @@ $module: 'culture-carousel';
   }
 
   &__panel {
-    max-width: 100%;
+    width: 100%;
     flex-shrink: 0;
     opacity: 0;
     transform: translateY(#{rem(-16)});
@@ -194,6 +194,14 @@ $module: 'culture-carousel';
 
     .#{$module}--white & {
       color: $color-black;
+    }
+
+    &-desc {
+      width: 100%;
+
+      @include mq(map-get($grid-breakpoints, 'lg')) {
+        max-width: rem(560);
+      }
     }
   }
 }
