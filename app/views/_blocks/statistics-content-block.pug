@@ -1,0 +1,42 @@
+-
+  const statsItems = [
+    {
+      value: '500',
+      title: 'Experts Worldwide',
+      body: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam, voluptates.',
+      unit: '+'
+    },
+    {
+      value: '120',
+      title: 'In-House Translators',
+      body: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam, voluptates.',
+      unit: '+'
+    }
+  ];
+
+mixin statisticsContentBlockCard(value, unit, title, body)
+  - const unitClass = unit === '+' ? 'statistics-content-block-card__value-unit--inherit' : ''
+  article.statistics-content-block-card
+    div.statistics-content-block-card__value
+      span(animate-number=value).font-extrabold
+      if unit
+        span.statistics-content-block-card__value-unit.font-extrabold(class=unitClass)= unit
+    div.statistics-content-block-card__title.font-extrabold= title
+    p.statistics-content-block-card__body.font-medium!= body
+
+section.statistics-content-block
+  div.t-container.statistics-content-block-wrapper
+    div.statistics-content-block__header
+      +animated_header(['A truly', '<span class="text-blue">Global Team</span>'], 'lg').statistics-content-block__header__title.text-black
+      p.statistics-content-block__header__body.font-medium
+        | Our team is spread across the globe, with a diverse range of backgrounds and experiences. We are united by our passion for technology and our commitment to delivering the best possible service to our clients.
+    div.statistics-content-block__content
+      div.statistics-content-block__content__img-wrapper
+        +picture({
+          default: '/images/1040x600.jpeg'
+        }, title).statistics-content-block__content__img
+
+      ul.statistics-content-block__content__stats
+        each stat in statsItems
+          li.statistics-content-block__content__stats__item
+            +statisticsContentBlockCard(stat.value, stat.unit, stat.title, stat.body)
