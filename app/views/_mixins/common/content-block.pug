@@ -1,0 +1,43 @@
+mixin contentBlockCard(img, title, body)
+  article.content-block-card
+    +img(img, title).content-block-card__img
+    div.content-block-card__content
+      h3.content-block-card__title.font-extrabold= title
+      p.content-block-card__body.font-medium= body
+
+//- options: {Object}
+//- options.imgSrcSet: {Object}
+//- options.imgSrcSet.768: '/images/668x376.jpeg',
+//- options.imgSrcSet.default: '/images/3000x1516.jpeg',
+//- options.title: {String}
+//- options.body: {String}
+//- options.theme: {String}, blue, white(default)
+//- options.mediaPos: {String}, right, left(default)
+//- options.cards: {Array(Object)}
+//- options.cards[0].title: {String}
+//- options.cards[0].body: {String}
+//- options.cards[0].img: {String}
+mixin contentBlock(options={})
+  - const theme = options.theme || 'white'
+  - const mediaPos = options.mediaPos || 'left'
+
+  section(class=`content-block content-block--${theme} content-block--${mediaPos}`)
+    div.t-container.content-block-wrapper
+      div.content-block__media
+        div.content-block__img-wrapper
+          +picture(options.imgSrcSet, options.title).content-block__img
+      div.content-block__content
+        -
+          const titles = options.title.split('\n').map((title, index) => {
+            const className = theme === 'white' ? 'text-blue' : 'text-cyan';
+            return index % 2 ? `<span class="${className}">${title}</span>` : title
+          })
+
+        +animated_header(titles, 'lg')(class=`content-block__title ${theme === 'white' ? 'text-black' : 'text-white'}`)
+
+        div.content-block__body.font-medium!= options.body
+        if options.cards
+          ul.content-block__cards
+            each card in options.cards
+              li.content-block__cards__item
+                +contentBlockCard(card.img, card.title, card.body)
