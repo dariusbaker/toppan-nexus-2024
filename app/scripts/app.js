@@ -129,6 +129,17 @@ $(document).ready(() => {
     createScrollTrigger($this, tl);
   });
 
+  $('[animate-wipe]').each(function() {
+    const $this = $(this);
+    const $mask = $('.image-wiper__mask', this);
+
+    let tl = gsap.timeline({ paused: true });
+    tl.from($this, { y: 50, opacity: 0 });
+    tl.to($mask, { ease: 'power1.out', scaleX: 0, duration: 0.25 }, 0.5);
+
+    createScrollTrigger($this, tl);
+  });
+
   // init header
   new Header();
 
