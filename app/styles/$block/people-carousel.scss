@@ -141,6 +141,7 @@ $module: 'people-carousel';
       font-size: rem(32);
       line-height: 1;
       color: $color-primary;
+      word-break: break-word;
 
       &::before {
         content: '“';
