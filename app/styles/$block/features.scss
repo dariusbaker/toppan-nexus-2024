@@ -1,0 +1,139 @@
+$module: 'features';
+
+.#{$module} {
+  .nav {
+    flex-direction: column;
+    gap: rem(32);
+  }
+
+  .nav-link {
+    padding: 0;
+    color: $color-white;
+
+    &.active {
+      color: $color-cyan;
+    }
+  }
+
+  &__header {
+    padding-block-start: rem(72);
+
+    @include mq(map-get($grid-breakpoints, 'lg')) {
+      padding-block-start: rem(144);
+    }
+  }
+
+  &__body {
+    margin-block-start: rem(32);
+
+    @include mq(map-get($grid-breakpoints, 'lg')) {
+      margin-block-start: rem(48);
+      margin-inline-start: rem(48);
+    }
+  }
+
+  &__section {
+    padding-block-start: rem(72);
+    padding-block-end: rem(72);
+
+    @include mq(map-get($grid-breakpoints, 'lg')) {
+      padding-block-start: rem(144);
+      padding-block-end: rem(144);
+    }
+
+    &__content {
+      padding-block-start: rem(24);
+
+      @include mq(map-get($grid-breakpoints, 'lg')) {
+        padding-inline-start: rem(40);
+        padding-block-start: rem(40);
+      }
+    }
+  }
+
+  &__mosaic {
+    display: grid;
+    grid-template-areas:
+      "a a"
+      "a a"
+      "b c";
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: rem(8);
+
+    @include mq(map-get($grid-breakpoints, 'lg')) {
+      aspect-ratio: 814 / 380;
+      grid-template-areas:
+        "a a b"
+        "a a c"
+        "a a c";
+      grid-template-columns: repeat(3, 1fr);
+
+      &--flip {
+        grid-template-areas:
+          "a c c"
+          "b c c"
+          "b c c";
+      }
+    }
+
+    &__image {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    & > * {
+      width: 100%;
+      height: 100%;
+      border-radius: rem(30);
+      overflow: hidden;
+
+      &:nth-child(1) {
+        aspect-ratio: 374 / 222;
+        grid-area: a;
+      }
+
+      &:nth-child(2) {
+        aspect-ratio: 182 / 106;
+        grid-area: b;
+      }
+
+      &:nth-child(3) {
+        aspect-ratio: 182 / 106;
+        grid-area: c
+      }
+
+      @include mq(map-get($grid-breakpoints, 'lg')) {
+        border-radius: rem(20);
+
+        &:nth-child(1) {
+          aspect-ratio: 504 / 380;
+        }
+
+        &:nth-child(2) {
+          aspect-ratio: 300 / 150;
+        }
+
+        &:nth-child(3) {
+          aspect-ratio: 300 / 220;
+        }
+      }
+    }
+
+    @include mq(map-get($grid-breakpoints, 'lg')) {
+      &--flip & > *:nth-child(1) {
+        aspect-ratio: 300 / 150;
+      }
+
+      &--flip & > *:nth-child(2) {
+        aspect-ratio: 300 / 220;
+      }
+
+      &--flip & > *:nth-child(3) {
+        aspect-ratio: 504 / 380;
+      }
+    }
+  }
+}
