@@ -140,6 +140,46 @@ $(document).ready(() => {
     createScrollTrigger($this, tl);
   });
 
+  $('.features').each(function() {
+    const $this = $(this);
+    const $header = $this.find('.features__header');
+    const $title = $this.find('.features__title');
+    const $body = $this.find('.features__body');
+    const $nav = $this.find('.features__nav');
+    const $content = $this.find('.features__content');
+
+    ScrollTrigger.matchMedia({
+      '(min-width: 1024px)'() {
+        let tl = gsap.timeline({ paused: true });
+
+        tl.to($title, {fontSize: 20, ease: 'expo.easeOut', duration: .25});
+        tl.to($body, {opacity: 0, duration: .25}, 0);
+
+        ScrollTrigger.create({
+          trigger: $this,
+          pin: $header,
+          start: 'top top',
+          end: 'bottom bottom',
+          pinSpacing: false,
+        });
+
+        ScrollTrigger.create({
+          trigger: $content,
+          start: 'top 300px',
+          onEnter: () => tl.play(),
+          onLeaveBack: () => tl.reverse(),
+        });
+
+        ScrollTrigger.create({
+          trigger: $content,
+          pin: $nav,
+          start: 'top top',
+          end: 'bottom bottom',
+        });
+      },
+    });
+  });
+
   // init header
   new Header();
 
