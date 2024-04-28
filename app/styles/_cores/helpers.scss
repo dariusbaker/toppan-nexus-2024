@@ -108,19 +108,35 @@ p:has(button) {
 
 @for $i from 0 through 100 {
   .mt-#{$i} {
-    margin-top: #{rem($i * 4)}
+    margin-block-start: #{rem($i * 4)}
   }
 
   .mr-#{$i} {
-    margin-right: #{rem($i * 4)}
+    margin-inline-end: #{rem($i * 4)}
   }
 
   .mb-#{$i} {
-    margin-bottom: #{rem($i * 4)}
+    margin-block-end: #{rem($i * 4)}
   }
 
   .ml-#{$i} {
-    margin-left: #{rem($i * 4)}
+    margin-inline-start: #{rem($i * 4)}
+  }
+
+  .pt-#{$i} {
+    padding-block-start: #{rem($i * 4)}
+  }
+
+  .pr-#{$i} {
+    padding-inline-end: #{rem($i * 4)}
+  }
+
+  .pb-#{$i} {
+    padding-block-end: #{rem($i * 4)}
+  }
+
+  .pl-#{$i} {
+    padding-inline-start: #{rem($i * 4)}
   }
 }
 
