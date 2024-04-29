@@ -92,28 +92,34 @@ $module: 'testimonials-carousel';
 
     @include mq(map-get($grid-breakpoints, 'lg')) {
       flex-direction: row;
-      gap: rem(50);
+      flex-wrap: nowrap;
     }
 
     @include mq(map-get($grid-breakpoints, 'xl')) {
+      gap: rem(64);
+    }
+
+    @include mq(map-get($grid-breakpoints, 'xxl')) {
       gap: rem(106);
     }
 
     &__left {
       &-wrapper {
+        display: block;
+        flex-shrink: 0;
         overflow: hidden;
-
         height: rem(300);
+        margin: 0 auto;
 
         @include mq(map-get($grid-breakpoints, 'lg')) {
           height: rem(600);
+          flex-basis: 55%;
         }
       }
 
       display: flex;
       flex-direction: row;
       align-items: flex-end;
-      gap: rem(24);
 
       transition: transform 125ms ease-in-out;
 
@@ -122,7 +128,6 @@ $module: 'testimonials-carousel';
       }
 
       @include mq(map-get($grid-breakpoints, 'lg')) {
-        flex-basis: 66%;
         flex-direction: row-reverse;
       }
 
@@ -130,6 +135,7 @@ $module: 'testimonials-carousel';
         position: relative;
         width: rem(100);
         height: rem(240);
+        margin: 0 rem(12);
 
         @include mq(map-get($grid-breakpoints, 'lg')) {
           width: rem(250);
@@ -139,8 +145,6 @@ $module: 'testimonials-carousel';
         flex-shrink: 0;
         transition: opacity 125ms linear, width 300ms ease-out;
         overflow: hidden;
-
-        transform-origin: bottom center;
 
         &__img {
           width: 100%;
@@ -158,12 +162,10 @@ $module: 'testimonials-carousel';
           }
         }
 
-        // &--right {
-        //   transition: transform 125ms ease-in-out, opacity 125ms linear 125ms;
-        // }
-
         &--inactive {
-          opacity: 0;
+          @include mq(map-get($grid-breakpoints, 'lg')) {
+            opacity: 0;
+          }
         }
       }
     }
@@ -176,7 +178,7 @@ $module: 'testimonials-carousel';
 
       @include mq(map-get($grid-breakpoints, 'lg')) {
         padding-inline-start: 0;
-        flex-basis: 34%;
+        max-width: 45%;
       }
 
       @include mq(map-get($grid-breakpoints, 'xl')) {

@@ -92,7 +92,6 @@ export default class TestimonialsCarousel {
   }
 
   _updateSlide() {
-    this._$mediaCarouselCards.removeClass(CLASSES.MEDIA_CARD_IDLE);
     this._$mediaCarouselCards.removeClass(CLASSES.MEDIA_CARD_INACTIVE);
     this._$mediaCarouselCards.removeClass(CLASSES.MEDIA_CARD_RIGHT);
     this._$mediaCarousel.removeClass(CLASSES.MEDIA_CAROUSEL_LEFT);
@@ -121,7 +120,9 @@ export default class TestimonialsCarousel {
       if (!this._isMobile) {
         this._$mediaCarousel.css('transform', `translateX(${(this._currentSlide * this._currentMediaSlideWidth) + (this._currentSlide * 24)}px)`);
       } else {
-        this._$mediaCarousel.css('transform', `translateX(${(this._currentSlide * -this._currentMediaSlideWidth) + (this._currentSlide * -24)}px)`);
+        if (window.innerWidth < this._$mediaCarousel.width()) {
+          this._$mediaCarousel.css('transform', `translateX(${(this._currentSlide * -this._currentMediaSlideWidth) + (this._currentSlide * -24)}px)`);
+        }
       }
     });
   }
