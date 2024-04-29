@@ -129,7 +129,7 @@ $module: 'our-values';
       max-height: 0;
       overflow: hidden;
       border-block-start: rem(1) solid $color-gray-200;
-      transition: max-height 300ms ease-out, background-color 300ms linear;
+      transition: max-height 300ms ease-out, background-color 300ms linear, border 125ms linear 300ms;
       color: $color-white;
       background-color: $color-white;
       padding-inline-start: rem(72);
