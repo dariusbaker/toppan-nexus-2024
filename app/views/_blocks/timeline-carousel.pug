@@ -1,0 +1,57 @@
+-
+  const timelineCards = [
+    {
+      year: 1987,
+      title: 'Vite Ltd founded in Hong Kong',
+      body: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
+    },
+    {
+      year: 2002,
+      title: 'TOPPAN Leefung acquires Vite Ltd',
+      body: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
+    },
+    {
+      year: 2002,
+      title: 'SNP Corp acquired Vite Ltd',
+      body: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
+    }
+  ];
+
+mixin timeline_carousel_card(year, title, body, theme = 'cyan')
+  article(class=`timeline-carousel-card timeline-carousel-card--${theme}`)
+    p.timeline-carousel-card__year.font-extrabold= year
+    h3.timeline-carousel-card__title.font-extrabold= title
+    p.timeline-carousel-card__body.font-medium= body
+
+section.timeline-carousel(timeline-carousel)
+  div.timeline-carousel__header
+    +animated_header(['Embracing', '<span class="text-cyan">change</span>']).text-white.timeline-carousel__header__title
+    p.timeline-carousel__header__body.text-white
+      | We have been through a lot of changes over the years. Here are some of the key milestones in our journey.
+
+    div.timeline-carousel__header__nav.mt-12
+        +button({
+          icon: 'arrow-right',
+          style: 'secondary',
+          size: 'light',
+          reverse: false,
+          large: false,
+          hoverAnimation: false,
+          iconOnly: true,
+          type: 'button'
+        }).timeline-carousel__header__nav__btn.timeline-carousel__header__nav__btn--left(timeline-carousel-prev disabled)
+
+        +button({
+          icon: 'arrow-right',
+          style: 'secondary',
+          size: 'light',
+          reverse: false,
+          large: false,
+          hoverAnimation: false,
+          iconOnly: true,
+          type: 'button'
+        }).timeline-carousel__header__nav__btn(timeline-carousel-next)
+  div.timeline-carousel__content
+    each card, idx in timelineCards
+      div.timeline-carousel__content__card
+        +timeline_carousel_card(card.year, card.title, card.body, idx % 2 === 0 ? 'cyan' : 'green')
