@@ -1,0 +1,44 @@
+-
+  const valuesItem = [
+    {
+      title: 'RESPONSIBILITY',
+      content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+      icon: 'arrow-trend-up'
+    },
+    {
+      title: 'Team work',
+      content: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa sociis natoque.',
+      icon: 'arrow-trend-up'
+    },
+    {
+      title: 'Transparency',
+      content: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa sociis natoque.',
+      icon: 'arrow-trend-up'
+    },
+    {
+      title: 'Continuous improvement',
+      content: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa sociis natoque.',
+      icon: 'arrow-trend-up'
+    },
+  ]
+
+section.our-values
+  div.t-container.our-values-wrapper
+    div.our-values__header
+      +animated_header(['Our', '<span class="text-blue">Values</span>']).text-black.our-values__header__title
+
+      p.our-values__header__body
+        | Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa sociis natoque.
+    ol.our-values__content
+      each item, idx in valuesItem
+        li.our-values__content__item
+          details.our-values__content__details(name="our-values-content")
+            summary(role="term" aria-details=`our-values-content-${idx}`).our-values__content__summary
+              span.our-values__content__icon-toggler
+                i.fa-regular.fa-arrow-right
+              span.our-values__content__title.font-extrabold= item.title
+              span.our-values__content__icon
+                i(class=`fa-regular fa-${item.icon}`)
+          div(role="definition" id=`our-values-content-${idx}`).font-medium.our-values__content__content(class=`${idx === valuesItem.length - 1 ? 'our-values__content__content--no-divider' : ''}`)!= item.content
+
+
