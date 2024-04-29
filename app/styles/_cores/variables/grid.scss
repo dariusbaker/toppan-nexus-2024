@@ -1,20 +1,24 @@
 $rem: 10px;
 
+$padding-inline: 16;
+$padding-inline-xl: 50;
+$padding-inline-xxl: 124;
+
 $grid-breakpoints: (
   xs: 0,
   sm: 576px,
   md: 768px,
   lg: 992px,
   xl: 1300px,
-  xxl: 1550px
+  xxl: 1600px
 );
 
 $container-max-widths: (
   sm: 540px,
   md: 720px,
   lg: 960px,
-  xl: 1350px,
-  xxl: 1798px
+  xl: 1250px,
+  xxl: 1550px
 );
 
 $grid-gutter-width: 30px;

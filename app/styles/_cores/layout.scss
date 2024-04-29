@@ -2,18 +2,18 @@
   width: 100%;
   margin-inline-start: auto;
   margin-inline-end: auto;
-  padding-inline-start: rem(16);
-  padding-inline-end: rem(16);
+  padding-inline-start: #{rem($padding-inline)};
+  padding-inline-end: #{rem($padding-inline)};
 
   @include mq(map-get($grid-breakpoints, 'xl')) {
     max-width: map-get($container-max-widths, 'xl');
-    padding-inline-start: rem(50);
-    padding-inline-end: rem(50);
+    padding-inline-start: #{rem($padding-inline-xl)};
+    padding-inline-end: #{rem($padding-inline-xl)};
   }
 
   @include mq(map-get($grid-breakpoints, 'xxl')) {
     max-width: map-get($container-max-widths, 'xxl');
-    padding-inline-start: rem(124);
-    padding-inline-end: rem(124);
+    padding-inline-start: #{rem($padding-inline-xxl)};
+    padding-inline-end: #{rem($padding-inline-xxl)};
   }
 }
