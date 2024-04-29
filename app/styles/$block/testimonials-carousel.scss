@@ -1,0 +1,239 @@
+$module: 'testimonials-carousel';
+
+.#{$module} {
+  overflow: hidden;
+  padding-block-start: rem(70);
+  padding-block-end: rem(70);
+
+  @include mq(map-get($grid-breakpoints, 'lg')) {
+    padding-block-start: rem(140);
+    padding-block-end: rem(140);
+  }
+
+  &-card {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+    &__image {
+      height: rem(64);
+      width: fit-content;
+      margin-block-end: rem(24);
+    }
+
+    &__body {
+      color: $color-black;
+      font-size: rem(16);
+
+      @include mq(map-get($grid-breakpoints, 'lg')) {
+        font-size: rem(20);
+      }
+    }
+
+    &__author {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: rem(16);
+      margin-block-start: rem(24);
+    }
+
+    &__avatar {
+      position: relative;
+      width: rem(40);
+      height: rem(40);
+      overflow: hidden;
+      border-radius: 50%;
+
+      img {
+        width: 100%;
+        height: 100%;
+
+        object-fit: cover;
+      }
+    }
+
+    &__author-name,
+    &__author-job-title {
+      color: $color-black;
+      margin-bottom: 0;
+    }
+
+    &__author-name {
+      font-size: rem(14);
+    }
+
+    &__author-job-title {
+      font-size: rem(12);
+    }
+  }
+
+  &__header {
+    &__title {
+      margin-block-end: rem(24);
+    }
+
+    &__body {
+      padding: 0;
+      margin-block-end: rem(24);
+      font-size: rem(16);
+      max-width: rem(500);
+
+      @include mq(map-get($grid-breakpoints, 'lg')) {
+        font-size: rem(18);
+      }
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: rem(32);
+
+    @include mq(map-get($grid-breakpoints, 'lg')) {
+      flex-direction: row;
+      gap: rem(50);
+    }
+
+    @include mq(map-get($grid-breakpoints, 'xl')) {
+      gap: rem(106);
+    }
+
+    &__left {
+      &-wrapper {
+        overflow: hidden;
+
+        height: rem(300);
+
+        @include mq(map-get($grid-breakpoints, 'lg')) {
+          height: rem(600);
+        }
+      }
+
+      display: flex;
+      flex-direction: row;
+      align-items: flex-end;
+      gap: rem(24);
+
+      transition: transform 125ms ease-in-out;
+
+      &--left {
+        transition: transform 125ms ease-in-out 125ms;
+      }
+
+      @include mq(map-get($grid-breakpoints, 'lg')) {
+        flex-basis: 66%;
+        flex-direction: row-reverse;
+      }
+
+      &__card {
+        position: relative;
+        width: rem(100);
+        height: rem(240);
+
+        @include mq(map-get($grid-breakpoints, 'lg')) {
+          width: rem(250);
+          height: rem(340);
+        }
+        border-radius: rem(20);
+        flex-shrink: 0;
+        transition: opacity 125ms linear, width 300ms ease-out;
+        overflow: hidden;
+
+        transform-origin: bottom center;
+
+        &__img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+
+        &--active {
+          width: rem(150);
+          height: rem(300);
+
+          @include mq(map-get($grid-breakpoints, 'lg')) {
+            width: rem(300);
+            height: rem(600);
+          }
+        }
+
+        // &--right {
+        //   transition: transform 125ms ease-in-out, opacity 125ms linear 125ms;
+        // }
+
+        &--inactive {
+          opacity: 0;
+        }
+      }
+    }
+
+    &__right {
+      position: relative;
+      margin-block-start: rem(48);
+      padding-inline-start: #{rem($padding-inline)};
+      padding-inline-end: #{rem($padding-inline)};
+
+      @include mq(map-get($grid-breakpoints, 'lg')) {
+        padding-inline-start: 0;
+        flex-basis: 34%;
+      }
+
+      @include mq(map-get($grid-breakpoints, 'xl')) {
+        padding-inline-end: calc(((100vw - #{map-get($container-max-widths, 'xl')})/2) + #{rem($padding-inline-xl)});
+        padding-inline-start: 0;
+      }
+
+      @include mq(map-get($grid-breakpoints, 'xxl')) {
+        padding-inline-end: calc(((100vw - #{map-get($container-max-widths, 'xxl')})/2) + #{rem($padding-inline-xxl)});
+        padding-inline-start: 0;
+      }
+    }
+
+    &__cards {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+    }
+
+    &__card {
+      flex-shrink: 0;
+      width: 100%;
+
+      opacity: 0;
+      transform: translateY(#{rem(-16)});
+
+      &--active {
+        transition: transform 125ms ease-in-out, opacity 125ms linear;
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+  }
+
+  &__nav {
+    text-align: center;
+    margin-block-start: rem(48);
+
+    @include mq(map-get($grid-breakpoints, 'lg')) {
+      text-align: left;
+    }
+
+    &__btn + &__btn {
+      margin-inline-start: rem(10);
+    }
+
+    &__btn {
+      .h-btn__icon {
+        width: rem(24);
+        height: rem(24);
+      }
+
+      &--left {
+        .h-btn__icon {
+          transform: rotate(180deg);
+        }
+      }
+    }
+  }
+}

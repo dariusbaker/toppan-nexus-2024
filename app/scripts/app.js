@@ -11,6 +11,7 @@ import PeopleCarousel from './people-carousel';
 import GalleryCarousel from './gallery-carousel';
 import Stastistics from './statistics';
 import TimelineCarousel from './timeline-carousel';
+import TestimonialsCarousel from './testimonials-carousel';
 
 const DEFAULT_FADE_UP_ANIMATION = {
   delay: .25,
@@ -207,4 +208,7 @@ $(document).ready(() => {
 
   // init timeline carousel component
   new TimelineCarousel();
+
+  // init testimonials carousel component
+  new TestimonialsCarousel();
 });
