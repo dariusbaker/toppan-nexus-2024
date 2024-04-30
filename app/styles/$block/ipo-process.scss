@@ -1,0 +1,145 @@
+$module: 'ipo-process';
+
+.#{$module} {
+  &-card {
+    background-color: $color-primary;
+    border-radius: rem(20);
+    padding: rem(24) rem(24) 0 rem(24);
+
+    @include mq(map-get($grid-breakpoints, 'lg')) {
+      border-radius: rem(40);
+      padding: rem(32) rem(32) 0 rem(32);
+    }
+
+    @include mq(map-get($grid-breakpoints, 'xl')) {
+      padding: rem(52) rem(52) 0 rem(52);
+    }
+
+    &--green {
+      background-color: $color-green;
+    }
+
+    &--blue-400 {
+      background-color: $color-blue-400;
+    }
+
+    &--blue-100 {
+      background-color: $color-blue-100;
+    }
+
+    &__eyebrow {
+      color: $color-white;
+      font-size: rem(50);
+      line-height: 1;
+
+      @include mq(map-get($grid-breakpoints, 'lg')) {
+        font-size: rem(80);
+      }
+
+      .#{$module}-card--blue-100 &,
+      .#{$module}-card--green & {
+        color: $color-black;
+      }
+    }
+
+    &__content {
+      display: flex;
+      flex-direction: column;
+      gap: rem(24);
+
+      @include mq(map-get($grid-breakpoints, 'lg')) {
+        flex-direction: row;
+        gap: rem(60);
+      }
+
+      @include mq(map-get($grid-breakpoints, 'xl')) {
+        gap: rem(80);
+      }
+
+      @include mq(map-get($grid-breakpoints, 'xxl')) {
+        gap: rem(130);
+      }
+
+      &-left {
+        flex-shrink: 0;
+        @include mq(map-get($grid-breakpoints, 'lg')) {
+          flex-basis: 50%;
+          margin-block-start: rem(180);
+        }
+      }
+
+      &__img-wrapper {
+        width: 100%;
+        height: rem(240);
+        border-radius: rem(20);
+        overflow: hidden;
+
+        @include mq(map-get($grid-breakpoints, 'lg')) {
+          height: rem(530);
+          margin-inline-start: rem(24);
+          border-bottom-left-radius: 0;
+          border-bottom-right-radius: 0;
+        }
+      }
+
+      &__img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      &-right {
+        @include mq(map-get($grid-breakpoints, 'lg')) {
+          flex-basis: 50%;
+        }
+      }
+
+      &__title {
+        margin-block-end: rem(32);
+
+        @include mq(map-get($grid-breakpoints, 'lg')) {
+          margin-block-end: rem(64);
+        }
+
+        @include mq(map-get($grid-breakpoints, 'xl')) {
+          margin-block-end: rem(150);
+        }
+      }
+
+      &__body {
+        max-width: rem(500);
+        font-size: rem(16);
+        margin-block-end: rem(24);
+
+        @include mq(map-get($grid-breakpoints, 'lg')) {
+          font-size: rem(18);
+        }
+      }
+    }
+  }
+
+  &__header {
+    text-align: center;
+    margin-block-end: rem(32);
+
+    &__title {
+      margin-block-end: rem(16);
+    }
+
+    &__body {
+      max-width: rem(400);
+    }
+  }
+
+  &__cards {
+    list-style: none;
+    margin-bottom: 0;
+    padding: 0;
+
+    &__card {
+      & + & {
+        margin-block-start: rem(48);
+      }
+    }
+  }
+}

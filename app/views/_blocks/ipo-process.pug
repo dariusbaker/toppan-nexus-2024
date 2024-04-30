@@ -1,0 +1,67 @@
+-
+  const ipoProcessCards = [
+    {
+      eyebrow: '01',
+      title: 'Establish\n& Prepare',
+      body: '<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa cum sociis natoque penatibus et magnis dis parturient montes</p><p>Nascetur ridiculus mus. Donec quam felis ultricies nec pellentesque eu pretium quis sema.</p>',
+      imgSrcSet: {
+        default: '/images/1452x1060.jpeg',
+      },
+      theme: 'green'
+    },
+    {
+      eyebrow: '02',
+      title: 'Design\n& Proof',
+      body: '<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa cum sociis natoque penatibus et magnis dis parturient montes</p><p>Nascetur ridiculus mus. Donec quam felis ultricies nec pellentesque eu pretium quis sema.</p>',
+      imgSrcSet: {
+        default: '/images/1452x1060.jpeg',
+      },
+      theme: 'blue'
+    },
+    {
+      eyebrow: '03',
+      title: 'Document\nSubmission',
+      body: '<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa cum sociis natoque penatibus et magnis dis parturient montes</p><p>Nascetur ridiculus mus. Donec quam felis ultricies nec pellentesque eu pretium quis sema.</p>',
+      imgSrcSet: {
+        default: '/images/1452x1060.jpeg',
+      },
+      theme: 'blue-100'
+    },
+    {
+      eyebrow: '04',
+      title: 'Print\n& Deliver',
+      body: '<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa cum sociis natoque penatibus et magnis dis parturient montes</p><p>Nascetur ridiculus mus. Donec quam felis ultricies nec pellentesque eu pretium quis sema.</p>',
+      imgSrcSet: {
+        default: '/images/1452x1060.jpeg',
+      },
+      theme: 'blue-400'
+    }
+  ]
+
+//- theme options: blue, green, blue-400, blue-100
+mixin ipo_process_card(eyebrow, title, body, imgSrcSet, theme='blue')
+  article(class=`ipo-process-card ipo-process-card--${theme}`)
+    -
+      const titles = title.split('\n').map((title, index) => {
+          const className = theme === 'blue' || theme === 'blue-400' ? 'text-cyan' : 'text-blue';
+          return index % 2 ? `<span class="${className}">${title}</span>` : title
+        })
+    div.ipo-process-card__eyebrow.font-extrabold= eyebrow
+    div.ipo-process-card__content
+      div.ipo-process-card__content-left
+        div.ipo-process-card__content__img-wrapper
+          +picture(imgSrcSet, title).ipo-process-card__content__img
+      div.ipo-process-card__content-right
+        +animated_header(titles, 'lg')(class=`ipo-process-card__content__title text-${theme === 'blue' || theme === 'blue-400' ? 'white' : 'black'}`)
+        div(class=`ipo-process-card__content__body text-${theme === 'blue' || theme === 'blue-400' ? 'white' : 'black'} font-medium`)!= body
+
+section.ipo-process
+  div.t-container.ipo-process-wrapper
+    div.ipo-process__header
+      +animated_header(['The IPO', '<span class="text-blue">Process</span>']).text-black.ipo-process__header__title
+      p.ipo-process__header__body.font-medium
+      | Streamlining a complex process at your most critical moments.
+    ol.ipo-process__cards
+      each card in ipoProcessCards
+        li.ipo-process__cards__card
+          +ipo_process_card(card.eyebrow, card.title, card.body, card.imgSrcSet, card.theme)
