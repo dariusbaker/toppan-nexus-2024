@@ -1,5 +1,6 @@
 const CLASSES = {
   MEDIA_CAROUSEL: 'testimonials-carousel__content__left',
+  MEDIA_CARDS: 'testimonials-carousel__content__left__card-wrapper',
   CONTENT: 'testimonials-carousel__content__cards',
   CONTENT_CARD: 'testimonials-carousel__content__card',
   CONTENT_CARD_ACTIVE: 'testimonials-carousel__content__card--active',
@@ -12,6 +13,8 @@ export default class TestimonialsCarousel {
 
     this._$testimonialsCarousel = $('[testimonials-carousel]');
     this._$mediaCarousel = this._$testimonialsCarousel.find(`.${CLASSES.MEDIA_CAROUSEL}`);
+
+    this._$mediaCarouselCards = this._$mediaCarousel.find(`.${CLASSES.MEDIA_CARDS}`);
 
     this._$contentCarousel = this._$testimonialsCarousel.find(`.${CLASSES.CONTENT}`);
 
@@ -71,7 +74,18 @@ export default class TestimonialsCarousel {
 
     this._$mediaCarousel.on('afterChange', (event, slick, currentSlide, nextSlide) => {
       this._currentSlide = currentSlide;
+      this._$mediaCarouselCards.eq(currentSlide).removeClass('testimonials-carousel__content__left__card-wrapper--inactive');
       this._updateSlideContent();
+    });
+
+    this._$mediaCarousel.on('beforeChange', (event, slick, currentSlide, nextSlide) => {
+      if (this._isMobile) {
+        return;
+      }
+
+      if (currentSlide < nextSlide) {
+        this._$mediaCarouselCards.eq(currentSlide).addClass('testimonials-carousel__content__left__card-wrapper--inactive');
+      }
     });
 
     this._slickInstance = this._$mediaCarousel.slick(options);

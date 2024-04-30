@@ -125,8 +125,8 @@ $module: 'testimonials-carousel';
 
       &__card {
         position: relative;
-        width: rem(100);
-        height: rem(240);
+        width: rem(125);
+        height: rem(170);
         margin: 0 rem(12);
 
         @include mq(map-get($grid-breakpoints, 'lg')) {
@@ -155,11 +155,17 @@ $module: 'testimonials-carousel';
             height: rem(600);
           }
 
+          &--inactive {
+            transition: opacity 100ms linear;
+            opacity: 0;
+          }
+
           &.slick-current {
             .#{$module}__content__left__card {
-              transition: width 100ms ease-out;
+              transition: opacity 100ms linear, width 100ms ease-out;
               width: rem(150);
               height: rem(300);
+              opacity: 1;
 
               @include mq(map-get($grid-breakpoints, 'lg')) {
                 width: rem(300);
@@ -173,11 +179,12 @@ $module: 'testimonials-carousel';
 
     &__right {
       position: relative;
-      margin-block-start: rem(48);
+      margin-block-start: rem(24);
       padding-inline-start: #{rem($padding-inline)};
       padding-inline-end: #{rem($padding-inline)};
 
       @include mq(map-get($grid-breakpoints, 'lg')) {
+        margin-block-start: rem(48);
         padding-inline-start: 0;
         max-width: 45%;
       }
