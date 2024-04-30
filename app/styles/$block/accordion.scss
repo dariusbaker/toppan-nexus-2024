@@ -1,4 +1,6 @@
-.h-accordion {
+$module: 'h-accordion';
+
+.#{$module} {
   &__summary {
     display: flex;
     flex-direction: row;
@@ -12,7 +14,7 @@
       display: none;
     }
 
-    .h-accordion--divider & {
+    .#{$module}--divider & {
       border-block-start: rem(1) solid $color-gray-200;
       border-block-end: rem(1) solid $color-gray-200;
     }

@@ -23,7 +23,7 @@ mixin galleryCarousel(title, body, cards)
     div.gallery-carousel__carousel(gallery-carousel-viewport)
       each card in cards
         div.gallery-carousel__carousel__item
-          +galleryCarouselCard(
+          +gallery_carousel_card(
             card.title,
             card.body,
             card.imgSrcSet
@@ -31,7 +31,7 @@ mixin galleryCarousel(title, body, cards)
 
     div.t-container.gallery-carousel__footer
       div.gallery-carousel__footer__progress
-        +progressBar()(gallery-carousel-progress-bar)
+        +progress_bar()(gallery-carousel-progress-bar)
       div.gallery-carousel__footer__nav
         +button({
           icon: 'arrow-right',

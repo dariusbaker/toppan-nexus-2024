@@ -45,6 +45,6 @@ section.statistics(statistics)
   ul.statistics__stats(statistics-stats)
     each stat in stats
       li.statistics__stats__item
-        +statCard(stat)
+        +stat_card(stat)
   div.t-container.statistics__progress.mt-6
-    +progressBar()(statistics-progress)
+    +progress_bar()(statistics-progress)

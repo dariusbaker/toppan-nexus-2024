@@ -4,7 +4,7 @@
 //- options.body: {String}
 //- options.valueUnit: {String}
 //- options.theme: {String}, blue, green, blue-200, cyan
-mixin statCard(options = {})
+mixin stat_card(options = {})
   - const unitClass = options.valueUnit === '+' ? 'stat-card__value-unit--inherit' : ''
 
   article(class=`stat-card stat-card--${options.theme}`)

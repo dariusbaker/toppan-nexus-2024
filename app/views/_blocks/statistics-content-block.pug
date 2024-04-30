@@ -14,7 +14,7 @@
     }
   ];
 
-mixin statisticsContentBlockCard(value, unit, title, body)
+mixin statistics_content_block_card(value, unit, title, body)
   - const unitClass = unit === '+' ? 'statistics-content-block-card__value-unit--inherit' : ''
   article.statistics-content-block-card
     div.statistics-content-block-card__value
@@ -39,4 +39,4 @@ section.statistics-content-block
       ul.statistics-content-block__content__stats
         each stat in statsItems
           li.statistics-content-block__content__stats__item
-            +statisticsContentBlockCard(stat.value, stat.unit, stat.title, stat.body)
+            +statistics_content_block_card(stat.value, stat.unit, stat.title, stat.body)

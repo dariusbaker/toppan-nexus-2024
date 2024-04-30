@@ -1,4 +1,4 @@
-mixin contentBlockCard(img, title, body)
+mixin content_block_card(img, title, body)
   article.content-block-card
     +img(img, title).content-block-card__img
     div.content-block-card__content
@@ -40,4 +40,4 @@ mixin contentBlock(options={})
           ul.content-block__cards
             each card in options.cards
               li.content-block__cards__item
-                +contentBlockCard(card.img, card.title, card.body)
+                +content_block_card(card.img, card.title, card.body)

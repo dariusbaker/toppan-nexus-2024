@@ -33,7 +33,9 @@
 
 $headers-height: rem(72);
 
-.header {
+$module: 'header';
+
+.#{$module} {
   position: fixed;
   width: 100%;
   height: $headers-height;
@@ -371,7 +373,7 @@ $headers-height: rem(72);
       &-item {
         max-width: rem(250);
 
-        .header__nav__submenu--cards & {
+        .#{$module}__nav__submenu--cards & {
           max-width: none;
           flex-basis: rem(310);
         }

@@ -1,4 +1,6 @@
-.footer {
+$module: 'footer';
+
+.#{$module} {
   &__contacts {
     width: 100%;
   }
