@@ -1,0 +1,134 @@
+-
+  const testimonialCards = [
+    {
+      image: {
+        default: '/images/600x1800.jpeg'
+      },
+      image_alt: 'Testimonial 1',
+      logo: '/images/184x80.jpeg',
+      logo_alt: 'Logo 1',
+      body: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+      avatar: '/images/80x80.jpeg',
+      author_name: 'John Doe',
+      author_job_title: 'CEO'
+    },
+    {
+      image: {
+        default: '/images/600x1800.jpeg'
+      },
+      image_alt: 'Testimonial 2',
+      logo: '/images/184x80.jpeg',
+      logo_alt: 'Logo 2',
+      body: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+      avatar: '/images/80x80.jpeg',
+      author_name: 'Jane Doe',
+      author_job_title: 'CTO'
+    },
+    {
+      image: {
+        default: '/images/600x1800.jpeg'
+      },
+      image_alt: 'Testimonial 3',
+      logo: '/images/184x80.jpeg',
+      logo_alt: 'Logo 3',
+      body: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+      avatar: '/images/80x80.jpeg',
+      author_name: 'John Smith',
+      author_job_title: 'COO'
+    },
+    {
+      image: {
+        default: '/images/600x1800.jpeg'
+      },
+      image_alt: 'Testimonial 1',
+      logo: '/images/184x80.jpeg',
+      logo_alt: 'Logo 1',
+      body: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+      avatar: '/images/80x80.jpeg',
+      author_name: 'John Doe',
+      author_job_title: 'CEO'
+    },
+    {
+      image: {
+        default: '/images/600x1800.jpeg'
+      },
+      image_alt: 'Testimonial 2',
+      logo: '/images/184x80.jpeg',
+      logo_alt: 'Logo 2',
+      body: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+      avatar: '/images/80x80.jpeg',
+      author_name: 'Jane Doe',
+      author_job_title: 'CTO'
+    },
+    {
+      image: {
+        default: '/images/600x1800.jpeg'
+      },
+      image_alt: 'Testimonial 3',
+      logo: '/images/184x80.jpeg',
+      logo_alt: 'Logo 3',
+      body: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+      avatar: '/images/80x80.jpeg',
+      author_name: 'John Smith',
+      author_job_title: 'COO'
+    }
+  ]
+
+mixin testimonial_card(logo, logo_alt, body, avatar, author_name, author_job_title)
+  article.testimonials-carousel-card
+    +img(logo, logo_alt).testimonials-carousel-card__image
+    q.testimonials-carousel-card__body.font-medium!= body
+    div.testimonials-carousel-card__author
+      .testimonials-carousel-card__avatar
+        img(src=avatar alt=`${author_name}'s Avatar`)
+      .testimonials-carousel-card__author-info
+        p.testimonials-carousel-card__author-name.font-bold= author_name
+        p.testimonials-carousel-card__author-job-title.font-medium= author_job_title
+
+
+section.testimonials-carousel(testimonials-carousel)
+  div.t-container.testimonials-carousel__header
+    +animated_header(['Client', '<span class="text-blue">Successes</span>']).text-black.testimonials-carousel__header__title
+    p.testimonials-carousel__header__body.text-black
+      | We have been through a lot of changes over the years. Here are some of the key milestones in our journey.
+
+  div.testimonials-carousel__content
+    div.testimonials-carousel__content__left
+      each card, idx in testimonialCards
+        div.testimonials-carousel__content__left__card-wrapper
+          div.testimonials-carousel__content__left__card
+            +picture(card.image, card.image_alt).testimonials-carousel__content__left__card__img
+    div.testimonials-carousel__content__right
+      div.testimonials-carousel__content__cards
+        each card, idx in testimonialCards
+          div(class=`testimonials-carousel__content__card ${idx === 0 ? 'testimonials-carousel__content__card--active' : ''}`)
+            +testimonial_card(
+              card.logo,
+              card.logo_alt,
+              card.body,
+              card.avatar,
+              card.author_name,
+              card.author_job_title
+            )
+      div.testimonials-carousel__nav
+        +button({
+          icon: 'arrow-right',
+          style: 'primary',
+          size: 'light',
+          reverse: false,
+          large: false,
+          hoverAnimation: false,
+          iconOnly: true,
+          type: 'button'
+        }).testimonials-carousel__nav__btn.testimonials-carousel__nav__btn--left(testimonials-carousel-prev)
+
+        +button({
+          icon: 'arrow-right',
+          style: 'primary',
+          size: 'light',
+          reverse: false,
+          large: false,
+          hoverAnimation: false,
+          iconOnly: true,
+          type: 'button'
+        }).testimonials-carousel__nav__btn(testimonials-carousel-next)

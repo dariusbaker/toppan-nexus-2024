@@ -39,6 +39,6 @@ section.our-values
               span.our-values__content__title.font-extrabold= item.title
               span.our-values__content__icon
                 i(class=`fa-regular fa-${item.icon}`)
-          div(role="definition" id=`our-values-content-${idx}`).font-medium.our-values__content__content(class=`${idx === valuesItem.length - 1 ? 'our-values__content__content--no-divider' : ''}`)!= item.content
+          div(role="definition" id=`our-values-content-${idx}` class=`${idx === valuesItem.length - 1 ? 'our-values__content__content--no-divider' : ''}`).font-medium.our-values__content__content!= item.content
 
 
