@@ -1,0 +1,59 @@
+$module: 'sticky-nav';
+
+.#{$module} {
+  display: none;
+  position: sticky;
+  top: 50%;
+  // 24 width of the nav + 32 margin
+  left: calc(100vw - #{rem(24)} - #{rem(32)});
+  transform: translateY(-50%);
+  z-index: 900;
+
+  @include mq(map-get($grid-breakpoints, 'lg')) {
+    display: inline-block;
+  }
+
+  &__list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    &__item {
+      & + & {
+        margin-top: rem(16);
+      }
+
+      &-link {
+        position: relative;
+        display: block;
+        width: rem(20);
+        height: rem(20);
+
+        &::after {
+          content: '';
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          width: rem(10);
+          height: rem(10);
+          border-radius: 50%;
+          background-color: $color-gray-150;
+          transition: background-color 125ms ease-out;
+        }
+
+        &:focus-visible {
+          @extend .focus-visible-style;
+        }
+
+        &:hover::after {
+          background-color: $color-gray-400;
+        }
+
+        &.active::after {
+          background-color: $color-black;
+        }
+      }
+    }
+  }
+}

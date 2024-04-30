@@ -12,12 +12,32 @@ block container
     },
   ])
 
-  include ./_blocks/testimonials-carousel
-
-  include ./_blocks/our-values
-  include ./_blocks/timeline-carousel
-
-  include ./_blocks/statistics-content-block
+  +sticky_nav([
+    {
+      anchor: '#section-1',
+      title: 'Section 1',
+    },
+    {
+      anchor: '#section-2',
+      title: 'Section 2',
+    },
+    {
+      anchor: '#section-3',
+      title: 'Section 3',
+    },
+    {
+      anchor: '#section-4',
+      title: 'Section 4',
+    },
+  ])
+    div(id='section-1')
+      include ./_blocks/testimonials-carousel
+    div(id='section-2')
+      include ./_blocks/our-values
+    div(id='section-3')
+      include ./_blocks/timeline-carousel
+    div(id='section-4')
+      include ./_blocks/statistics-content-block
   include ./_blocks/features-home
 
   +contentBlockCard(
