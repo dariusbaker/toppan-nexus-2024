@@ -1,6 +1,7 @@
 const CLASSES = {
   MEDIA_CAROUSEL: 'testimonials-carousel__content__left',
-  MEDIA_CARDS: 'testimonials-carousel__content__left__card-wrapper',
+  MEDIA_CARD: 'testimonials-carousel__content__left__card-wrapper',
+  MEDIA_CARD_INACTIVE: 'testimonials-carousel__content__left__card-wrapper--inactive',
   CONTENT: 'testimonials-carousel__content__cards',
   CONTENT_CARD: 'testimonials-carousel__content__card',
   CONTENT_CARD_ACTIVE: 'testimonials-carousel__content__card--active',
@@ -14,7 +15,7 @@ export default class TestimonialsCarousel {
     this._$testimonialsCarousel = $('[testimonials-carousel]');
     this._$mediaCarousel = this._$testimonialsCarousel.find(`.${CLASSES.MEDIA_CAROUSEL}`);
 
-    this._$mediaCarouselCards = this._$mediaCarousel.find(`.${CLASSES.MEDIA_CARDS}`);
+    this._$mediaCarouselCards = this._$mediaCarousel.find(`.${CLASSES.MEDIA_CARD}`);
 
     this._$contentCarousel = this._$testimonialsCarousel.find(`.${CLASSES.CONTENT}`);
 
@@ -65,6 +66,7 @@ export default class TestimonialsCarousel {
     };
 
     if (this._isMobile) {
+      this._$mediaCarouselCards.removeClass(CLASSES.MEDIA_CARD_INACTIVE);
       this._$mediaCarousel.attr('dir', 'ltr');
       options.centerMode = true;
     } else {
@@ -74,7 +76,7 @@ export default class TestimonialsCarousel {
 
     this._$mediaCarousel.on('afterChange', (event, slick, currentSlide, nextSlide) => {
       this._currentSlide = currentSlide;
-      this._$mediaCarouselCards.eq(currentSlide).removeClass('testimonials-carousel__content__left__card-wrapper--inactive');
+      this._$mediaCarouselCards.eq(currentSlide).removeClass(CLASSES.MEDIA_CARD_INACTIVE);
       this._updateSlideContent();
     });
 
@@ -84,7 +86,7 @@ export default class TestimonialsCarousel {
       }
 
       if (currentSlide < nextSlide) {
-        this._$mediaCarouselCards.eq(currentSlide).addClass('testimonials-carousel__content__left__card-wrapper--inactive');
+        this._$mediaCarouselCards.eq(currentSlide).addClass(CLASSES.MEDIA_CARD_INACTIVE);
       }
     });
 
