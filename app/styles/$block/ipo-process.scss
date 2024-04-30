@@ -1,6 +1,14 @@
 $module: 'ipo-process';
 
 .#{$module} {
+  padding-block-start: rem(70);
+  padding-block-end: rem(70);
+
+  @include mq(map-get($grid-breakpoints, 'lg')) {
+    padding-block-start: rem(140);
+    padding-block-end: rem(140);
+  }
+
   &-card {
     background-color: $color-primary;
     border-radius: rem(20);
@@ -44,7 +52,7 @@ $module: 'ipo-process';
 
     &__content {
       display: flex;
-      flex-direction: column;
+      flex-direction: column-reverse;
       gap: rem(24);
 
       @include mq(map-get($grid-breakpoints, 'lg')) {
@@ -71,14 +79,13 @@ $module: 'ipo-process';
       &__img-wrapper {
         width: 100%;
         height: rem(240);
-        border-radius: rem(20);
+        border-top-left-radius: rem(20);
+        border-top-right-radius: rem(20);
         overflow: hidden;
 
         @include mq(map-get($grid-breakpoints, 'lg')) {
           height: rem(530);
           margin-inline-start: rem(24);
-          border-bottom-left-radius: 0;
-          border-bottom-right-radius: 0;
         }
       }
 
@@ -132,14 +139,9 @@ $module: 'ipo-process';
   }
 
   &__cards {
+    display: block;
     list-style: none;
     margin-bottom: 0;
     padding: 0;
-
-    &__card {
-      & + & {
-        margin-block-start: rem(48);
-      }
-    }
   }
 }

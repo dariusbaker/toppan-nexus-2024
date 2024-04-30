@@ -55,7 +55,7 @@ mixin ipo_process_card(eyebrow, title, body, imgSrcSet, theme='blue')
         +animated_header(titles, 'lg')(class=`ipo-process-card__content__title text-${theme === 'blue' || theme === 'blue-400' ? 'white' : 'black'}`)
         div(class=`ipo-process-card__content__body text-${theme === 'blue' || theme === 'blue-400' ? 'white' : 'black'} font-medium`)!= body
 
-section.ipo-process
+section.ipo-process(ipo-process)
   div.t-container.ipo-process-wrapper
     div.ipo-process__header
       +animated_header(['The IPO', '<span class="text-blue">Process</span>']).text-black.ipo-process__header__title
@@ -63,5 +63,5 @@ section.ipo-process
       | Streamlining a complex process at your most critical moments.
     ol.ipo-process__cards
       each card in ipoProcessCards
-        li.ipo-process__cards__card
+        li.ipo-process__cards__card(ipo-process-card)
           +ipo_process_card(card.eyebrow, card.title, card.body, card.imgSrcSet, card.theme)
