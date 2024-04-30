@@ -26,7 +26,7 @@ export default class TimelineCarousel {
   }
 
   _init() {
-    if (this._$timelineCarousel) {
+    if (this._$timelineCarousel.length) {
       this._hammerInstance = new Hammer(this._$timelineCarouselContent.get(0));
 
       this._hammerInstance.on('swipeleft', this._handleNext);

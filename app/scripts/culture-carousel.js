@@ -17,7 +17,7 @@ export default class CultureCarousel {
   }
 
   _init() {
-    if (this._$cultureCarousels) {
+    if (this._$cultureCarousels.length) {
       this._$cultureCarousels.each((i, carousel) => {
         const $tabs = $(carousel).find(`.${CLASSES.TAB}`);
         const $panels = $(carousel).find(`.${CLASSES.PANEL}`);

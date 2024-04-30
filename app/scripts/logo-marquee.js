@@ -7,7 +7,7 @@ export default class LogoMarquee {
   }
 
   _init() {
-    if (this._$logoMarquees) {
+    if (this._$logoMarquees.length) {
       this._$logoMarquees.each((index, logoMarquee) => {
         const $logoMarquee = $(logoMarquee);
         const $logoMarqueeItems = $logoMarquee.find('[logo-marquee-items]');
