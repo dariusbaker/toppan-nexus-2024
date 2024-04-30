@@ -93,10 +93,10 @@ section.testimonials-carousel(testimonials-carousel)
       | We have been through a lot of changes over the years. Here are some of the key milestones in our journey.
 
   div.testimonials-carousel__content
-    div.testimonials-carousel__content__left-wrapper
-      div.testimonials-carousel__content__left
-        each card, idx in testimonialCards
-          div(class=`testimonials-carousel__content__left__card ${idx === 0 ? 'testimonials-carousel__content__left__card--active' : ''}`)
+    div.testimonials-carousel__content__left
+      each card, idx in testimonialCards
+        div.testimonials-carousel__content__left__card-wrapper
+          div.testimonials-carousel__content__left__card
             +picture(card.image, card.image_alt).testimonials-carousel__content__left__card__img
     div.testimonials-carousel__content__right
       div.testimonials-carousel__content__cards
@@ -120,7 +120,7 @@ section.testimonials-carousel(testimonials-carousel)
           hoverAnimation: false,
           iconOnly: true,
           type: 'button'
-        }).testimonials-carousel__nav__btn.testimonials-carousel__nav__btn--left(testimonials-carousel-prev disabled)
+        }).testimonials-carousel__nav__btn.testimonials-carousel__nav__btn--left(testimonials-carousel-prev)
 
         +button({
           icon: 'arrow-right',

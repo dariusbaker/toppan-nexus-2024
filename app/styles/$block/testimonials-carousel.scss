@@ -104,31 +104,23 @@ $module: 'testimonials-carousel';
     }
 
     &__left {
-      &-wrapper {
-        display: block;
-        flex-shrink: 0;
-        overflow: hidden;
+      display: block;
+      flex-shrink: 0;
+      height: rem(300);
+
+      @include mq(map-get($grid-breakpoints, 'lg')) {
+        height: rem(600);
+        width: 55%;
+      }
+
+      .slick-track {
+        display: flex;
+        align-items: flex-end;
         height: rem(300);
-        margin: 0 auto;
 
         @include mq(map-get($grid-breakpoints, 'lg')) {
           height: rem(600);
-          flex-basis: 55%;
         }
-      }
-
-      display: flex;
-      flex-direction: row;
-      align-items: flex-end;
-
-      transition: transform 125ms ease-in-out;
-
-      &--left {
-        transition: transform 125ms ease-in-out 125ms;
-      }
-
-      @include mq(map-get($grid-breakpoints, 'lg')) {
-        flex-direction: row-reverse;
       }
 
       &__card {
@@ -143,7 +135,6 @@ $module: 'testimonials-carousel';
         }
         border-radius: rem(20);
         flex-shrink: 0;
-        transition: opacity 125ms linear, width 300ms ease-out;
         overflow: hidden;
 
         &__img {
@@ -152,7 +143,10 @@ $module: 'testimonials-carousel';
           object-fit: cover;
         }
 
-        &--active {
+        &-wrapper {
+          display: flex !important;
+          align-items: flex-end;
+          justify-content: center;
           width: rem(150);
           height: rem(300);
 
@@ -160,11 +154,18 @@ $module: 'testimonials-carousel';
             width: rem(300);
             height: rem(600);
           }
-        }
 
-        &--inactive {
-          @include mq(map-get($grid-breakpoints, 'lg')) {
-            opacity: 0;
+          &.slick-current {
+            .#{$module}__content__left__card {
+              transition: width 100ms ease-out;
+              width: rem(150);
+              height: rem(300);
+
+              @include mq(map-get($grid-breakpoints, 'lg')) {
+                width: rem(300);
+                height: rem(600);
+              }
+            }
           }
         }
       }

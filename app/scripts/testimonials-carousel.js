@@ -1,13 +1,8 @@
 const CLASSES = {
   MEDIA_CAROUSEL: 'testimonials-carousel__content__left',
-  MEDIA_CAROUSEL_LEFT: 'testimonials-carousel__content__left--left',
-  MEDIA_CARD: 'testimonials-carousel__content__left__card',
   CONTENT: 'testimonials-carousel__content__cards',
   CONTENT_CARD: 'testimonials-carousel__content__card',
   CONTENT_CARD_ACTIVE: 'testimonials-carousel__content__card--active',
-  MEDIA_CARD_ACTIVE: 'testimonials-carousel__content__left__card--active',
-  MEDIA_CARD_RIGHT: 'testimonials-carousel__content__left__card--right',
-  MEDIA_CARD_INACTIVE: 'testimonials-carousel__content__left__card--inactive',
 };
 
 export default class TestimonialsCarousel {
@@ -17,13 +12,12 @@ export default class TestimonialsCarousel {
 
     this._$testimonialsCarousel = $('[testimonials-carousel]');
     this._$mediaCarousel = this._$testimonialsCarousel.find(`.${CLASSES.MEDIA_CAROUSEL}`);
-    this._$mediaCarouselCards = this._$mediaCarousel.find(`.${CLASSES.MEDIA_CARD}`);
 
     this._$contentCarousel = this._$testimonialsCarousel.find(`.${CLASSES.CONTENT}`);
 
     this._$contentCarouselCards = this._$testimonialsCarousel.find(`.${CLASSES.CONTENT_CARD}`);
 
-    this._totalSlides = this._$mediaCarouselCards.length;
+    this._totalSlides = this._$contentCarouselCards.length;
 
     this._$next = this._$testimonialsCarousel.find('[testimonials-carousel-next]');
     this._$prev = this._$testimonialsCarousel.find('[testimonials-carousel-prev]');
@@ -33,10 +27,6 @@ export default class TestimonialsCarousel {
 
   _init() {
     if (this._$testimonialsCarousel) {
-      this._$next.on('click', this._handleNext);
-
-      this._$prev.on('click', this._handlePrev);
-
       const mql = window.matchMedia("(max-width: 960px)");
 
       mql.onchange = (e) => {
@@ -47,7 +37,7 @@ export default class TestimonialsCarousel {
         }
 
         requestAnimationFrame(() => {
-          this._updateSlide();
+          this._initSlick();
         });
       };
 
@@ -55,33 +45,36 @@ export default class TestimonialsCarousel {
     }
   }
 
-  _handleNext = () => {
-    if (this._currentSlide < this._totalSlides - 1) {
-      this._currentSlide++;
+  _initSlick() {
+    if (this._slickInstance) {
+      this._slickInstance.slick('unslick');
     }
 
-    this._moveLeft = true;
+    const options = {
+      dots: false,
+      infinite: false,
+      speed: 300,
+      slidesToShow: 1,
+      slidesToScroll: 1,
+      variableWidth: true,
+      nextArrow: this._$next,
+      prevArrow: this._$prev,
+    };
 
-    this._updateSlide();
-    this._updateSlideContent();
-    this._updateNav();
-  }
-
-  _handlePrev = () => {
-    if (this._currentSlide > 0) {
-      this._currentSlide--;
+    if (this._isMobile) {
+      this._$mediaCarousel.attr('dir', 'ltr');
+      options.centerMode = true;
+    } else {
+      this._$mediaCarousel.attr('dir', 'rtl');
+      options.rtl = true;
     }
 
-    this._moveLeft = false;
+    this._$mediaCarousel.on('afterChange', (event, slick, currentSlide, nextSlide) => {
+      this._currentSlide = currentSlide;
+      this._updateSlideContent();
+    });
 
-    this._updateSlide();
-    this._updateSlideContent();
-    this._updateNav();
-  }
-
-  _updateNav() {
-    this._$prev.attr('disabled', this._currentSlide === 0 ? true : false);
-    this._$next.attr('disabled', this._currentSlide === this._totalSlides - 1 ? true : false);
+    this._slickInstance = this._$mediaCarousel.slick(options);
   }
 
   _updateSlideContent() {
@@ -89,41 +82,5 @@ export default class TestimonialsCarousel {
     this._$contentCarouselCards.eq(this._currentSlide).addClass(CLASSES.CONTENT_CARD_ACTIVE);
 
     this._$contentCarousel.css('transform', `translateX(${this._currentSlide * -100}%)`);
-  }
-
-  _updateSlide() {
-    this._$mediaCarouselCards.removeClass(CLASSES.MEDIA_CARD_INACTIVE);
-    this._$mediaCarouselCards.removeClass(CLASSES.MEDIA_CARD_RIGHT);
-    this._$mediaCarousel.removeClass(CLASSES.MEDIA_CAROUSEL_LEFT);
-
-    this._$mediaCarouselCards.removeClass(CLASSES.MEDIA_CARD_ACTIVE);
-
-    if (this._moveLeft) {
-      this._$mediaCarousel.addClass(CLASSES.MEDIA_CAROUSEL_LEFT);
-    }
-
-    this._$mediaCarouselCards.eq(this._currentSlide).addClass(CLASSES.MEDIA_CARD_ACTIVE);
-
-    if (!this._isMobile) {
-      // Hide all cards to the right of the current slide
-      let temp = this._currentSlide - 1;
-
-      while (temp > -1) {
-        this._$mediaCarouselCards.eq(temp).addClass(CLASSES.MEDIA_CARD_INACTIVE);
-        temp--;
-      }
-    }
-
-    requestAnimationFrame(() => {
-      this._currentMediaSlideWidth = this._$mediaCarouselCards.eq(this._currentSlide).width();
-
-      if (!this._isMobile) {
-        this._$mediaCarousel.css('transform', `translateX(${(this._currentSlide * this._currentMediaSlideWidth) + (this._currentSlide * 24)}px)`);
-      } else {
-        if (window.innerWidth < this._$mediaCarousel.width()) {
-          this._$mediaCarousel.css('transform', `translateX(${(this._currentSlide * -this._currentMediaSlideWidth) + (this._currentSlide * -24)}px)`);
-        }
-      }
-    });
   }
 }
