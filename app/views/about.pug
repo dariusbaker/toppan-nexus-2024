@@ -37,6 +37,10 @@ block container
       anchor: '#collaborative-facilities',
       title: 'Collaborative Facilities Section',
     },
+    {
+      anchor: '#certifications',
+      title: 'Certifications Section',
+    }
   ])
     div(id='our-values')
       include ./_blocks/our-values
@@ -98,3 +102,26 @@ block container
             },
           },
         ])
+    div(id='certifications')
+      +certifications([
+        {
+          img: '/images/240x240.jpeg',
+          title: 'ISO 17100',
+          desc: 'Translation Services Management System Certification',
+        },
+        {
+          img: '/images/240x240.jpeg',
+          title: 'ISO 27001',
+          desc: 'Information Security Management System Certification',
+        },
+        {
+          img: '/images/240x240.jpeg',
+          title: 'ISO 9001',
+          desc: 'Quality Management System Certification',
+        },
+        {
+          img: '/images/240x240.jpeg',
+          title: 'ISO 2846-1',
+          desc: 'Offset Printing Ink Certification',
+        },
+      ], 'Fully', 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit.')
