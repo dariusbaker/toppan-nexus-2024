@@ -32,7 +32,7 @@ section.our-values
     ol.our-values__content
       each item, idx in valuesItem
         li.our-values__content__item
-          details.our-values__content__details(name="our-values-content")
+          details.our-values__content__details(name='our-values-content' open=`${i === 0 ? 'true' : 'false'}`)
             summary(role="term" aria-details=`our-values-content-${idx}`).our-values__content__summary
               span.our-values__content__icon-toggler
                 i.fa-regular.fa-arrow-right
