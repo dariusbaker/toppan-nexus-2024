@@ -156,13 +156,13 @@ $module: 'testimonials-carousel';
           }
 
           &--inactive {
-            transition: opacity 100ms linear;
+            transition: opacity 50ms linear;
             opacity: 0;
           }
 
           &.slick-current {
             .#{$module}__content__left__card {
-              transition: opacity 100ms linear, width 100ms ease-out;
+              transition: opacity 50ms linear, width 100ms ease-out;
               width: rem(150);
               height: rem(300);
               opacity: 1;
