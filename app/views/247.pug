@@ -29,7 +29,7 @@ block container
     div(id='statistics')
       include ./_blocks/statistics-content-block
     div(id='content-block')
-      +contentBlock({
+      +content_block({
         imgSrcSet: {
           768: '/images/668x376.jpeg',
           default: '/images/1640x1800.jpeg',
@@ -40,7 +40,7 @@ block container
         mediaPos: 'left',
       })
     div(id='gallery-carousel')
-      +galleryCarousel(
+      +gallery_carousel(
         'COLLABORATIVE FACILITIES',
         'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Cum sociis natoque penatibus et magnis dis parturient.',
         [
