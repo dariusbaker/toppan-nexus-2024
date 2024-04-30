@@ -1,0 +1,16 @@
+//- items consists of object array with the following field
+//- items: [
+//-   {
+//-     anchor: '#section-1',
+//-     title: 'Title',
+//-   },
+//- ]
+mixin sticky_nav(items)
+  nav.sticky-nav(id='sticky-nav' aria-label='Page Section Navigation')
+    ol.sticky-nav__list
+      each item in items
+        li.sticky-nav__list__item
+          a.sticky-nav__list__item-link(href=item.anchor aria-label=item.title)
+  div.sticky-nav-content(data-bs-spy='scroll' data-bs-target='#sticky-nav')
+    if block
+      block
