@@ -1,0 +1,72 @@
+extends _layouts/layout
+
+block container
+  +breadcrumbs([
+    {
+      label: 'Home',
+      href: '/',
+    },
+    {
+      label: 'Storybook',
+      href: '/storybook',
+    },
+  ])
+
+  +sticky_nav([
+    {
+      anchor: '#statistics',
+      title: 'Statistics Section',
+    },
+    {
+      anchor: '#content-block',
+      title: 'Content Block Section',
+    },
+    {
+      anchor: '#gallery-carousel',
+      title: 'Gallery Carousel Section',
+    },
+  ])
+    div(id='statistics')
+      include ./_blocks/statistics-content-block
+    div(id='content-block')
+      +contentBlock({
+        imgSrcSet: {
+          768: '/images/668x376.jpeg',
+          default: '/images/1640x1800.jpeg',
+        },
+        title: 'ADVANCED REMOTE\nCOLLABORATION TECHNOLOGY',
+        body: '<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam natus iusto dolorum maiores totam asperiores velit sunt earum magni. Eligendi inventore necessitatibus, obcaecati ipsam quibusdam minus nam harum tempora expedita?</p><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam natus iusto dolorum maiores totam asperiores velit sunt earum magni. Eligendi inventore necessitatibus, obcaecati ipsam quibusdam minus nam harum tempora expedita?</p>',
+        theme: 'blue',
+        mediaPos: 'left',
+      })
+    div(id='gallery-carousel')
+      +galleryCarousel(
+        'COLLABORATIVE FACILITIES',
+        'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Cum sociis natoque penatibus et magnis dis parturient.',
+        [
+          {
+            title: 'Title 1',
+            body: 'Body 1',
+            imgSrcSet: {
+              768: '/images/668x376.jpeg',
+              default: '/images/3000x1516.jpeg',
+            },
+          },
+          {
+            title: 'Title 2',
+            body: 'Body 2',
+            imgSrcSet: {
+              768: '/images/668x376.jpeg',
+              default: '/images/3000x1516.jpeg',
+            },
+          },
+          {
+            title: 'Title 3',
+            body: 'Body 3',
+            imgSrcSet: {
+              768: '/images/668x376.jpeg',
+              default: '/images/3000x1516.jpeg',
+            },
+          },
+        ])
+
