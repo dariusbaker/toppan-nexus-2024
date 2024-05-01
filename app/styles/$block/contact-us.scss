@@ -145,4 +145,99 @@ $module: 'p-contact-us';
       }
     }
   }
+
+  &__card {
+    display: flex;
+    flex-direction: column;
+    margin-block-start: rem(64);
+    margin-block-end: rem(64);
+    gap: rem(24);
+
+    &__header {
+      .fit-text-lg {
+        font-size: clamp(#{rem(24)}, calc(24 / 414 * 100vw), #{rem(50)});
+      }
+    }
+
+    @include mq(map-get($grid-breakpoints, 'lg')) {
+      margin-block-start: rem(132);
+      margin-block-end: rem(132);
+      flex-direction: row;
+      align-items: center;
+      gap: rem(48);
+    }
+
+    @include mq(map-get($grid-breakpoints, 'xl')) {
+      gap: rem(96);
+    }
+
+    &.t-container {
+      @include mq(map-get($grid-breakpoints, 'lg')) {
+        max-width: rem(1028);
+      }
+    }
+
+    &__body {
+      display: flex;
+      flex-direction: column;
+      color: $color-black;
+      font-size: rem(16);
+
+      @include mq(map-get($grid-breakpoints, 'lg')) {
+        font-size: rem(18);
+      }
+
+      span {
+        margin-block-end: rem(24);
+
+        @include mq(map-get($grid-breakpoints, 'lg')) {
+          margin-block-end: rem(46);
+        }
+      }
+
+      &-link {
+        text-decoration: none;
+        color: $color-primary;
+
+        & + & {
+          margin-block-start: rem(4);
+        }
+
+        &:focus-visible {
+          @extend .focus-visible-style;
+        }
+
+        i {
+          font-size: rem(16);
+          padding: 0;
+          color: $color-black;
+        }
+      }
+    }
+
+    &__media {
+      flex-shrink: 0;
+
+      @include mq(map-get($grid-breakpoints, 'lg')) {
+        width: 55%;
+      }
+
+      &__img-wrapper {
+        width: 100%;
+        height: rem(240);
+        border-radius: rem(20);
+        overflow: hidden;
+
+        @include mq(map-get($grid-breakpoints, 'lg')) {
+          height: rem(600);
+        }
+      }
+
+      &__img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+  }
 }

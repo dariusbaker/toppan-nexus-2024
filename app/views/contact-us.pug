@@ -48,3 +48,24 @@ block container
             type: 'submit',
           })(id="submit-btn")
             | Submit
+    div.t-container.p-contact-us__card
+      div.p-contact-us__card__content
+        div.p-contact-us__card__header
+          +animated_header(['Hong Kong', '<span class="text-black">Office</span>'], 'lg', '3').text-blue.mb-12
+        address.p-contact-us__card__body.font-medium
+          span
+            | 8th Floor, Gloucester Tower<br/>
+            | The Landmark<br/>
+            | 15 Queen's Road Central<br/>
+            | Central, Hong Kong<br/>
+          a(href='tel:+852 1234 5678').p-contact-us__card__body-link.font-medium
+            i(class='fa-solid fa-phone mr-2')
+            span +852 1234 5678
+          a(href='mailto:info@toppannexus.com').p-contact-us__card__body-link.font-medium
+            i(class='fa-solid fa-envelope mr-2')
+            span info@toppannexus.com
+      div.p-contact-us__card__media
+        div.p-contact-us__card__media__img-wrapper
+          +picture({
+            default: '/images/1272x1200.jpeg',
+          }, 'Hong Kong Office').p-contact-us__card__media__img
