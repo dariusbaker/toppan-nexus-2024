@@ -1,0 +1,148 @@
+$module: 'p-contact-us';
+
+.#{$module} {
+  &-form-input {
+    width: 100%;
+    margin-block-end: rem(24);
+
+    &__label {
+      position: relative;
+      width: 100%;
+
+      &__text {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        font-size: rem(20);
+        color: $color-black;
+        transform: translateY(-50%);
+        transition: transform 125ms ease-out;
+        transform-origin: top left;
+
+        @include mq(map-get($grid-breakpoints, 'lg')) {
+          font-size: rem(24);
+        }
+
+        .#{$module}-form-input--error & {
+          color: $color-red;
+        }
+      }
+    }
+
+    &__input {
+      width: 100%;
+      height: rem(48);
+      font-size: rem(16);
+      border: none;
+      border-bottom: rem(2) solid $color-black;
+      transition: border-bottom-color 125ms ease-out;
+
+      @include mq(map-get($grid-breakpoints, 'lg')) {
+        font-size: rem(18);
+      }
+
+      &--textarea {
+        resize: none;
+      }
+
+      &:not(:placeholder-shown):not(select),
+      &:focus,
+      &:focus-visible {
+        outline: none;
+
+        border-bottom-color: $color-primary;
+
+        + span.#{$module}-form-input__label__text {
+          color: $color-black;
+          transform: translateY(-150%) scale(.8);
+        }
+      }
+
+      &:disabled {
+        background-color: $color-gray-25;
+
+        + span.#{$module}-form-input__label__text {
+          color: $color-gray-500;
+        }
+
+        border-bottom-color: $color-gray-500;
+      }
+
+      .#{$module}-form-input--error & {
+        border-bottom-color: $color-red;
+      }
+    }
+
+    &__error {
+      opacity: 0;
+      color: $color-red;
+      font-size: rem(14);
+      transition: opacity 125ms ease-out;
+
+      .#{$module}-form-input--error & {
+        opacity: 1;
+      }
+    }
+  }
+
+  &__header {
+    text-align: center;
+    margin-block-end: rem(48);
+
+    @include mq(map-get($grid-breakpoints, 'lg')) {
+      margin-block-end: rem(84);
+    }
+
+    &__body {
+      margin: 0 auto;
+      max-width: rem(762);
+      font-size: rem(20);
+      color: $color-gray-500;
+
+      @include mq(map-get($grid-breakpoints, 'lg')) {
+        font-size: rem(24);
+      }
+    }
+  }
+
+  &__content {
+    min-height: 50vh;
+
+    &.t-container {
+      @include mq(map-get($grid-breakpoints, 'lg')) {
+        max-width: rem(768);
+      }
+    }
+
+    &__form {
+      display: grid;
+      gap: rem(24);
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+
+      @include mq(map-get($grid-breakpoints, 'sm')) {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+      }
+
+      &__item {
+        grid-column: 1 / -1;
+
+        @include mq(map-get($grid-breakpoints, 'sm')) {
+          grid-column: span 2 / span 2;
+        }
+
+        &--wide,
+        &--btn {
+          grid-column: 1 / -1;
+        }
+
+        &--btn {
+          text-align: center;
+
+          @include mq(map-get($grid-breakpoints, 'sm')) {
+            text-align: right;
+          }
+        }
+      }
+    }
+  }
+}
