@@ -1,0 +1,109 @@
+$module: 'p-search-results';
+
+.#{$module} {
+  &-row {
+    display: block;
+    text-decoration: none;
+
+    &:focus-visible {
+      @extend .focus-visible-style;
+    }
+
+    &__title {
+      color: $color-black;
+      font-size: rem(18);
+      margin-block-end: rem(16);
+
+      @include mq(map-get($grid-breakpoints, 'lg')) {
+        font-size: rem(20);
+      }
+    }
+
+    &__body {
+      font-size: rem(14);
+      color: $color-gray-500;
+
+      @include mq(map-get($grid-breakpoints, 'lg')) {
+        font-size: rem(16);
+      }
+    }
+  }
+
+  &__header {
+    text-align: center;
+  }
+
+  &__content {
+    min-height: 50vh;
+
+    &__search-panel {
+      margin-block-end: rem(48);
+
+      @include mq(map-get($grid-breakpoints, 'lg')) {
+        margin-block-end: rem(84);
+        max-width: none;
+      }
+    }
+
+    &.t-container {
+      @include mq(map-get($grid-breakpoints, 'lg')) {
+        max-width: rem(1028);
+      }
+    }
+
+    &__status {
+      color: $color-black;
+      font-size: rem(24);
+      margin-block-end: rem(24);
+
+      @include mq(map-get($grid-breakpoints, 'lg')) {
+        font-size: rem(30);
+        margin-block-end: rem(42);
+      }
+    }
+
+    &__list {
+      list-style: none;
+      margin-bottom: 0;
+      padding: 0;
+      margin-block-end: rem(24);
+
+      &-item {
+        border-block-end: rem(1) solid $color-gray-200;
+        border-block-start: rem(1) solid $color-gray-200;
+        padding-block-start: rem(16);
+        padding-block-end: rem(16);
+
+        @include mq(map-get($grid-breakpoints, 'lg')) {
+          padding-block-start: rem(24);
+          padding-block-end: rem(24);
+        }
+
+        & + & {
+          border-block-start: 0;
+        }
+      }
+    }
+
+    &__nav {
+      text-align: right;
+
+      &__btn + &__btn {
+        margin-inline-start: rem(10);
+      }
+
+      &__btn {
+        .h-btn__icon {
+          width: rem(24);
+          height: rem(24);
+        }
+
+        &--left {
+          .h-btn__icon {
+            transform: rotate(180deg);
+          }
+        }
+      }
+    }
+  }
+}

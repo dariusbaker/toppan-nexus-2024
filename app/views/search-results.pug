@@ -1,0 +1,79 @@
+extends _layouts/layout
+
+mixin search_result_row(title, body, href)
+  a.p-search-results-row(href=href)
+    p.p-search-results-row__title(href=href).font-bold!= title
+    p.p-search-results-row__body.font-medium!= body
+
+block container
+  -
+    const searchResultItems = [
+      {
+        title: 'Lorem ipsum dolor sit amet, consectetuer <span class="text-blue">IPO</span> adipiscing elit.',
+        body: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.',
+        href: '/ipo',
+      },
+      {
+        title: 'Lorem ipsum dolor sit amet, consectetuer <span class="text-blue">IPO</span> adipiscing elit.',
+        body: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.',
+        href: '/ipo',
+      },
+      {
+        title: 'Lorem ipsum dolor sit amet, consectetuer <span class="text-blue">IPO</span> adipiscing elit.',
+        body: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.',
+        href: '/ipo',
+      },
+      {
+        title: 'Lorem ipsum dolor sit amet, consectetuer <span class="text-blue">IPO</span> adipiscing elit.',
+        body: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.',
+        href: '/ipo',
+      },
+      {
+        title: 'Lorem ipsum dolor sit amet, consectetuer <span class="text-blue">IPO</span> adipiscing elit.',
+        body: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.',
+        href: '/ipo',
+      },
+      {
+        title: 'Lorem ipsum dolor sit amet, consectetuer <span class="text-blue">IPO</span> adipiscing elit.',
+        body: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.',
+        href: '/ipo',
+      },
+      {
+        title: 'Lorem ipsum dolor sit amet, consectetuer <span class="text-blue">IPO</span> adipiscing elit.',
+        body: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.',
+        href: '/ipo',
+      },
+    ]
+  div.p-search-results
+    div.t-container.p-search-results__header
+      +animated_header(['Search'], 'lg').text-blue.mt-12.mb-24
+    div.t-container.p-search-results__content.mb-8
+      +search_panel('p-search-results__content__search-panel')
+      p.p-search-results__content__status.font-bold
+        | Found 34 results for "IPO"
+      ul.p-search-results__content__list
+        each item in searchResultItems
+          li.p-search-results__content__list-item
+            +search_result_row(item.title, item.body, item.href)
+      div.p-search-results__content__nav
+        +button({
+          icon: 'arrow-right',
+          style: 'primary',
+          size: 'light',
+          reverse: false,
+          large: false,
+          hoverAnimation: false,
+          iconOnly: true,
+          type: 'button'
+        }).p-search-results__content__nav__btn.p-search-results__content__nav__btn--left(disabled)
+
+        +button({
+          icon: 'arrow-right',
+          style: 'primary',
+          size: 'light',
+          reverse: false,
+          large: false,
+          hoverAnimation: false,
+          iconOnly: true,
+          type: 'button'
+        }).p-search-results__content__nav__btn
