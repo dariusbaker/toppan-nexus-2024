@@ -2,6 +2,13 @@ $module: 'partner-grid';
 
 .#{$module} {
   --border-color: #{$color-gray-200};
+  padding-block-start: rem(72);
+  padding-block-end: rem(72);
+
+  @include mq(map-get($grid-breakpoints, 'lg')) {
+    padding-block-start: rem(144);
+    padding-block-end: rem(144);
+  }
 
   &__title {
     color: $color-black;
