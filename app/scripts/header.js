@@ -48,7 +48,7 @@ export default class Header {
   }
 
   _initSearchTogglers() {
-    if (this._$searchTogglers) {
+    if (this._$searchTogglers.length) {
       this._$searchTogglers.each((i, toggler) => {
         const $toggler = $(toggler);
 

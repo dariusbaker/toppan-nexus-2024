@@ -5,7 +5,7 @@ export default class ProfileCarousel {
   }
 
   _init() {
-    if (this._$profileCarousels) {
+    if (this._$profileCarousels.length) {
       this._$profileCarousels.each((index, profileCarousel) => {
         const $profileCarousel = $(profileCarousel);
         const $viewport = $profileCarousel.find('[profile-carousel-viewport]');

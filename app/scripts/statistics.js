@@ -5,7 +5,7 @@ export default class Stastistics {
   }
 
   _init() {
-    if (this._$statistics) {
+    if (this._$statistics.length) {
       this._$statistics.each((index, element) => {
         const $element = $(element);
         const $stats = $element.find('[statistics-stats]');

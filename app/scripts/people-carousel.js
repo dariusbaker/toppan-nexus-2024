@@ -15,7 +15,7 @@ export default class PeopleCarousel {
   }
 
   _init() {
-    if (this._$peopleCarousels) {
+    if (this._$peopleCarousels.length) {
       this._$peopleCarousels.each((i, carousel) => {
         const $status = $(carousel).find('[people-carousel-status]');
         const $slides = $(carousel).find(`.${CLASSES.SLIDE}`);

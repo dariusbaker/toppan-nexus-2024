@@ -12,6 +12,7 @@ import GalleryCarousel from './gallery-carousel';
 import Stastistics from './statistics';
 import TimelineCarousel from './timeline-carousel';
 import TestimonialsCarousel from './testimonials-carousel';
+import IPOProcess from './ipo-process';
 
 const DEFAULT_FADE_UP_ANIMATION = {
   delay: .25,
@@ -211,4 +212,7 @@ $(document).ready(() => {
 
   // init testimonials carousel component
   new TestimonialsCarousel();
+
+  // init IPO process component
+  new IPOProcess();
 });

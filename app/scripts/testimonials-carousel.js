@@ -30,7 +30,7 @@ export default class TestimonialsCarousel {
   }
 
   _init() {
-    if (this._$testimonialsCarousel) {
+    if (this._$testimonialsCarousel.length) {
       const mql = window.matchMedia("(max-width: 960px)");
 
       mql.onchange = (e) => {

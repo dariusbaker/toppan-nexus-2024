@@ -5,7 +5,7 @@ export default class GalleryCarousel {
   }
 
   _init() {
-    if (this._$galleryCarousels) {
+    if (this._$galleryCarousels.length) {
       this._$galleryCarousels.each((index, galleryCarousel) => {
         const $galleryCarousel = $(galleryCarousel);
         const $viewport = $galleryCarousel.find('[gallery-carousel-viewport]');
