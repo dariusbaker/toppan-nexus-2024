@@ -79,6 +79,7 @@ $module: 'footer';
   &__connect {
     padding-block-start: rem(72);
     padding-block-end: rem(48);
+    border-block-start: rem(1) solid $color-gray-200;
     border-block-end: rem(1) solid $color-gray-200;
     gap: rem(24);
 

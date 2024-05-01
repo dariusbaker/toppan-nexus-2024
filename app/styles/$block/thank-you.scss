@@ -1,0 +1,17 @@
+$module: 'p-thank-you';
+
+.#{$module} {
+  min-height: 80vh;
+  text-align: center;
+
+  &__body {
+    margin: 0 auto;
+    max-width: rem(762);
+    font-size: rem(20);
+    color: $color-gray-500;
+
+    @include mq(map-get($grid-breakpoints, 'lg')) {
+      font-size: rem(24);
+    }
+  }
+}

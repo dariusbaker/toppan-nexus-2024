@@ -1,0 +1,71 @@
+extends _layouts/layout
+
+mixin form_text_input(label, type, name, errorMsg, isError = false)
+  div(class=`p-contact-us-form-input ${isError ? 'p-contact-us-form-input--error' : ''}`)
+    label.p-contact-us-form-input__label
+      if type === 'textarea'
+        textarea.p-contact-us-form-input__input.p-contact-us-form-input__input--textarea(name=name  placeholder=" " rows="5")&attributes(attributes)
+      else
+        input.p-contact-us-form-input__input(type=type, name=name, placeholder=" ")&attributes(attributes)
+      span.p-contact-us-form-input__label__text= label
+    span.p-contact-us-form-input__error(aria-hidden=`${isError ? 'false' : 'true'}`)= errorMsg
+
+block container
+  div.p-contact-us
+    div.t-container.p-contact-us__header
+      +animated_header(['Connect', '<span class="text-black">With us</span>'], 'lg').text-blue.mt-12
+      p.p-contact-us__header__body.mt-4
+        | Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa cum sociis natoque.
+    div.t-container.p-contact-us__content.mb-8
+      form.p-contact-us__content__form(action='#')
+        div.p-contact-us__content__form__item
+          +form_text_input('First Name', 'text', 'first_name', 'Please enter your first name', true)
+        div.p-contact-us__content__form__item
+          +form_text_input('Last Name', 'text', 'last_name', 'Please enter your last name', false)
+        div.p-contact-us__content__form__item
+          +form_text_input('Phone', 'tel', 'phone', 'Please enter your phone number', false)
+        div.p-contact-us__content__form__item
+          div(class=`p-contact-us-form-input ${isError ? 'p-contact-us-form-input--error' : ''}`)
+            label.p-contact-us-form-input__label
+              select.p-contact-us-form-input__input.p-contact-us-form-input__input--select(name='country')
+                option(value='' selected) Select Country
+                option(value='usa') USA
+                option(value='canada') Canada
+                option(value='mexico') Mexico
+            span.p-contact-us-form-input__error(aria-hidden="true") Please select a country
+        div.p-contact-us__content__form__item
+          +form_text_input('Email', 'email', 'email', 'Please enter a valid email address', false)
+        div.p-contact-us__content__form__item
+          +form_text_input('Company', 'text', 'company', 'Please enter your company name', false)
+        div.p-contact-us__content__form__item--wide
+          +form_text_input('Your message', 'textarea', 'message', 'Please enter your message', false)(disabled)
+        div.p-contact-us__content__form__item.p-contact-us__content__form__item--btn
+          +button({
+            style: 'primary',
+            size: 'large',
+            reverse: false,
+            large: true,
+            type: 'submit',
+          })(id="submit-btn")
+            | Submit
+    div.t-container.p-contact-us__card
+      div.p-contact-us__card__content
+        div.p-contact-us__card__header
+          +animated_header(['Hong Kong', '<span class="text-black">Office</span>'], 'lg', '3').text-blue.mb-12
+        address.p-contact-us__card__body.font-medium
+          span
+            | 8th Floor, Gloucester Tower<br/>
+            | The Landmark<br/>
+            | 15 Queen's Road Central<br/>
+            | Central, Hong Kong<br/>
+          a(href='tel:+852 1234 5678').p-contact-us__card__body-link.font-medium
+            i(class='fa-solid fa-phone mr-2')
+            span +852 1234 5678
+          a(href='mailto:info@toppannexus.com').p-contact-us__card__body-link.font-medium
+            i(class='fa-solid fa-envelope mr-2')
+            span info@toppannexus.com
+      div.p-contact-us__card__media
+        div.p-contact-us__card__media__img-wrapper
+          +picture({
+            default: '/images/1272x1200.jpeg',
+          }, 'Hong Kong Office').p-contact-us__card__media__img
