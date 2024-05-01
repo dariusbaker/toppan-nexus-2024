@@ -1,0 +1,75 @@
+extends ./_layouts/layout
+
+block container
+  +breadcrumbs([
+    {
+      label: 'Home',
+      href: '/',
+    },
+    {
+      label: 'Careers',
+      href: '/careers',
+    },
+  ])
+
+  +sticky_nav([
+    {
+      anchor: '#our-culture',
+      title: 'Culture Section',
+    },
+    {
+      anchor: '#growth',
+      title: 'Growth Section',
+    },
+    {
+      anchor: '#people',
+      title: 'People Section',
+    },
+  ])
+    div(id='our-culture')
+      +culture_carousel('white', [
+        {
+          img: '/images/1640x1800.jpeg',
+          title: 'Title 1',
+          desc: '<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Earum veniam maiores tenetur veritatis, repellendus ratione, culpa, ab neque voluptate impedit repudiandae doloribus sit atque a ducimus rem dolorem suscipit sunt.</p><p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Earum veniam maiores tenetur veritatis, repellendus ratione, culpa, ab neque voluptate impedit repudiandae doloribus sit atque a ducimus rem dolorem suscipit sunt.</p>',
+          href: 'https://google.com',
+          ctaLabel: 'Learn more',
+        },
+        {
+          img: '/images/1640x1800.jpeg',
+          title: 'Title 2',
+          desc: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Earum veniam maiores tenetur veritatis, repellendus ratione, culpa, ab neque voluptate impedit repudiandae doloribus sit atque a ducimus rem dolorem suscipit sunt.',
+        },
+        {
+          img: '/images/1640x1800.jpeg',
+          title: 'Title 3',
+          desc: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Earum veniam maiores tenetur veritatis, repellendus ratione, culpa, ab neque voluptate impedit repudiandae doloribus sit atque a ducimus rem dolorem suscipit sunt.',
+          href: 'https://google.com',
+          ctaLabel: 'Learn more',
+        },
+      ], 'At TOPPAN Nexus, we\'ve worked hard to foster an internal culture of:', 'culture-carousel-2')
+    div(id='growth')
+      +content_block({
+        imgSrcSet: {
+          768: '/images/668x376.jpeg',
+          default: '/images/1640x1800.jpeg',
+        },
+        title: 'Growth\nFrom Within',
+        body: '<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam natus iusto dolorum maiores totam asperiores velit sunt earum magni. Eligendi inventore necessitatibus, obcaecati ipsam quibusdam minus nam harum tempora expedita?</p><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam natus iusto dolorum maiores totam asperiores velit sunt earum magni. Eligendi inventore necessitatibus, obcaecati ipsam quibusdam minus nam harum tempora expedita?</p>',
+        theme: 'blue',
+        mediaPos: 'right',
+        cards: [
+          {
+            title: 'Title 1',
+            body: 'Body 1',
+            img: '/images/200x200.jpeg',
+          },
+          {
+            title: 'Title 2',
+            body: 'Body 2',
+            img: '/images/200x200.jpeg',
+          },
+        ],
+      })
+    div(id='people')
+      include ./_blocks/people-carousel
