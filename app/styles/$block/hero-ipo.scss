@@ -1,0 +1,79 @@
+$module: 'hero-ipo';
+
+.#{$module} {
+  &__main {
+    text-align: center;
+
+    @include mq(map-get($grid-breakpoints, 'lg')) {
+      display: flex;
+      align-items: center;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      text-align: unset;
+      gap: clamp(#{rem(60)}, calc(140 / 1800 * 100vw), #{rem(140)});
+    }
+  }
+
+  &__button {
+    margin-block: rem(48);
+  }
+
+  &__header {
+    flex: 1 1 auto;
+
+    p {
+      padding-block-start: 1em;
+      margin-block-end: 0;
+      font-size: clamp(#{rem(16)}, calc(25 / 1600 * 100vw), #{rem(25)});
+      line-height: calc(18 / 16);
+    }
+  }
+
+  &__body {
+    max-width: rem(880);
+    margin-block: 4em;
+    margin-inline: auto;
+    font-size: clamp(#{rem(20)}, calc(30 / 1600 * 100vw), #{rem(30)});
+    line-height: calc(30 / 24);
+    text-align: center;
+  }
+
+  &__mosaic {
+    flex: 0 0 auto;
+
+    display: grid;
+    grid-template-columns: 49fr 19fr 32fr;
+    grid-template-rows: 1fr 1fr;
+    gap: clamp(#{rem(4)}, calc(10 / 1600 * 100vw), #{rem(10)});
+
+    @include mq(map-get($grid-breakpoints, 'lg')) {
+      width: 64%;
+    }
+
+     & > * {
+      border-radius: clamp(#{rem(8)}, calc(30 / 1440 * 100vw), #{rem(30)});
+      overflow: hidden;
+
+      &:nth-child(1) {
+        aspect-ratio: 485 / 570;
+        grid-row: span 2;
+      }
+
+      &:nth-child(2),
+      &:nth-child(4) {
+        aspect-ratio: 190 / 280;
+      }
+
+      &:nth-child(3),
+      &:nth-child(5) {
+        aspect-ratio: 319 / 280;
+      }
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+}

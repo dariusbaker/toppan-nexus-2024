@@ -1,0 +1,26 @@
+section.hero-ipo.t-container(animate-stagger)
+  .hero-ipo__main
+    .hero-ipo__header
+      +animated_header(
+        ['IPO', '<span class="text-blue">Filings</span>'],
+        'xl',
+        2,
+        false
+      ).text-black
+
+      p(animate-fade-up).text-gray-400
+        | Streamlining a complex process at your most critical moments.
+
+      +button({style: 'text', icon: 'arrow-right'})(animate-fade-up).hero-ipo__button
+        | Explore
+
+    .hero-ipo__mosaic
+      +image_wiper('https://placehold.co/1000x1000')(loading="eager")
+      +image_wiper('https://placehold.co/1000x1000')(loading="eager")
+      +image_wiper('https://placehold.co/1000x1000')(loading="eager")
+      +image_wiper('https://placehold.co/1000x1000')(loading="eager")
+      +image_wiper('https://placehold.co/1000x1000')(loading="eager")
+
+  p.hero-ipo__body.text-gray-500(animate-fade-up)
+    span.text-black Smooth Collaborators.
+    | &nbsp;We're specialists in bringing together industry experts and financial partners during your most critical period. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.

@@ -158,3 +158,15 @@ p:has(button) {
   border: inherit;
 }
 
+.basic-section-gap {
+  margin-block: clamp(#{rem(80)}, calc(140 / 1600 * 100vw), #{rem(140)});
+}
+
+.basic-section-gap-top {
+  margin-block-start: clamp(#{rem(80)}, calc(140 / 1600 * 100vw), #{rem(140)});
+}
+
+.basic-section-gap-bottom {
+  margin-block-end: clamp(#{rem(80)}, calc(140 / 1600 * 100vw), #{rem(140)});
+}
+
