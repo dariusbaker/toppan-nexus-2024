@@ -25,7 +25,7 @@
     "start": "gulp",
     "dev": "gulp",
     "build": "gulp build",
-    "deploy": "rm -rf dist; npm run build; aws s3 sync --delete --acl public-read dist s3://sit-html/sit10"
+    "deploy": "rm -rf dist; npm run build; aws s3 sync --delete --acl public-read dist s3://toppan/nexus-2024"
   },
   "dependencies": {
     "bootstrap": "^5.3.2",
