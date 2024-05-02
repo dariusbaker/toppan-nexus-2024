@@ -2,6 +2,6 @@ mixin image_wiper(url, color = 'blue-500', classes = '')
   div(class=classes animate-wipe).image-wiper
     img(
       loading="lazy"
-      srcset=url + " 2x"
+      src=url
     )&attributes(attributes)
     div(class=["image-wiper__mask", "bg-" + color])
