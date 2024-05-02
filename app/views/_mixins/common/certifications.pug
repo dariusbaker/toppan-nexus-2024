@@ -9,7 +9,7 @@
 mixin certifications(items, title, description, classes)
   section.t-container.certifications
     if title
-      +animated_header(['Fully'], 'lg').text-black.mb-8
+      +animated_header(title, 'lg').text-black.mb-8
     if description
       p.certifications__desc= description
 
