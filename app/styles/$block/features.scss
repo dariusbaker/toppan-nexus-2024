@@ -15,6 +15,10 @@ $module: 'features';
     }
   }
 
+  &__right {
+    min-width: 0; // needed for some weird safari bug
+  }
+
   &__header {
     padding-block-start: rem(72);
 
