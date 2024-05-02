@@ -2,6 +2,7 @@ $module: 'partner-grid';
 
 .#{$module} {
   --border-color: #{$color-gray-200};
+  margin-block: clamp(#{rem(80)}, calc(150 / 1800 * 100vw), #{rem(150)});
 
   &__title {
     color: $color-black;
@@ -18,6 +19,9 @@ $module: 'partner-grid';
     border: rem(1) solid var(--border-color);
     border-radius: rem(20);
     overflow: hidden;
+    width: calc(100% - #{rem(32)});
+    max-width: rem(1640);
+    margin-inline: auto;
 
     @include mq(map-get($grid-breakpoints, 'lg')) {
       grid-template-columns: 2fr 3fr;
