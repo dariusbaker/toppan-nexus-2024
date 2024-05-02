@@ -10,12 +10,11 @@ $module: 'service-feature';
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-  justify-content: center;
   min-height: 100dvh;
 
   overflow-x: hidden;
 
-  &__header {
+  &__header p {
     max-width: rem(628);
   }
 

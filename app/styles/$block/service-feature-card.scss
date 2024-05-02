@@ -20,9 +20,10 @@ $module: 'sf-card';
   }
 
   @include mq(map-get($grid-breakpoints, 'md')) {
-    width: 30vw;
+    width: auto;
+    height: 52svh;
     max-width: rem(502);
-    min-width: rem(375);
+    //min-width: rem(375);
   }
 
   &.bg-green,
