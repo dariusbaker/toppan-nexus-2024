@@ -8,14 +8,10 @@ $module: 'gallery-carousel-card';
   &__img-wrapper {
     display: block;
     width: 100%;
-    height: rem(188);
+    aspect-ratio: 3000 / 1516;
 
     border-radius: rem(24);
     overflow: hidden;
-
-    @include mq(map-get($grid-breakpoints, 'lg')) {
-      height: auto;
-    }
   }
 
   &__img {
