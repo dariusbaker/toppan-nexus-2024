@@ -67,14 +67,12 @@
   ]
 
 .features-market
-  .features-market__sizer
-  .features-market__content
-    +service_feature(
-      ["<span class=\"text-blue\">Capital market</span>", "Communications"],
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam natus iusto dolorum maiores totam asperiores velit sunt earum magni. Eligendi inventore necessitatibus, obcaecati ipsam quibusdam minus nam harum tempora expedita?"
-    )
-      +service_feature_image('https://placehold.co/1000x1000')
+  +service_feature(
+    ["<span class=\"text-blue\">Capital market</span>", "Communications"],
+    "Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam natus iusto dolorum maiores totam asperiores velit sunt earum magni. Eligendi inventore necessitatibus, obcaecati ipsam quibusdam minus nam harum tempora expedita?"
+  )
+    +service_feature_image('https://placehold.co/1000x1000')
 
-      each obj in data
-        +service_feature_card(obj)
-          | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur dolor praesentium placeat? Voluptates, iusto, laborum doloribus, magnam deserunt maxime quidem facere sint voluptate reprehenderit repellendus! Incidunt magnam rem corporis eveniet.
+    each obj in data
+      +service_feature_card(obj)
+        | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur dolor praesentium placeat? Voluptates, iusto, laborum doloribus, magnam deserunt maxime quidem facere sint voluptate reprehenderit repellendus! Incidunt magnam rem corporis eveniet.

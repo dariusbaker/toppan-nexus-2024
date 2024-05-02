@@ -3,7 +3,6 @@ $module: 'features-market';
 .#{$module} {
   position: relative;
   padding-inline-start: rem(16);
-  margin-block-start: rem(24);
 
   @include mq(map-get($grid-breakpoints, 'lg')) {
     padding-inline-start: clamp(#{rem(16)}, calc(252 / 1800 * 100vw), #{rem(248)});

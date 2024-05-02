@@ -6,63 +6,42 @@ block append vars
   - namespace = 'home'
 
 block container
-  +sticky_nav([
-    {
-      anchor: '#our-partner',
-      title: 'Our Partner Section',
-    },
-    {
-      anchor: '#service-feature',
-      title: 'Service Feature Section',
-    },
-    {
-      anchor: '#statistics',
-      title: 'Statistics Section',
-    },
-    {
-      anchor: '#client-testimonials',
-      title: 'Client Testimonials Section',
-    },
-    {
-      anchor: '#collaborative-facilities',
-      title: 'Collaborative Facilities Section',
-    }
-  ])
-    div(id='our-partner')
-      include ./_blocks/partner-grid
-    div(id='service-feature')
-      include ./_blocks/features-home
-    div(id='statistics')
-      include ./_blocks/statistics
-    div(id='client-testimonials')
-      include ./_blocks/testimonials-carousel
-    div(id='collaborative-facilities')
-      +gallery_carousel(
-        'COLLABORATIVE FACILITIES',
-        'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Cum sociis natoque penatibus et magnis dis parturient.',
-        [
-          {
-            title: 'Title 1',
-            body: 'Body 1',
-            imgSrcSet: {
-              768: 'images/668x376.jpeg',
-              default: 'images/3000x1516.jpeg',
-            },
-          },
-          {
-            title: 'Title 2',
-            body: 'Body 2',
-            imgSrcSet: {
-              768: 'images/668x376.jpeg',
-              default: 'images/3000x1516.jpeg',
-            },
-          },
-          {
-            title: 'Title 3',
-            body: 'Body 3',
-            imgSrcSet: {
-              768: 'images/668x376.jpeg',
-              default: 'images/3000x1516.jpeg',
-            },
-          },
-        ])
+  include ./_blocks/hero/hero-home
+  include ./_blocks/home-line-runner
+  include ./_blocks/service-features/capital
+  include ./_blocks/service-features/compliance
+  include ./_blocks/service-features/marketing
+  include ./_blocks/partner-grid
+  include ./_blocks/features-home
+  include ./_blocks/statistics
+  include ./_blocks/testimonials-carousel
+  +gallery_carousel(
+    'COLLABORATIVE FACILITIES',
+    'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Cum sociis natoque penatibus et magnis dis parturient.',
+    [
+      {
+        title: 'Title 1',
+        body: 'Body 1',
+        src: 'images/3000x1516.jpeg',
+      },
+      {
+        title: 'Title 2',
+        body: 'Body 2',
+        src: 'images/3000x1516.jpeg',
+      },
+      {
+        title: 'Title 3',
+        body: 'Body 3',
+        src: 'images/3000x1516.jpeg',
+      },
+      {
+        title: 'Title 4',
+        body: 'Body 4',
+        src: 'images/3000x1516.jpeg',
+      },
+      {
+        title: 'Title 5',
+        body: 'Body 5',
+        src: 'images/3000x1516.jpeg',
+      },
+    ])
