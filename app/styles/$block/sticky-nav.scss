@@ -2,10 +2,9 @@ $module: 'sticky-nav';
 
 .#{$module} {
   display: none;
-  position: sticky;
+  position: fixed;
   top: 50%;
-  // 24 width of the nav + 32 margin
-  left: calc(100vw - #{rem(24)} - #{rem(32)});
+  right: rem(32);
   transform: translateY(-50%);
   z-index: 900;
 
