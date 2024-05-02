@@ -1,54 +1,52 @@
 .features.bg-blue-500.text-white
   .t-container
     .row-1.features__header
-      .container-fluid
-        .row
-          .col-md-10.col-lg-9(animate-stagger)
-            +animated_header(
-              ['<span class="text-cyan">Foo</span>', 'Bar'],
-              'xl',
-              2,
-              false
-            ).features__title
+      .row
+        .col-md-10.col-lg-9(animate-stagger)
+          +animated_header(
+            ['<span class="text-cyan">Foo</span>', 'Bar'],
+            'xl',
+            2,
+            false
+          ).features__title
 
-            .text-xl.font-medium.features__body
-              p(animate-fade-up) Lorem ipsum dolor, sit amet consectetur adipisicing elit. Illo magni eaque vitae odio porro cupiditate, illum necessitatibus possimus, dignissimos, exercitationem voluptatem ipsa nulla! Sed a dolorem asperiores libero. Eos, exercitationem.
+          .text-xl.font-medium.features__body
+            p(animate-fade-up) Lorem ipsum dolor, sit amet consectetur adipisicing elit. Illo magni eaque vitae odio porro cupiditate, illum necessitatibus possimus, dignissimos, exercitationem voluptatem ipsa nulla! Sed a dolorem asperiores libero. Eos, exercitationem.
 
     .row-2.pb-36.features__content
-      .container-fluid
-        .row
-          .col-lg-3.d-none.d-lg-block
-            .content.content-left.pt-62.features__nav
-              div(data-home-focus-nav)
-                ul.nav.text-uppercase.text-4xl.font-extrabold#features-nav
-                  - for (var i = 0; i < 4; i++)
-                    li.nav-item
-                      a(href="#features-section-" + i data-scroll-to).nav-link
-                        | Lorem
-                        br
-                        | Ipsum #{i}
+      .row
+        .col-lg-3.d-none.d-lg-block
+          .content.content-left.pt-62.features__nav
+            div(data-home-focus-nav)
+              ul.nav.text-uppercase.text-4xl.font-extrabold#features-nav
+                - for (var i = 0; i < 4; i++)
                   li.nav-item
+                    a(href="#features-section-" + i data-scroll-to).nav-link
+                      | Lorem
+                      br
+                      | Ipsum #{i}
+                li.nav-item
 
-          .col-lg-7.ms-auto(data-bs-spy="scroll" data-bs-target="#features-nav")
-            - for (var i = 0; i < 4; i++)
-              .content.content-right.features__section(id="features-section-" + i)
-                .content-wrap
-                  .text-imgs
-                    .features__mosaic.features__mosaic
-                      +image_wiper('https://placehold.co/100x100', 'green')(loading="lazy").features__mosaic__image
-                      +image_wiper('https://placehold.co/100x100', 'green')(loading="lazy").features__mosaic__image
-                      +image_wiper('https://placehold.co/100x100', 'green')(loading="lazy").features__mosaic__image
+        .col-lg-7.ms-auto(data-bs-spy="scroll" data-bs-target="#features-nav")
+          - for (var i = 0; i < 4; i++)
+            .content.content-right.features__section(id="features-section-" + i)
+              .content-wrap
+                .text-imgs
+                  .features__mosaic.features__mosaic
+                    +image_wiper('https://placehold.co/100x100', 'green')(loading="lazy").features__mosaic__image
+                    +image_wiper('https://placehold.co/100x100', 'green')(loading="lazy").features__mosaic__image
+                    +image_wiper('https://placehold.co/100x100', 'green')(loading="lazy").features__mosaic__image
 
-                    .text(animate-fade)
-                      .row
-                        .col-md-8.features__section__content
-                          .heading.text-uppercase.d-lg-none.text-3xl.font-extrabold.pb-4
-                            | Lorem
-                            br
-                            | Ipsum #{i}
+                  .text(animate-fade)
+                    .row
+                      .col-md-8.features__section__content
+                        .heading.text-uppercase.d-lg-none.text-3xl.font-extrabold.pb-4
+                          | Lorem
+                          br
+                          | Ipsum #{i}
 
-                          .line-clamp
-                            p.text-lg Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate doloribus debitis blanditiis fuga quod nobis quos assumenda repudiandae excepturi saepe voluptatem mollitia, exercitationem fugiat natus rerum illo animi, tempora laborum?
+                        .line-clamp
+                          p.text-lg Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate doloribus debitis blanditiis fuga quod nobis quos assumenda repudiandae excepturi saepe voluptatem mollitia, exercitationem fugiat natus rerum illo animi, tempora laborum?
 
-                          +button({style: "text", icon: "arrow-right", light: true})(href="#")
-                            | Explore
+                        +button({style: "text", icon: "arrow-right", light: true})(href="#")
+                          | Explore
