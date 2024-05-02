@@ -1,0 +1,46 @@
+section.line-runner
+  .line-runner__svg-wrapper
+    svg(xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1640 3656" fill="none")
+      g.gray-lines
+        path(stroke="#ccc" stroke-linecap="round" stroke-width="10" d="m565 5-.349 188.623c-.171 92.161 48.383 177.548 127.673 224.524v0c79.141 46.889 127.673 132.053 127.673 224.042V948")
+        path(stroke="#ccc" stroke-linecap="round" stroke-width="10" d="M903 5v250.991a337.243 337.243 0 0 1-41.5 162.075v0A337.236 337.236 0 0 0 820 580.14V957")
+        path(stroke="#ccc" stroke-linecap="round" stroke-width="10" d="M1169 5v147.12c0 115.493-68.55 219.97-174.5 265.946v0C888.552 464.042 820 568.518 820 684.012V957")
+        path(stroke="#ccc" stroke-linecap="round" stroke-width="10" d="M1055 5v197.555c0 87.136-44.26 168.308-117.5 215.511v0C864.256 465.269 820 546.44 820 633.577V957")
+        path(stroke="#ccc" stroke-linecap="round" stroke-width="10" d="M708 5v243.16a285.752 285.752 0 0 0 56 169.906v0a285.747 285.747 0 0 1 56 169.905V1156c0 110.46-89.543 200-200 200H248c-110.457 0-200 89.54-200 200v2078")
+
+      g.coloured-lines
+        path(class="line" stroke="#41feff" stroke-linecap="round" stroke-width="10" d="m565 5-.349 188.623c-.171 92.161 48.383 177.548 127.673 224.524v0c79.141 46.889 127.673 132.053 127.673 224.042V948")
+        path(class="line" stroke="#414858" stroke-linecap="round" stroke-width="10" d="M903 5v250.991a337.243 337.243 0 0 1-41.5 162.075v0A337.236 337.236 0 0 0 820 580.14V957")
+        path(class="line" stroke="#2b50f7" stroke-linecap="round" stroke-width="10" d="M1169 5v147.12c0 115.493-68.55 219.97-174.5 265.946v0C888.552 464.042 820 568.518 820 684.012V957")
+        path(class="line" stroke="#000000" stroke-linecap="round" stroke-width="10" d="M1055 5v197.555c0 87.136-44.26 168.308-117.5 215.511v0C864.256 465.269 820 546.44 820 633.577V957")
+        path(class="line" stroke="#1f0ef2" stroke-linecap="round" stroke-width="10" d="M708 5v243.16a285.752 285.752 0 0 0 56 169.906v0a285.747 285.747 0 0 1 56 169.905V1156c0 110.46-89.543 200-200 200H248c-110.457 0-200 89.54-200 200v2078")
+
+      g.checks
+        g
+          circle(cx="48" cy="1567" r="35" fill="#fff" stroke="#1f0ef2" stroke-width="5")
+          path(stroke="#1f0ef2" stroke-width="5" d="m35 1568 8.5 8.5L62 1558")
+        g
+          circle(cx="48" cy="2560" r="35" fill="#fff" stroke="#1f0ef2" stroke-width="5")
+          path(stroke="#1f0ef2" stroke-width="5" d="m35 2561 8.5 8.5L62 2551")
+        g
+          circle(cx="48" cy="3618" r="35" fill="#fff" stroke="#1f0ef2" stroke-width="5")
+          path(stroke="#1f0ef2" stroke-width="5" d="m35 3619 8.5 8.5L62 3609")
+
+      g.starting-markers
+        circle(class="line-start" cx="565" cy="10" r="5" fill="none")
+        circle(class="line-start" cx="708" cy="10" r="5" fill="none")
+        circle(class="line-start" cx="903" cy="10" r="5" fill="none")
+        circle(class="line-start" cx="1055" cy="10" r="5" fill="none")
+        circle(class="line-start" cx="1169" cy="10" r="5" fill="none")
+
+  .t-container.line-runner__wrapper
+    .line-runner__content(animate-stagger)
+      +animated_header(
+        ['Smooth', '<span class="text-blue">Operator</span>'],
+        'xl',
+        2,
+        false
+      ).text-black
+
+      p.line-runner__body.text-gray-500(animate-fade-up)
+        | Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt est commodi ducimus aliquam numquam! Labore laboriosam temporibus officia explicabo repudiandae natus expedita ratione, voluptates delectus deserunt perspiciatis ipsum aperiam numquam!

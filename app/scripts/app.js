@@ -14,6 +14,8 @@ import TimelineCarousel from './timeline-carousel';
 import TestimonialsCarousel from './testimonials-carousel';
 import IPOProcess from './ipo-process';
 
+const DEBOUNCE_DELAY = 250;
+
 const DEFAULT_FADE_UP_ANIMATION = {
   delay: .25,
   duration: .75,
@@ -22,6 +24,80 @@ const DEFAULT_FADE_UP_ANIMATION = {
   stagger: .25,
   y: 50,
 };
+
+let triggerDebounceTimer = 0;
+
+/**
+ *
+ * @param {ScrollTrigger[]} $triggers
+ */
+function debounceTriggerRefresh(triggers) {
+  if (triggerDebounceTimer > 0) {
+    clearTimeout(triggerDebounceTimer);
+  }
+
+  triggerDebounceTimer = setTimeout(() => {
+    triggers.forEach((trigger) => trigger.refresh(true));
+  }, DEBOUNCE_DELAY);
+}
+
+/**
+ *
+ * @param {HTMLElement} $card
+ * @param {HTMLElement} $line
+ * @returns {Object}
+ */
+function getCardTravelDistance($card, $line) {
+  const br1 = $line.getBoundingClientRect();
+  const br2 = $card.getBoundingClientRect();
+
+  return {
+    x: '+=' + Math.floor(br1.left - br2.left - ($card.offsetWidth / 2)),
+    y: '+=' + Math.floor(br1.top - br2.bottom + ($card.offsetHeight / 2))
+  }
+}
+
+function initHomeHero() {
+  const $hero = $('.hero-home');
+  const $cards = $('.hero-home__card');
+  const $headers = $hero.find('h2');
+  const $startMarkers = $('circle.line-start');
+
+  if ($hero.length === 0) {
+    return;
+  }
+
+  const tlCards = gsap.timeline({
+    scrollTrigger: {
+      trigger: $hero,
+      start: 'top',
+      end: 'center',
+      //markers: true,
+      scrub: 1,
+      invalidateOnRefresh: true,
+    }
+  });
+
+  $cards.each((index) => {
+    tlCards.to(
+      $cards[index],
+      {
+        ...getCardTravelDistance($cards[index], $startMarkers[index]),
+        scale: .84,
+        rotationY: 12
+      },
+    0);
+  });
+
+  const tlHeaders = gsap.timeline();
+
+  tlHeaders.set($headers[1], {opacity: 0, y: '+=24'});
+  tlHeaders.set($headers[2], {opacity: 0, y: '+=24'});
+  tlHeaders.to($headers[0], {duration: .25, opacity: 0, y: '-=24', ease: 'expo.out', delay: 2});
+  tlHeaders.to($headers[1], {duration: .25, opacity: 1, y: '-=24', ease: 'expo.out'});
+  tlHeaders.to($headers[1], {duration: .25, opacity: 0, y: '-=24', ease: 'expo.out', delay: 2});
+  tlHeaders.to($headers[2], {duration: .25, opacity: 1, y: '-=24', ease: 'expo.out'});
+}
 
 /**
  *
@@ -78,6 +154,7 @@ function calcScrollAmount($element) {
 /**
  *
  * @param {Selector} $service
+ * @returns {ScrollTrigger}
  */
 function initServiceFeature($service) {
   const $scroller = $('.service-feature__content', $service);
@@ -87,9 +164,9 @@ function initServiceFeature($service) {
     ease: 'none',
   });
 
-  ScrollTrigger.create({
+  return ScrollTrigger.create({
     trigger: $service,
-    start: 'top',
+    start: 'top 24px',
     end: () => `+=${calcScrollAmount($scroller[0]) * -1}`,
     pin: true,
     animation: tween,
@@ -110,6 +187,7 @@ function initAnimateNumber() {
 }
 
 $(document).ready(() => {
+  const trackedTriggers = [];
   gsap.registerPlugin(ScrollTrigger);
   gsap.registerPlugin(ScrollToPlugin);
 
@@ -118,7 +196,7 @@ $(document).ready(() => {
   });
 
   $('.service-feature').each(function() {
-    initServiceFeature($(this));
+    trackedTriggers.push(initServiceFeature($(this)));
   });
 
   // this has to come last otherwise they don't seem to initialise
@@ -145,40 +223,46 @@ $(document).ready(() => {
 
   $('.features').each(function() {
     const $this = $(this);
-    const $header = $this.find('.features__header');
-    const $title = $this.find('.features__title');
     const $body = $this.find('.features__body');
-    const $nav = $this.find('.features__nav');
     const $content = $this.find('.features__content');
+    const $header = $this.find('.features__header');
+    const $nav = $this.find('.features__nav');
+    const $title = $this.find('.features__title');
 
     ScrollTrigger.matchMedia({
       '(min-width: 1024px)'() {
         let tl = gsap.timeline({ paused: true });
 
-        tl.to($title, {fontSize: 20, ease: 'expo.easeOut', duration: .25});
+        tl.to($title, {fontSize: 20, ease: 'expo.out', duration: .25});
         tl.to($body, {opacity: 0, duration: .25}, 0);
 
-        ScrollTrigger.create({
-          trigger: $this,
-          pin: $header,
-          start: 'top top',
-          end: 'bottom bottom',
-          pinSpacing: false,
-        });
+        trackedTriggers.push(
+          ScrollTrigger.create({
+            trigger: $this,
+            pin: $header,
+            start: 'top top',
+            end: 'bottom bottom',
+            pinSpacing: false,
+          })
+        );
 
-        ScrollTrigger.create({
-          trigger: $content,
-          start: 'top 300px',
-          onEnter: () => tl.play(),
-          onLeaveBack: () => tl.reverse(),
-        });
+        trackedTriggers.push(
+          ScrollTrigger.create({
+            trigger: $content,
+            start: 'top 300px',
+            onEnter: () => tl.play(),
+            onLeaveBack: () => tl.reverse(),
+          })
+        );
 
-        ScrollTrigger.create({
-          trigger: $content,
-          pin: $nav,
-          start: 'top top',
-          end: 'bottom bottom',
-        });
+        trackedTriggers.push(
+          ScrollTrigger.create({
+            trigger: $content,
+            pin: $nav,
+            start: 'top top',
+            end: 'bottom bottom',
+          })
+        );
       },
     });
   });
@@ -215,4 +299,13 @@ $(document).ready(() => {
 
   // init IPO process component
   new IPOProcess();
+
+  // init home hero animation
+  initHomeHero();
+
+  debounceTriggerRefresh(trackedTriggers);
+
+  window.addEventListener('resize', () => {
+    debounceTriggerRefresh(trackedTriggers);
+  }, {passive: true});
 });

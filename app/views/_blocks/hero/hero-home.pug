@@ -1,0 +1,30 @@
+section.hero-home#hero
+  .hero-home__header(animate-stagger)
+    p.hero-home__pre-headline.text-black(animate-fade-up)
+      | Your Financial Communications Service Provider for
+
+    .hero-home__headline.text-black.text-uppercase(animate-fade-up)
+      h2
+        | Capital Market
+        br
+        span.text-blue Transactions
+
+      h2
+        | Compliance
+        br
+        span.text-blue &amp; Disclosure
+
+      h2
+        | Marketing &amp;
+        br
+        span.text-blue Communications
+
+    p.hero-home__post-headline.text-gray-400(animate-fade-up)
+      | Streamlining a complex process at your most critical moments.
+
+  .hero-home__cards
+    .hero-home__cards-wrapper
+      - for (var i = 0; i < 5; i++)
+        .hero-home__card
+          img(srcset="https://placehold.co/1000x1000 2x" loading="eager")
+
