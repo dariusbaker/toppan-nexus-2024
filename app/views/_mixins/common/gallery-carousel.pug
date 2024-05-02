@@ -27,14 +27,14 @@ mixin gallery_carousel_card(title, body, src)
 //- ]
 mixin gallery_carousel(title, body, cards)
   section.gallery-carousel(gallery-carousel)
-    div.t-container.gallery-carousel__header
+    div.t-container.gallery-carousel__header(animate-stagger)
       -
         const titles = title.split(' ').map((title, index) => {
           return index % 2 ? `<span class="text-blue">${title}</span>` : title
         })
-      +animated_header(titles, 'lg').text-black.gallery-carousel__header__title
+      +animated_header(titles, 'lg', 2, false).text-black.gallery-carousel__header__title
 
-      p.gallery-carousel__header__body.font-medium= body
+      p.gallery-carousel__header__body.font-medium(animate-fade-up)= body
 
     div.gallery-carousel__carousel(gallery-carousel-viewport)
       each card in cards

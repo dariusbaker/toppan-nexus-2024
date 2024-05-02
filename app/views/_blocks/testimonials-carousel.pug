@@ -87,9 +87,10 @@ mixin testimonial_card(logo, logo_alt, body, avatar, author_name, author_job_tit
 
 
 section.testimonials-carousel(testimonials-carousel)
-  div.t-container.testimonials-carousel__header
-    +animated_header(['Client', '<span class="text-blue">Successes</span>']).text-black.testimonials-carousel__header__title
-    p.testimonials-carousel__header__body.text-black
+  div.t-container.testimonials-carousel__header(animate-stagger)
+    +animated_header(['Client', '<span class="text-blue">Successes</span>'], 'xl', 2, false).text-black.testimonials-carousel__header__title
+
+    p.testimonials-carousel__header__body.text-black(animate-fade-up)
       | We have been through a lot of changes over the years. Here are some of the key milestones in our journey.
 
   div.testimonials-carousel__content

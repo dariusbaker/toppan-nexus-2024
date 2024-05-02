@@ -31,13 +31,13 @@
           - for (var i = 0; i < 4; i++)
             .content.content-right.features__section(id="features-section-" + i)
               .content-wrap
-                .text-imgs
-                  .features__mosaic.features__mosaic
+                .text-imgs(animate-stagger)
+                  .features__mosaic.features__mosaic(animate-fade-up)
                     +image_wiper('https://placehold.co/100x100', 'green')(loading="lazy").features__mosaic__image
                     +image_wiper('https://placehold.co/100x100', 'green')(loading="lazy").features__mosaic__image
                     +image_wiper('https://placehold.co/100x100', 'green')(loading="lazy").features__mosaic__image
 
-                  .text(animate-fade)
+                  .text(animate-fade-up)
                     .row
                       .col-md-8.features__section__content
                         .heading.text-uppercase.d-lg-none.text-3xl.font-extrabold.pb-4

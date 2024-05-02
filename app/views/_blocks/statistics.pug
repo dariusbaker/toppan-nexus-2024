@@ -37,14 +37,17 @@
     }
   ]
 
-section.statistics(statistics)
+section.statistics(statistics)(animate-stagger)
   div.t-container
-    +animated_header(['Exceptional', '<span class="text-blue">Experience</span>']).text-black.statistics__title
-    p.statistics__desc.font-medium
+    +animated_header(['Exceptional', '<span class="text-blue">Experience</span>'], 'xl', 2, false).text-black.statistics__title
+
+    p.statistics__desc.font-medium(animate-fade-up)
       | Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Cum sociis natoque penatibus et magnis dis parturient.
+
   ul.statistics__stats(statistics-stats)
     each stat in stats
-      li.statistics__stats__item
+      li.statistics__stats__item(animate-fade-up)
         +stat_card(stat)
+
   div.t-container.statistics__progress.mt-6
     +progress_bar()(statistics-progress)
