@@ -25,6 +25,10 @@ block container
       anchor: '#people',
       title: 'People Section',
     },
+    {
+      anchor: '#jobs-callout',
+      title: 'Jobs Callout Section',
+    }
   ])
     div(id='our-culture')
       +culture_carousel('white', [
@@ -73,3 +77,5 @@ block container
       })
     div(id='people')
       include ./_blocks/people-carousel
+    div(id='jobs-callout')
+      include ./_blocks/jobs-callout
