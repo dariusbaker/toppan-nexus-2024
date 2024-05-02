@@ -12,4 +12,271 @@ block container
     },
   ])
 
+  +sticky_nav([
+    {
+      anchor: '#section-1',
+      title: 'Section 1',
+    },
+    {
+      anchor: '#section-2',
+      title: 'Section 2',
+    },
+    {
+      anchor: '#section-3',
+      title: 'Section 3',
+    },
+    {
+      anchor: '#section-4',
+      title: 'Section 4',
+    },
+  ])
+    div(id='section-1')
+      include ./_blocks/ipo-process
+    div(id='section-2')
+      include ./_blocks/our-values
+    div(id='section-3')
+      include ./_blocks/timeline-carousel
+    div(id='section-4')
+      include ./_blocks/statistics-content-block
+
+  include ./_blocks/testimonials-carousel
+  include ./_blocks/features-home
+
+  +content_block_card(
+    'images/200x200.jpeg',
+    'Title',
+    'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam, voluptates.',
+  )
+
+  +content_block({
+    imgSrcSet: {
+      768: 'images/668x376.jpeg',
+      default: 'images/1640x1800.jpeg',
+    },
+    title: 'Growth\nFrom Within',
+    body: '<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam natus iusto dolorum maiores totam asperiores velit sunt earum magni. Eligendi inventore necessitatibus, obcaecati ipsam quibusdam minus nam harum tempora expedita?</p><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam natus iusto dolorum maiores totam asperiores velit sunt earum magni. Eligendi inventore necessitatibus, obcaecati ipsam quibusdam minus nam harum tempora expedita?</p>',
+    theme: 'blue',
+    mediaPos: 'right',
+    cards: [
+      {
+        title: 'Title 1',
+        body: 'Body 1',
+        img: 'images/200x200.jpeg',
+      },
+      {
+        title: 'Title 2',
+        body: 'Body 2',
+        img: 'images/200x200.jpeg',
+      },
+    ],
+  })
+
+  +image_wiper('https://placehold.co/1600x900', ['foo', 'bar'])(alt="Foobar" loading="eager")
+
+  +content_block({
+    imgSrcSet: {
+      768: 'images/668x376.jpeg',
+      default: 'images/1640x1800.jpeg',
+    },
+    title: 'Growth\nFrom Within',
+    body: '<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam natus iusto dolorum maiores totam asperiores velit sunt earum magni. Eligendi inventore necessitatibus, obcaecati ipsam quibusdam minus nam harum tempora expedita?</p>',
+    theme: 'white',
+    mediaPos: 'left',
+  })
+
+  +service_feature(
+    ["Lorem", "ipsum"],
+    "Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam natus iusto dolorum maiores totam asperiores velit sunt earum magni. Eligendi inventore necessitatibus, obcaecati ipsam quibusdam minus nam harum tempora expedita?"
+  )
+    +service_feature_image('https://placehold.co/1000x1000')
+    +service_feature_card({image: 'images/service-feature-card-lines.png', icon: 'arrow-trend-up', link_label: 'More', link_url: '#', title: 'Lorem ipsum', theme: 'blue-500'})
+      | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur dolor praesentium placeat? Voluptates, iusto, laborum doloribus, magnam deserunt maxime quidem facere sint voluptate reprehenderit repellendus! Incidunt magnam rem corporis eveniet.
+    +service_feature_card({image: 'images/service-feature-card-lines.png', icon: 'arrow-trend-up', link_label: 'More', link_url: '#', title: 'Lorem ipsum', theme: 'blue-400'})
+      | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur dolor praesentium placeat? Voluptates, iusto, laborum doloribus, magnam deserunt maxime quidem facere sint voluptate reprehenderit repellendus! Incidunt magnam rem corporis eveniet.
+    +service_feature_card({image: 'images/service-feature-card-lines.png', icon: 'arrow-trend-up', link_label: 'More', link_url: '#', title: 'Lorem ipsum', theme: 'blue-300'})
+      | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur dolor praesentium placeat? Voluptates, iusto, laborum doloribus, magnam deserunt maxime quidem facere sint voluptate reprehenderit repellendus! Incidunt magnam rem corporis eveniet.
+    +service_feature_card({image: 'images/service-feature-card-lines.png', icon: 'arrow-trend-up', link_label: 'More', link_url: '#', title: 'Lorem ipsum', theme: 'blue-200'})
+      | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur dolor praesentium placeat? Voluptates, iusto, laborum doloribus, magnam deserunt maxime quidem facere sint voluptate reprehenderit repellendus! Incidunt magnam rem corporis eveniet.
+    +service_feature_card({image: 'images/service-feature-card-lines.png', icon: 'arrow-trend-up', link_label: 'More', link_url: '#', title: 'Lorem ipsum', theme: 'cyan'})
+      | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur dolor praesentium placeat? Voluptates, iusto, laborum doloribus, magnam deserunt maxime quidem facere sint voluptate reprehenderit repellendus! Incidunt magnam rem corporis eveniet.
+    +service_feature_card({image: 'images/service-feature-card-lines.png', icon: 'arrow-trend-up', link_label: 'More', link_url: '#', title: 'Lorem ipsum', theme: 'purple'})
+      | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur dolor praesentium placeat? Voluptates, iusto, laborum doloribus, magnam deserunt maxime quidem facere sint voluptate reprehenderit repellendus! Incidunt magnam rem corporis eveniet.
+    +service_feature_card({image: 'images/service-feature-card-lines.png', icon: 'arrow-trend-up', link_label: 'More', link_url: '#', title: 'Lorem ipsum', theme: 'green'})
+      | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur dolor praesentium placeat? Voluptates, iusto, laborum doloribus, magnam deserunt maxime quidem facere sint voluptate reprehenderit repellendus! Incidunt magnam rem corporis eveniet.
+
+  include ./_blocks/statistics
+
+  +gallery_carousel(
+    'COLLABORATIVE FACILITIES',
+    'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Cum sociis natoque penatibus et magnis dis parturient.',
+    [
+      {
+        title: 'Title 1',
+        body: 'Body 1',
+        imgSrcSet: {
+          768: 'images/668x376.jpeg',
+          default: 'images/3000x1516.jpeg',
+        },
+      },
+      {
+        title: 'Title 2',
+        body: 'Body 2',
+        imgSrcSet: {
+          768: 'images/668x376.jpeg',
+          default: 'images/3000x1516.jpeg',
+        },
+      },
+      {
+        title: 'Title 3',
+        body: 'Body 3',
+        imgSrcSet: {
+          768: 'images/668x376.jpeg',
+          default: 'images/3000x1516.jpeg',
+        },
+      },
+    ])
+
+  +button({
+    icon: 'arrow-circled',
+    style: 'primary',
+    size: 'large',
+    reverse: false,
+    large: false,
+    hoverAnimation: true,
+  })(href="https://google.com").mb-3
+    | Foo bar
+
+  +button({
+    icon: 'arrow-circled',
+    style: 'primary',
+    size: 'large',
+    reverse: false,
+    large: false,
+    hoverAnimation: false,
+  })(href="https://google.com").mb-3
+    | Foo bar
+
+  +button({
+    icon: 'arrow-circled',
+    style: 'text',
+  })(href="https://google.com").mb-3
+    | Foo bar
+
+  +animated_header(['foo', 'bar']).text-black
+  +animated_header(['foo', '<span class="text-blue">bar</span>'], 'xxl', 3, false).text-black
+
+  +accordion('Accordion title1', 'plus', true)
+    p paragraph
+  +accordion('Accordion title', 'arrow-down')
+    h2 header 2
+
+  include ./_blocks/partner-grid
+
+  -
+    const logosMarquee = [
+      {
+        title: 'Title 1',
+        img: 'images/184x80.jpeg'
+      },
+      {
+        title: 'Title 2',
+        img: 'images/184x80.jpeg'
+      },
+      {
+        title: 'Title 3',
+        img: 'images/184x80.jpeg'
+      },
+      {
+        title: 'Title 4',
+        img: 'images/184x80.jpeg'
+      },
+      {
+        title: 'Title 5',
+        img: 'images/184x80.jpeg'
+      },
+      {
+        title: 'Title 6',
+        img: 'images/184x80.jpeg'
+      },
+      {
+        title: 'Title 7',
+        img: 'images/184x80.jpeg'
+      },
+      {
+        title: 'Title 8',
+        img: 'images/184x80.jpeg'
+      }
+    ]
+
+  +logo_marquee(logosMarquee, 'Logos Marquee')
+  +certifications([
+    {
+      img: 'images/240x240.jpeg',
+      title: 'ISO 17100',
+      desc: 'Translation Services Management System Certification',
+    },
+    {
+      img: 'images/240x240.jpeg',
+      title: 'ISO 27001',
+      desc: 'Information Security Management System Certification',
+    },
+    {
+      img: 'images/240x240.jpeg',
+      title: 'ISO 9001',
+      desc: 'Quality Management System Certification',
+    },
+    {
+      img: 'images/240x240.jpeg',
+      title: 'ISO 2846-1',
+      desc: 'Offset Printing Ink Certification',
+    },
+  ], 'Fully', 'Description')
+
+  include ./_blocks/profile-carousel
+
+  +culture_carousel('blue', [
+    {
+      img: 'images/1640x1800.jpeg',
+      title: 'Title 1',
+      desc: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Earum veniam maiores tenetur veritatis, repellendus ratione, culpa, ab neque voluptate impedit repudiandae doloribus sit atque a ducimus rem dolorem suscipit sunt.',
+      href: 'https://google.com',
+      ctaLabel: 'Whut?',
+    },
+    {
+      img: 'images/1640x1800.jpeg',
+      title: 'Title 2',
+      desc: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Earum veniam maiores tenetur veritatis, repellendus ratione, culpa, ab neque voluptate impedit repudiandae doloribus sit atque a ducimus rem dolorem suscipit sunt.',
+    },
+    {
+      img: 'images/1640x1800.jpeg',
+      title: 'Title 3',
+      desc: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Earum veniam maiores tenetur veritatis, repellendus ratione, culpa, ab neque voluptate impedit repudiandae doloribus sit atque a ducimus rem dolorem suscipit sunt.',
+      href: 'https://google.com',
+      ctaLabel: 'Whut?',
+    },
+  ], 'At TOPPAN Nexus, we\'ve worked hard to foster an internal culture of:', 'culture-carousel-1')
+
+  +culture_carousel('white', [
+    {
+      img: 'images/1640x1800.jpeg',
+      title: 'Title 1',
+      desc: '<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Earum veniam maiores tenetur veritatis, repellendus ratione, culpa, ab neque voluptate impedit repudiandae doloribus sit atque a ducimus rem dolorem suscipit sunt.</p><p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Earum veniam maiores tenetur veritatis, repellendus ratione, culpa, ab neque voluptate impedit repudiandae doloribus sit atque a ducimus rem dolorem suscipit sunt.</p>',
+      href: 'https://google.com',
+      ctaLabel: 'Learn more',
+    },
+    {
+      img: 'images/1640x1800.jpeg',
+      title: 'Title 2',
+      desc: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Earum veniam maiores tenetur veritatis, repellendus ratione, culpa, ab neque voluptate impedit repudiandae doloribus sit atque a ducimus rem dolorem suscipit sunt.',
+    },
+    {
+      img: 'images/1640x1800.jpeg',
+      title: 'Title 3',
+      desc: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Earum veniam maiores tenetur veritatis, repellendus ratione, culpa, ab neque voluptate impedit repudiandae doloribus sit atque a ducimus rem dolorem suscipit sunt.',
+      href: 'https://google.com',
+      ctaLabel: 'Learn more',
+    },
+  ], 'At TOPPAN Nexus, we\'ve worked hard to foster an internal culture of:', 'culture-carousel-2')
+
+  include ./_blocks/people-carousel
   include ./_blocks/jobs-callout
