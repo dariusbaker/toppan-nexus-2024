@@ -38,6 +38,11 @@ $module: 'statistics';
     overflow-y: hidden;
     overflow-x: auto;
     scroll-snap-type: x;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    &::-webkit-scrollbar{
+      display: none;
+    }
 
     @include mq(map-get($grid-breakpoints, 'lg')) {
       // TODO: clean this up
