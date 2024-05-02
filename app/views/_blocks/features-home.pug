@@ -4,7 +4,7 @@
       .row
         .col-md-10.col-lg-9(animate-stagger)
           +animated_header(
-            ['<span class="text-cyan">Foo</span>', 'Bar'],
+            ['<span class="text-cyan">Tech-driven</span>', 'Uninterrupted', 'Excellence'],
             'xl',
             2,
             false
@@ -19,34 +19,112 @@
           .content.content-left.pt-62.features__nav
             div(data-home-focus-nav)
               ul.nav.text-uppercase.text-4xl.font-extrabold#features-nav
-                - for (var i = 0; i < 4; i++)
-                  li.nav-item
-                    a(href="#features-section-" + i data-scroll-to).nav-link
-                      | Lorem
-                      br
-                      | Ipsum #{i}
                 li.nav-item
+                  a(href="#features-section-0" data-scroll-to).nav-link
+                    | State of the
+                    br
+                    | Art Security
+                li.nav-item
+                  a(href="#features-section-1" data-scroll-to).nav-link
+                    | 24/7/365
+                    br
+                    | For you
+                li.nav-item
+                  a(href="#features-section-2" data-scroll-to).nav-link
+                    | Speed &
+                    br
+                    | Accuracy
+                li.nav-item
+                  a(href="#features-section-3" data-scroll-to).nav-link
+                    | Exceptional
+                    br
+                    | Experience
 
         .col-lg-7.ms-auto(data-bs-spy="scroll" data-bs-target="#features-nav")
-          - for (var i = 0; i < 4; i++)
-            .content.content-right.features__section(id="features-section-" + i)
-              .content-wrap
-                .text-imgs(animate-stagger)
-                  .features__mosaic.features__mosaic(animate-fade-up)
-                    +image_wiper('https://placehold.co/100x100', 'green')(loading="lazy").features__mosaic__image
-                    +image_wiper('https://placehold.co/100x100', 'green')(loading="lazy").features__mosaic__image
-                    +image_wiper('https://placehold.co/100x100', 'green')(loading="lazy").features__mosaic__image
+          .content.content-right.features__section(id="features-section-0")
+            .content-wrap
+              .text-imgs(animate-stagger)
+                .features__mosaic.features__mosaic(animate-fade-up)
+                  +image_wiper('https://placehold.co/100x100', 'green')(loading="lazy").features__mosaic__image
+                  +image_wiper('https://placehold.co/100x100', 'green')(loading="lazy").features__mosaic__image
+                  +image_wiper('https://placehold.co/100x100', 'green')(loading="lazy").features__mosaic__image
 
-                  .text(animate-fade-up)
-                    .row
-                      .col-md-8.features__section__content
-                        .heading.text-uppercase.d-lg-none.text-3xl.font-extrabold.pb-4
-                          | Lorem
-                          br
-                          | Ipsum #{i}
+                .text(animate-fade-up)
+                  .row
+                    .col-md-8.features__section__content
+                      .heading.text-uppercase.d-lg-none.text-3xl.font-extrabold.pb-4
+                        | State of the
+                        br
+                        | Art Security
 
-                        .line-clamp
-                          p.text-lg Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate doloribus debitis blanditiis fuga quod nobis quos assumenda repudiandae excepturi saepe voluptatem mollitia, exercitationem fugiat natus rerum illo animi, tempora laborum?
+                      .line-clamp
+                        p.text-lg Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate doloribus debitis blanditiis fuga quod nobis quos assumenda repudiandae excepturi saepe voluptatem mollitia, exercitationem fugiat natus rerum illo animi, tempora laborum?
 
-                        +button({style: "text", icon: "arrow-right", light: true})(href="#")
-                          | Explore
+                      +button({style: "text", icon: "arrow-right", light: true})(href="#")
+                        | Explore
+
+          .content.content-right.features__section(id="features-section-1")
+            .content-wrap
+              .text-imgs(animate-stagger)
+                .features__mosaic.features__mosaic(animate-fade-up)
+                  +image_wiper('https://placehold.co/100x100', 'green')(loading="lazy").features__mosaic__image
+                  +image_wiper('https://placehold.co/100x100', 'green')(loading="lazy").features__mosaic__image
+                  +image_wiper('https://placehold.co/100x100', 'green')(loading="lazy").features__mosaic__image
+
+                .text(animate-fade-up)
+                  .row
+                    .col-md-8.features__section__content
+                      .heading.text-uppercase.d-lg-none.text-3xl.font-extrabold.pb-4
+                        | 24/7/365
+                        br
+                        | For you
+
+                      .line-clamp
+                        p.text-lg Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate doloribus debitis blanditiis fuga quod nobis quos assumenda repudiandae excepturi saepe voluptatem mollitia, exercitationem fugiat natus rerum illo animi, tempora laborum?
+
+                      +button({style: "text", icon: "arrow-right", light: true})(href="#")
+                        | Explore
+
+          .content.content-right.features__section(id="features-section-2")
+            .content-wrap
+              .text-imgs(animate-stagger)
+                .features__mosaic.features__mosaic.features__mosaic--flip(animate-fade-up)
+                  +image_wiper('https://placehold.co/100x100', 'green')(loading="lazy").features__mosaic__image
+                  +image_wiper('https://placehold.co/100x100', 'green')(loading="lazy").features__mosaic__image
+                  +image_wiper('https://placehold.co/100x100', 'green')(loading="lazy").features__mosaic__image
+
+                .text(animate-fade-up)
+                  .row
+                    .col-md-8.features__section__content
+                      .heading.text-uppercase.d-lg-none.text-3xl.font-extrabold.pb-4
+                        | Speed &
+                        br
+                        | Accuracy
+
+                      .line-clamp
+                        p.text-lg Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate doloribus debitis blanditiis fuga quod nobis quos assumenda repudiandae excepturi saepe voluptatem mollitia, exercitationem fugiat natus rerum illo animi, tempora laborum?
+
+                      +button({style: "text", icon: "arrow-right", light: true})(href="#")
+                        | Explore
+
+          .content.content-right.features__section(id="features-section-3")
+            .content-wrap
+              .text-imgs(animate-stagger)
+                .features__mosaic.features__mosaic(animate-fade-up)
+                  +image_wiper('https://placehold.co/100x100', 'green')(loading="lazy").features__mosaic__image
+                  +image_wiper('https://placehold.co/100x100', 'green')(loading="lazy").features__mosaic__image
+                  +image_wiper('https://placehold.co/100x100', 'green')(loading="lazy").features__mosaic__image
+
+                .text(animate-fade-up)
+                  .row
+                    .col-md-8.features__section__content
+                      .heading.text-uppercase.d-lg-none.text-3xl.font-extrabold.pb-4
+                        | Exceptional
+                        br
+                        | Experience
+
+                      .line-clamp
+                        p.text-lg Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate doloribus debitis blanditiis fuga quod nobis quos assumenda repudiandae excepturi saepe voluptatem mollitia, exercitationem fugiat natus rerum illo animi, tempora laborum?
+
+                      +button({style: "text", icon: "arrow-right", light: true})(href="#")
+                        | Explore
