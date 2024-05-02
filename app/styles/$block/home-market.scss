@@ -9,6 +9,6 @@ $module: 'features-market';
   }
 
   @media (min-width: 1800px) {
-    margin-inline-start: calc((100vw - #{rem(1640)}) / 2 + #{rem(168)});
+    padding-inline-start: calc((100vw - #{rem(1640)}) / 2 + #{rem(168)});
   }
 }
