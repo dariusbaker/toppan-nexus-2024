@@ -1,0 +1,35 @@
+$module: 'careers-award-block';
+
+.#{$module} {
+  &__award {
+    margin-block-end: rem(48);
+    text-align: center;
+
+    @include mq(map-get($grid-breakpoints, 'lg')) {
+      margin-block-end: rem(140);
+    }
+
+    &__img {
+      height: rem(154);
+      width: auto;
+    }
+  }
+
+  &__items {
+    list-style: none;
+    margin-bottom: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: rem(24);
+
+    @include mq(map-get($grid-breakpoints, 'lg')) {
+      flex-direction: row;
+      align-items: center;
+    }
+
+    &__item {
+      height: 100%;
+    }
+  }
+}
