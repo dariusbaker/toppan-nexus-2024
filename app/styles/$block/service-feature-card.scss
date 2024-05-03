@@ -1,13 +1,18 @@
 $module: 'sf-card';
 
 .#{$module} {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+
   aspect-ratio: 502 / 593;
-  padding-inline: rem(20);
-  padding-block: rem(20);
-  border-radius: rem(12);
+  border-radius: clamp(#{rem(12)}, calc(20 / 1800 * 100vw), #{rem(20)});
   background-color: rgba(0, 0, 0, .1);
   color: $color-white;
-  width: 75vw;
+  width: clamp(#{rem(316)}, calc(502 / 1800 * 100vw), #{rem(502)});
   overflow: hidden;
 
   background-size: 100%;
@@ -19,16 +24,47 @@ $module: 'sf-card';
     padding-inline: 0;
   }
 
-  @include mq(map-get($grid-breakpoints, 'md')) {
-    width: auto;
-    height: 52svh;
-    max-width: rem(502);
-    //min-width: rem(375);
+  &--flip {
+    justify-content: flex-end;
   }
 
   &.bg-green,
   &.bg-cyan {
     color: $color-black;
+  }
+
+  &__content {
+    position: relative;
+    z-index: 1;
+    padding-inline: clamp(#{rem(18)}, calc(30 / 1800 * 100vw), #{rem(30)});
+    padding-block: clamp(#{rem(18)}, calc(30 / 1800 * 100vw), #{rem(30)});
+  }
+
+  &__media {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 0;
+
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+
+    width: 100%;
+    min-width: 0;
+
+    .#{$module}--flip & {
+      bottom: auto;
+      top: 0;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+      max-height: 100%;
+    }
   }
 
   &__icon {
@@ -38,25 +74,25 @@ $module: 'sf-card';
     flex-direction: row;
     justify-content: center;
 
-    width: clamp(#{rem(36)}, 4.1vw, #{rem(60)});
+    width: clamp(#{rem(36)}, calc(60 / 1800 * 100vw), #{rem(60)});
     margin-bottom: 1em;
     background-color: rgba(0, 0, 0, .1);
     border-radius: rem(30);
     color: $color-white;
 
-    font-size: clamp(#{rem(12)}, calc(16 / 1024 * 100vw), #{rem(24)});
+    font-size: clamp(#{rem(11)}, calc(24 / 1800 * 100vw), #{rem(24)});
   }
 
   &__title {
-    margin-bottom: .73em;
-    font-size: clamp(#{rem(19)}, 2vw, #{rem(30)});
+    margin-block: .73em;
+    font-size: clamp(#{rem(18)}, calc(30 / 1800 * 100vw), #{rem(30)});
     font-weight: 700;
     line-height: 1.06;
   }
 
   &__body {
-    margin-bottom: 1em;
-    font-size: clamp(#{rem(12)}, 1.25vw, #{rem(18)});
+    margin-block: 1em;
+    font-size: clamp(#{rem(11)}, calc(18 / 1800 * 100vw), #{rem(18)});
     line-height: 1.33;
   }
 
@@ -65,5 +101,10 @@ $module: 'sf-card';
     width: 100%;
     height: 100%;
     object-fit: cover;
+  }
+
+  &__link {
+    font-size: clamp(#{rem(11)}, calc(18 / 1800 * 100vw), #{rem(18)});
+    height: auto;
   }
 }

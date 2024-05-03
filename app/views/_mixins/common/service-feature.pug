@@ -1,7 +1,8 @@
 -
   var default_options = {
+    body: 'Lorem ipsum dolor sit amet',
+    flip: false,
     icon: 'arrow-trend-up',
-    image: '',
     link_label: 'More',
     link_url: '#',
     theme: 'cyan',
@@ -12,26 +13,28 @@ mixin service_feature_image(url = '')
   .sf-card.sf-card--full
     img(src=url).sf-card__image
 
-
 mixin service_feature_card(options = default_options)
-  article(
-    class=["sf-card", "bg-" + options.theme]
-    style="background-image: url('" + options.image + "')"
-  )
-    .sf-card__icon
-      i(class=["fa-solid", "fa-" + options.icon])
+  article(class=["sf-card", options.flip == true && "sf-card--flip", "bg-" + options.theme])
+    .sf-card__content
+      if options.icon
+        .sf-card__icon
+          i(class=["fa-solid", "fa-" + options.icon])
 
-    h3.sf-card__title= options.title
+      h3.sf-card__title= options.title
+
+      if options.body
+        p.sf-card__body= options.body
+
+      if (options.link_url && options.link_label)
+        +button({
+          icon: 'arrow-right',
+          light: options.theme != 'green' && options.theme != 'cyan',
+          style: 'text',
+        })(class="sf-card__link" href=options.link_url)= options.link_label
 
     if block
-      p.sf-card__body
+      .sf-card__media
         block
-
-    +button({
-      icon: 'arrow-right',
-      light: options.theme != 'green' && options.theme != 'cyan',
-      style: 'text',
-    })(href=options.link_url)= options.link_label
 
 mixin service_feature(header = [], body = '')
   //- this need to be wrap, because the scroller pin

@@ -1,65 +1,46 @@
 -
   var data = [
     {
-      image: 'images/service-feature-card-lines.png',
-      theme: 'cyan',
-      title: 'Project Management',
-    },
-    {
-      icon: 'merge',
-      image: 'images/service-feature-card-lines.png',
-      link_label: 'Explore more',
-      link_url: '#',
+      body: 'Tenetur dolor praesentium placeat? Voluptates, iusto, laborum doloribus, magnam deserunt maxime quidem facere sint voluptate reprehenderit repellendus! Incidunt magnam rem corporis eveniet.',
       theme: 'cyan',
       title: 'Mergers & Acquisitions',
+      flip: true,
     },
     {
-      icon: 'money-bill-trend-up',
-      image: 'images/service-feature-card-lines.png',
-      link_label: 'Explore more',
-      link_url: '#',
+      body: 'Tenetur dolor praesentium placeat? Voluptates, iusto, laborum doloribus, magnam deserunt maxime quidem facere sint voluptate reprehenderit repellendus! Incidunt magnam rem corporis eveniet.',
       theme: 'blue-200',
       title: 'Bond Offerings',
+      flip: true,
     },
     {
-      icon: 'globe',
-      image: 'images/service-feature-card-lines.png',
-      link_label: 'Explore more',
-      link_url: '#',
+      body: 'Tenetur dolor praesentium placeat? Voluptates, iusto, laborum doloribus, magnam deserunt maxime quidem facere sint voluptate reprehenderit repellendus! Incidunt magnam rem corporis eveniet.',
       theme: 'purple',
       title: 'Global Depositary Receipt',
+      flip: true,
     },
     {
-      icon: 'file-invoice-dollar',
-      image: 'images/service-feature-card-lines.png',
-      link_label: 'Explore more',
-      link_url: '#',
+      body: 'Tenetur dolor praesentium placeat? Voluptates, iusto, laborum doloribus, magnam deserunt maxime quidem facere sint voluptate reprehenderit repellendus! Incidunt magnam rem corporis eveniet.',
       theme: 'purple',
       title: 'Financial Reports',
+      flip: true,
     },
     {
-      icon: 'gavel',
-      image: 'images/service-feature-card-lines.png',
-      link_label: 'Explore more',
-      link_url: '#',
+      body: 'Tenetur dolor praesentium placeat? Voluptates, iusto, laborum doloribus, magnam deserunt maxime quidem facere sint voluptate reprehenderit repellendus! Incidunt magnam rem corporis eveniet.',
       theme: 'green',
       title: 'Regulatory Filings',
+      flip: true,
     },
     {
-      icon: 'comments-dollar',
-      image: 'images/service-feature-card-lines.png',
-      link_label: 'Explore more',
-      link_url: '#',
+      body: 'Tenetur dolor praesentium placeat? Voluptates, iusto, laborum doloribus, magnam deserunt maxime quidem facere sint voluptate reprehenderit repellendus! Incidunt magnam rem corporis eveniet.',
       theme: 'blue-300',
       title: 'Financial Communications',
+      flip: true,
     },
     {
-      icon: 'comment',
-      image: 'images/service-feature-card-lines.png',
-      link_label: 'Explore more',
-      link_url: '#',
+      body: 'Tenetur dolor praesentium placeat? Voluptates, iusto, laborum doloribus, magnam deserunt maxime quidem facere sint voluptate reprehenderit repellendus! Incidunt magnam rem corporis eveniet.',
       theme: 'blue-500',
       title: 'Marketing Comms',
+      flip: true,
     }
   ]
 
@@ -70,13 +51,14 @@ section.ipo-services(ipo-services animate-stagger)
     p.ipo-services__desc.font-medium(animate-fade-up)
       | Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Cum sociis natoque penatibus et magnis dis parturient.
 
-  ul.ipo-services__cards(ipo-services-cards)
-    +service_feature_image('https://placehold.co/1000x1000')
+  ul.ipo-services__cards(ipo-services-cards animate-fade-up)
+    li.ipo-services__cards__item
+      +service_feature_image('https://placehold.co/1000x1000')
 
     each obj in data
-      li.ipo-services__cards__item(animate-fade-up)
+      li.ipo-services__cards__item
         +service_feature_card(obj)
-          | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur dolor praesentium placeat? Voluptates, iusto, laborum doloribus, magnam deserunt maxime quidem facere sint voluptate reprehenderit repellendus! Incidunt magnam rem corporis eveniet.
+          img(src="images/service-feature-card-lines.png")
 
   div.t-container.ipo-services__progress.mt-10
     +progress_bar()(ipo-services-progress)
