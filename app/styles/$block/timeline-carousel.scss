@@ -112,11 +112,6 @@ $module: 'timeline-carousel';
       }
 
       &__btn {
-        .h-btn__icon {
-          width: rem(24);
-          height: rem(24);
-        }
-
         &--left {
           .h-btn__icon {
             transform: rotate(180deg);
