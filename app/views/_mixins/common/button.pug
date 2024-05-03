@@ -41,5 +41,4 @@ mixin button(options = {})
       span.h-btn__label
         block
     if options.icon
-      svg(role="presentation").h-btn__icon
-        use(href=iconHref)
+      i(class="h-btn__icon fa-solid fa-" + options.icon)
