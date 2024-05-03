@@ -91,7 +91,7 @@ $module: 'h-btn';
     }
 
     @media (hover: hover) {
-      &:hover {
+      &:hover span {
         text-decoration: underline;
         text-decoration-thickness: rem(2);
         text-underline-offset: rem(4);
