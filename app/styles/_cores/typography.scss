@@ -76,7 +76,7 @@
 }
 
 .fit-text-xl {
-  font-size: clamp(#{rem(40)}, calc(80 / 1440 * 100vw), #{rem(80)});
+  font-size: clamp(#{rem(32)}, calc(80 / 1440 * 100vw), #{rem(80)});
   line-height: .85;
 }
 
