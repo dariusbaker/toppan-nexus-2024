@@ -1,0 +1,14 @@
+$module: 'svg-line-block';
+
+.#{$module} {
+  margin-block: clamp(#{rem(48)}, calc(100 / 1680 * 100vw), #{rem(100)});
+
+  @include mq(map-get($grid-breakpoints, 'lg')) {
+    margin-block-start: 0;
+  }
+
+  svg {
+    display: block;
+    width: 100%;
+  }
+}
