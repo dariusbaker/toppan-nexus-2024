@@ -1,0 +1,119 @@
+$module: 'hero-247';
+
+.#{$module} {
+  &__header {
+    text-align: center;
+
+    p {
+      padding-block-start: 1em;
+      margin-block-end: 0;
+      font-size: clamp(#{rem(16)}, calc(25 / 1600 * 100vw), #{rem(25)});
+      line-height: calc(20 / 16);
+    }
+  }
+
+  &__body {
+    max-width: rem(880);
+    margin-block: 4em;
+    margin-inline: auto;
+    font-size: clamp(#{rem(20)}, calc(30 / 1600 * 100vw), #{rem(30)});
+    line-height: calc(30 / 24);
+    text-align: center;
+  }
+
+  &__mosaic {
+    position: relative;
+    aspect-ratio: 1800 / 572;
+    margin-block: rem(32);
+  }
+
+  &__tile {
+    position: absolute;
+    border-radius: clamp(#{rem(8)}, calc(30 / 1440 * 100vw), #{rem(30)});
+    overflow: hidden;
+
+    &:nth-child(1) .#{$module}__image,
+    &:nth-child(3) .#{$module}__image,
+    &:nth-child(5) .#{$module}__image,
+    &:nth-child(7) .#{$module}__image {
+      aspect-ratio: 1;
+      width: calc(260 / 1800 * 100vw);
+      max-width: rem(260);
+    }
+
+    &:nth-child(2) .#{$module}__image,
+    &:nth-child(6) .#{$module}__image {
+      aspect-ratio: 260 / 170;
+      width: calc(260 / 1800 * 100vw);
+      max-width: rem(260);
+    }
+
+    &:nth-child(4) .#{$module}__image {
+      aspect-ratio: 300 / 570;
+      width: calc(300 / 1800 * 100vw);
+      max-width: rem(300);
+    }
+
+    &:nth-child(1) {
+      top: 50%;
+      right: 50%;
+      transform: translate(-182%, -50%);
+    }
+
+    &:nth-child(2) {
+      top: 50%;
+      right: 50%;
+      transform: translate(-70%, -132%);
+    }
+
+    &:nth-child(3) {
+      top: 50%;
+      right: 50%;
+      transform: translate(-70%, -10%);
+    }
+
+    &:nth-child(4) {
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    &:nth-child(5) {
+      top: 50%;
+      left: 50%;
+      transform: translate(70%, -10%);
+    }
+
+    &:nth-child(6) {
+      top: 50%;
+      left: 50%;
+      transform: translate(70%, -132%);
+    }
+
+    &:nth-child(7) {
+      top: 50%;
+      left: 50%;
+      transform: translate(182%, -50%);
+    }
+  }
+
+  &__image {
+    display: block !important;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &__svg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: auto;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+  }
+}
