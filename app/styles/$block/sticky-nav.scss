@@ -2,11 +2,13 @@ $module: 'sticky-nav';
 
 .#{$module} {
   display: none;
-  position: fixed;
+  position: sticky;
   top: 50%;
-  right: rem(32);
+  left: 0;
+  float: right;
   transform: translateY(-50%);
   z-index: 900;
+  margin-inline-end: rem(32);
 
   @include mq(map-get($grid-breakpoints, 'lg')) {
     display: inline-block;
