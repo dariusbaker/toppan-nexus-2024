@@ -1,0 +1,58 @@
+$module: 'ipo-services';
+
+.#{$module} {
+  padding-block-start: rem(76);
+  padding-block-end: rem(76);
+
+  @include mq(map-get($grid-breakpoints, 'lg')) {
+    padding-block-start: rem(116);
+    padding-block-end: rem(116);
+  }
+
+  &__title {
+    margin-block-end: rem(16);
+
+    @include mq(map-get($grid-breakpoints, 'lg')) {
+      margin-block-end: rem(24);
+    }
+  }
+
+  &__desc {
+    color: $color-gray-900;
+    margin-block-end: rem(24);
+
+    @include mq(map-get($grid-breakpoints, 'lg')) {
+      max-width: rem(628);
+      font-size: rem(18);
+      margin-block-end: rem(48);
+    }
+  }
+
+  &__cards {
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    margin-bottom: 0;
+    padding: 0;
+    flex-wrap: nowrap;
+    overflow-y: hidden;
+    overflow-x: auto;
+    scroll-snap-type: x;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    &::-webkit-scrollbar{
+      display: none;
+    }
+
+    &__item {
+      flex-shrink: 0;
+      scroll-snap-align: end;
+      padding: 0 rem(16);
+    }
+  }
+
+  &__progress {
+    display: block;
+    width: 100%;
+  }
+}

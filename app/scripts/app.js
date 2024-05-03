@@ -13,6 +13,7 @@ import Stastistics from './statistics';
 import TimelineCarousel from './timeline-carousel';
 import TestimonialsCarousel from './testimonials-carousel';
 import IPOProcess from './ipo-process';
+import ServiceFeaturesIPO from './service-features-ipo';
 
 const DEBOUNCE_DELAY = 250;
 
@@ -299,6 +300,9 @@ $(document).ready(() => {
 
   // init IPO process component
   new IPOProcess();
+
+  // init ipo services
+  new ServiceFeaturesIPO();
 
   // init home hero animation
   initHomeHero();
