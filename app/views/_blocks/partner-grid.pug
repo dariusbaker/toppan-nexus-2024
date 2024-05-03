@@ -4,7 +4,7 @@ section.partner-grid
     '<span class="text-blue">Our Many Partners</span>'
   ]).partner-grid__title.t-container
 
-  .partner-grid__main
+  .partner-grid__main(data-selected="0")
     .partner-grid__nav
       ul(role="tablist").partner-grid__tabs
         - for (var i = 0; i < 3; i++)
@@ -22,29 +22,66 @@ section.partner-grid
 
     .partner-grid__body
       .partner-grid__panes
-        - for (var i = 0; i < 3; i++)
-          div(
-            aria-labelledby="tab-item-" + i
-            class=["partner-grid__content", i == 0 && "active"]
-            id="content-" + i
-            role="tabpanel"
-            tabindex="0"
-          )
-            h3.text-2xl.text-black.font-bold.mb-2
-              | Lorem ipsum dolor sit amet consectetur adipisicing elit
-            p.text-lg.font-medium.mb-0
-              | Lorem ipsum dolor sit, amet consectetur adipisicing elit. Earum veniam maiores tenetur veritatis, repellendus ratione, culpa, ab neque voluptate impedit repudiandae doloribus sit atque a ducimus rem dolorem suscipit sunt.
+        div(
+          aria-labelledby="tab-item-0"
+          class="partner-grid__content active"
+          data-category="0"
+          id="content-0"
+          role="tabpanel"
+          tabindex="0"
+        )
+          h3.text-2xl.text-black.font-bold.mb-2
+            | 1 Lorem ipsum dolor sit amet consectetur adipisicing elit
+          p.text-lg.font-medium.mb-0
+            | Lorem ipsum dolor sit, amet consectetur adipisicing elit. Earum veniam maiores tenetur veritatis, repellendus ratione, culpa, ab neque voluptate impedit repudiandae doloribus sit atque a ducimus rem dolorem suscipit sunt.
+
+        div(
+          aria-labelledby="tab-item-1"
+          class="partner-grid__content"
+          data-category="1"
+          id="content-1"
+          role="tabpanel"
+          tabindex="0"
+        )
+          h3.text-2xl.text-black.font-bold.mb-2
+            | 2 Lorem ipsum dolor sit amet consectetur adipisicing elit
+          p.text-lg.font-medium.mb-0
+            | Lorem ipsum dolor sit, amet consectetur adipisicing elit. Earum veniam maiores tenetur veritatis, repellendus ratione, culpa, ab neque voluptate impedit repudiandae doloribus sit atque a ducimus rem dolorem suscipit sunt.
+
+        div(
+          aria-labelledby="tab-item-2"
+          class="partner-grid__content"
+          data-category="2"
+          id="content-2"
+          role="tabpanel"
+          tabindex="0"
+        )
+          h3.text-2xl.text-black.font-bold.mb-2
+            | 3 Lorem ipsum dolor sit amet consectetur adipisicing elit
+          p.text-lg.font-medium.mb-0
+            | Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem sunt sed accusamus? Enim a maxime mollitia eveniet! Odit ratione ex reiciendis a, vitae facere sunt maxime vel nesciunt saepe laboriosam.
 
     .partner-grid__mosaic
-      .partner-grid__panes
-        - for (var i = 0; i < 3; i++)
-          ul(
-            aria-labelledby="tab-item-" + i
-            class=["partner-grid__logos", i == 0 && "active"]
-            id="logos-" + i
-            role="tabpanel"
-            tabindex="0"
-          )
-            - for (var k = 0; k < 9; k++)
-              li.partner-grid__logo
-                img(src="https://placehold.co/900x1600").partner-grid__image
+      ul(
+        class="partner-grid__logos"
+        role="tabpanel"
+        tabindex="0"
+      )
+        li.partner-grid__logo
+          img(src="https://placehold.co/900x1600" data-category="1").partner-grid__image
+        li.partner-grid__logo
+          img(src="https://placehold.co/1000x1000" data-category="2").partner-grid__image
+        li.partner-grid__logo
+          img(src="https://placehold.co/1600x900" data-category="2").partner-grid__image
+        li.partner-grid__logo
+          img(src="https://placehold.co/900x1600" data-category="1").partner-grid__image
+        li.partner-grid__logo
+          img(src="https://placehold.co/1600x900" data-category="0").partner-grid__image
+        li.partner-grid__logo
+          img(src="https://placehold.co/900x1600" data-category="2").partner-grid__image
+        li.partner-grid__logo
+          img(src="https://placehold.co/900x1600" data-category="0").partner-grid__image
+        li.partner-grid__logo
+          img(src="https://placehold.co/1600x900" data-category="0").partner-grid__image
+        li.partner-grid__logo
+          img(src="https://placehold.co/1000x1000" data-category="1").partner-grid__image

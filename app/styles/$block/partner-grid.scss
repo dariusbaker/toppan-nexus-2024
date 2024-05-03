@@ -78,7 +78,7 @@ $module: 'partner-grid';
 
     @include mq(map-get($grid-breakpoints, 'md')) {
       padding-inline: rem(40);
-    padding-block: rem(40);
+      padding-block: rem(40);
     }
   }
 
@@ -87,25 +87,48 @@ $module: 'partner-grid';
   }
 
   &__panes {
-    display: flex;
-    align-items: flex-start;
-    flex-direction: row;
-    flex-wrap: nowrap;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
 
     & > * {
-      flex: 0 0 auto;
-      width: 100%;
+      grid-column: 1;
+      grid-row: 1;
     }
   }
 
   &__content {
-    opacity: 0;
-    transform: translateY(#{rem(-16)});
+    --duration: .25s;
+    --stagger: .1s;
+
+    h3, p {
+      animation-duration: var(--duration);
+      animation-fill-mode: forwards;
+      animation-iteration-count: 1;
+      animation-timing-function: ease-out;
+    }
 
     &.active {
-      transition: transform 125ms ease-in-out, opacity 125ms linear;
-      transform: translateY(0);
-      opacity: 1;
+      h3, p {
+        animation-name: fade-in;
+        animation-delay: calc(var(--duration) + var(--stagger));
+        opacity: 0;
+      }
+
+      p {
+        animation-delay: calc(var(--duration) + var(--stagger) * 2);
+      }
+    }
+
+    &:not(.active) {
+      h3, p {
+        animation-name: fade-out;
+        pointer-events: none;
+      }
+
+      p {
+        animation-delay: var(--stagger);
+      }
     }
   }
 
@@ -120,12 +143,6 @@ $module: 'partner-grid';
     list-style: none;
 
     background-color: var(--border-color);
-    opacity: 0;
-
-    &.active {
-      transition: opacity 125ms linear;
-      opacity: 1;
-    }
   }
 
   &__logo {
@@ -154,6 +171,15 @@ $module: 'partner-grid';
     display: block;
     max-width: 85%;
     max-height: 85%;
+    opacity: .25;
+
+    transition: opacity .5s linear;
+
+    .#{$module}__main[data-selected="0"] &[data-category="0"],
+    .#{$module}__main[data-selected="1"] &[data-category="1"],
+    .#{$module}__main[data-selected="2"] &[data-category="2"] {
+      opacity: 1;
+    }
   }
 
   &__button {
@@ -208,5 +234,27 @@ $module: 'partner-grid';
       outline-style: solid;
       outline-width: rem(4);
     }
+  }
+}
+
+@keyframes fade-in {
+  from {
+    transform: translateY(#{rem(32)});
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fade-out {
+  from {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(#{rem(-32)});
+    opacity: 0;
   }
 }

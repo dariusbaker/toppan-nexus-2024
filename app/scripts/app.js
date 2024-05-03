@@ -122,9 +122,9 @@ function initPartnerGrid($grid) {
 
   $buttons.click((e) => {
     const $this = $(e.currentTarget);
+    const $main = $('.partner-grid__main', $grid);
     const $active = $('.active', $grid);
     const $activeButton = $('button.active', $grid);
-    const $panes = $('.partner-grid__panes', $grid);
 
     if ($active.length) {
       $active.removeClass('active');
@@ -134,12 +134,10 @@ function initPartnerGrid($grid) {
 
     const index = $this.data('index') * 1;
     const $content = $(`#content-${index}`, $grid);
-    const $logos = $(`#logos-${index}`, $grid);
 
     $content.addClass('active');
-    $logos.addClass('active');
+    $main.attr('data-selected', index);
     $this.addClass('active').attr('aria-selected', 'true');
-    $panes.css('transform', `translateX(${index * -100}%)`);
   });
 }
 
