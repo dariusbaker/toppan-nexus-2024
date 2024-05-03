@@ -11,6 +11,3 @@ mixin sticky_nav(items)
       each item in items
         li.sticky-nav__list__item
           a.sticky-nav__list__item-link(href=item.anchor aria-label=item.title)
-  div.sticky-nav-content(data-bs-spy='scroll' data-bs-target='#sticky-nav')
-    if block
-      block

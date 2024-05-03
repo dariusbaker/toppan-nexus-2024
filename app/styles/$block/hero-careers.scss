@@ -1,7 +1,9 @@
 $module: 'hero-careers';
 
 .#{$module} {
+  width: 100%;
   overflow: hidden;
+
   &__header {
     text-align: center;
 

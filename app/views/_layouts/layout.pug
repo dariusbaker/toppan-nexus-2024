@@ -67,7 +67,13 @@ html.no-js(lang=$localeName dir=dir)
     if useHeader
       include ../_blocks/header
 
-    main(role="main" id="toppan-nexus-main-content" class="content-inertable")
+    main(
+      role="main"
+      id="toppan-nexus-main-content"
+      class="content-inertable"
+      data-bs-spy="scroll"
+      data-bs-target='#sticky-nav'
+    )
       block container
 
     if useFooter

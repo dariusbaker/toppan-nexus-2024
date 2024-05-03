@@ -12,48 +12,59 @@ block container
     },
   ])
 
-  include ./_blocks/hero/hero-247
-  include ./_blocks/statistics-content-block
+  +sticky_nav([
+    {anchor: '#247-hero', title: 'Hero'},
+    {anchor: '#247-team', title: 'Global Team'},
+    {anchor: '#247-collaboration', title: 'Collaboration'},
+    {anchor: '#247-facilities', title: 'Collaborative Facilities'},
+  ])
 
-  +content_block({
-    imgSrcSet: {
-      768: 'images/668x376.jpeg',
-      default: 'images/1640x1800.jpeg',
-    },
-    title: 'ADVANCED REMOTE\nCOLLABORATION TECHNOLOGY',
-    body: '<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam natus iusto dolorum maiores totam asperiores velit sunt earum magni. Eligendi inventore necessitatibus, obcaecati ipsam quibusdam minus nam harum tempora expedita?</p><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam natus iusto dolorum maiores totam asperiores velit sunt earum magni. Eligendi inventore necessitatibus, obcaecati ipsam quibusdam minus nam harum tempora expedita?</p>',
-    theme: 'blue',
-    mediaPos: 'left',
-  })
+  div#247-hero
+    include ./_blocks/hero/hero-247
+  div#247-team
+    include ./_blocks/statistics-content-block
 
-  +gallery_carousel(
-    'COLLABORATIVE FACILITIES',
-    'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Cum sociis natoque penatibus et magnis dis parturient.',
-    [
-      {
-        title: 'Title 1',
-        body: 'Body 1',
-        src: 'images/3000x1516.jpeg',
+  div#247-collaboration
+    +content_block({
+      imgSrcSet: {
+        768: 'images/668x376.jpeg',
+        default: 'images/1640x1800.jpeg',
       },
-      {
-        title: 'Title 2',
-        body: 'Body 2',
-        src: 'images/3000x1516.jpeg',
-      },
-      {
-        title: 'Title 3',
-        body: 'Body 3',
-        src: 'images/3000x1516.jpeg',
-      },
-      {
-        title: 'Title 4',
-        body: 'Body 4',
-        src: 'images/3000x1516.jpeg',
-      },
-      {
-        title: 'Title 5',
-        body: 'Body 5',
-        src: 'images/3000x1516.jpeg',
-      },
-    ]
-  )
+      title: 'ADVANCED REMOTE\nCOLLABORATION TECHNOLOGY',
+      body: '<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam natus iusto dolorum maiores totam asperiores velit sunt earum magni. Eligendi inventore necessitatibus, obcaecati ipsam quibusdam minus nam harum tempora expedita?</p><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam natus iusto dolorum maiores totam asperiores velit sunt earum magni. Eligendi inventore necessitatibus, obcaecati ipsam quibusdam minus nam harum tempora expedita?</p>',
+      theme: 'blue',
+      mediaPos: 'left',
+    })
+
+  div#247-facilities
+    +gallery_carousel(
+      'COLLABORATIVE FACILITIES',
+      'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Cum sociis natoque penatibus et magnis dis parturient.',
+      [
+        {
+          title: 'Title 1',
+          body: 'Body 1',
+          src: 'images/3000x1516.jpeg',
+        },
+        {
+          title: 'Title 2',
+          body: 'Body 2',
+          src: 'images/3000x1516.jpeg',
+        },
+        {
+          title: 'Title 3',
+          body: 'Body 3',
+          src: 'images/3000x1516.jpeg',
+        },
+        {
+          title: 'Title 4',
+          body: 'Body 4',
+          src: 'images/3000x1516.jpeg',
+        },
+        {
+          title: 'Title 5',
+          body: 'Body 5',
+          src: 'images/3000x1516.jpeg',
+        },
+      ]
+    )

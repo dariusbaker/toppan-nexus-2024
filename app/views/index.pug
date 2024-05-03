@@ -6,42 +6,59 @@ block append vars
   - namespace = 'home'
 
 block container
-  include ./_blocks/hero/hero-home
+  +sticky_nav([
+    {anchor: '#home-hero', title: 'Hero'},
+    {anchor: '#home-services', title: 'Services'},
+    {anchor: '#home-partners', title: 'Partners'},
+    {anchor: '#home-features', title: 'Excellence'},
+    {anchor: '#home-experience', title: 'Exceptional Experience'},
+    {anchor: '#home-testimonials', title: 'Client Successes'},
+    {anchor: '#home-facilities', title: 'Collaborative Facilities'},
+  ])
+
+  div#home-hero
+    include ./_blocks/hero/hero-home
   include ./_blocks/home-line-runner
-  include ./_blocks/service-features/capital
-  include ./_blocks/service-features/compliance
-  include ./_blocks/service-features/marketing
-  include ./_blocks/partner-grid
+  div#home-services
+    include ./_blocks/service-features/capital
+    include ./_blocks/service-features/compliance
+    include ./_blocks/service-features/marketing
+  div#home-partners
+    include ./_blocks/partner-grid
+  div#home-features
   include ./_blocks/features-home
-  include ./_blocks/statistics
-  include ./_blocks/testimonials-carousel
-  +gallery_carousel(
-    'COLLABORATIVE FACILITIES',
-    'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Cum sociis natoque penatibus et magnis dis parturient.',
-    [
-      {
-        title: 'Title 1',
-        body: 'Body 1',
-        src: 'images/3000x1516.jpeg',
-      },
-      {
-        title: 'Title 2',
-        body: 'Body 2',
-        src: 'images/3000x1516.jpeg',
-      },
-      {
-        title: 'Title 3',
-        body: 'Body 3',
-        src: 'images/3000x1516.jpeg',
-      },
-      {
-        title: 'Title 4',
-        body: 'Body 4',
-        src: 'images/3000x1516.jpeg',
-      },
-      {
-        title: 'Title 5',
-        body: 'Body 5',
-        src: 'images/3000x1516.jpeg',
-      },
-    ])
+  div#home-experience
+    include ./_blocks/statistics
+  div#home-testimonials
+    include ./_blocks/testimonials-carousel
+  div#home-facilities
+    +gallery_carousel(
+      'COLLABORATIVE FACILITIES',
+      'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Cum sociis natoque penatibus et magnis dis parturient.',
+      [
+        {
+          title: 'Title 1',
+          body: 'Body 1',
+          src: 'images/3000x1516.jpeg',
+        },
+        {
+          title: 'Title 2',
+          body: 'Body 2',
+          src: 'images/3000x1516.jpeg',
+        },
+        {
+          title: 'Title 3',
+          body: 'Body 3',
+          src: 'images/3000x1516.jpeg',
+        },
+        {
+          title: 'Title 4',
+          body: 'Body 4',
+          src: 'images/3000x1516.jpeg',
+        },
+        {
+          title: 'Title 5',
+          body: 'Body 5',
+          src: 'images/3000x1516.jpeg',
+        },
+      ])

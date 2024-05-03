@@ -48,54 +48,81 @@ block container
     },
   ])
 
-  include ./_blocks/hero/hero-ipo
-  +logo_marquee(logosMarquee, 'Trusted by', 'basic-section-gap')
-  include ./_blocks/service-features/ipo
-  include ./_blocks/features-home
-  include ./_blocks/statistics
-  include ./_blocks/ipo-process
-  include ./_blocks/testimonials-carousel
+  +sticky_nav([
+    {anchor: '#ipo-hero', title: 'Hero'},
+    {anchor: '#ipo-logos', title: 'Trusted By'},
+    {anchor: '#ipo-services', title: 'IPO Services'},
+    {anchor: '#ipo-features', title: 'Features'},
+    {anchor: '#ipo-stats', title: 'Exceptional Experience'},
+    {anchor: '#ipo-process', title: 'IPO Process'},
+    {anchor: '#ipo-testimonials', title: 'Client Successes'},
+    {anchor: '#ipo-certifications', title: 'accreditations'},
+    {anchor: '#ipo-facilities', title: 'Collaborative Facilities'},
+  ])
 
-  +certifications([
-    {
-      img: 'images/240x240.jpeg',
-      title: 'ISO 17100',
-      desc: 'Translation Services Management System Certification',
-    },
-    {
-      img: 'images/240x240.jpeg',
-      title: 'ISO 27001',
-      desc: 'Information Security Management System Certification',
-    },
-    {
-      img: 'images/240x240.jpeg',
-      title: 'ISO 9001',
-      desc: 'Quality Management System Certification',
-    },
-    {
-      img: 'images/240x240.jpeg',
-      title: 'ISO 2846-1',
-      desc: 'Offset Printing Ink Certification',
-    },
-  ], ['ACCREDITATIONS'], 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa sociis natoque penatibus.')
+  div#ipo-hero
+    include ./_blocks/hero/hero-ipo
 
-  +gallery_carousel(
-    'COLLABORATIVE FACILITIES',
-    'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Cum sociis natoque penatibus et magnis dis parturient.',
-    [
+  div#ipo-logos
+    +logo_marquee(logosMarquee, 'Trusted by', 'basic-section-gap')
+
+  div#ipo-services
+    include ./_blocks/service-features/ipo
+
+  div#ipo-features
+    include ./_blocks/features-home
+
+  div#ipo-stats
+    include ./_blocks/statistics
+
+  div#ipo-process
+    include ./_blocks/ipo-process
+
+  div#ipo-testimonials
+    include ./_blocks/testimonials-carousel
+
+  div#ipo-certifications
+    +certifications([
       {
-        title: 'Title 1',
-        body: 'Body 1',
-        src: 'images/3000x1516.jpeg'
+        img: 'images/240x240.jpeg',
+        title: 'ISO 17100',
+        desc: 'Translation Services Management System Certification',
       },
       {
-        title: 'Title 2',
-        body: 'Body 2',
-        src: 'images/3000x1516.jpeg'
+        img: 'images/240x240.jpeg',
+        title: 'ISO 27001',
+        desc: 'Information Security Management System Certification',
       },
       {
-        title: 'Title 3',
-        body: 'Body 3',
-        src: 'images/3000x1516.jpeg'
+        img: 'images/240x240.jpeg',
+        title: 'ISO 9001',
+        desc: 'Quality Management System Certification',
       },
-    ])
+      {
+        img: 'images/240x240.jpeg',
+        title: 'ISO 2846-1',
+        desc: 'Offset Printing Ink Certification',
+      },
+    ], ['ACCREDITATIONS'], 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa sociis natoque penatibus.')
+
+  div#ipo-facilities
+    +gallery_carousel(
+      'COLLABORATIVE FACILITIES',
+      'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Cum sociis natoque penatibus et magnis dis parturient.',
+      [
+        {
+          title: 'Title 1',
+          body: 'Body 1',
+          src: 'images/3000x1516.jpeg'
+        },
+        {
+          title: 'Title 2',
+          body: 'Body 2',
+          src: 'images/3000x1516.jpeg'
+        },
+        {
+          title: 'Title 3',
+          body: 'Body 3',
+          src: 'images/3000x1516.jpeg'
+        },
+      ])

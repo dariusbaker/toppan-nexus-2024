@@ -12,85 +12,104 @@ block container
     },
   ])
 
-  include ./_blocks/hero/hero-about
-  include ./_blocks/our-values
-  include ./_blocks/profile-carousel
-  include ./_blocks/timeline-carousel
-  include ./_blocks/statistics
+  +sticky_nav([
+    {anchor: '#about-hero', title: 'Hero'},
+    {anchor: '#about-values', title: 'Our Values'},
+    {anchor: '#about-profiles', title: 'Great People'},
+    {anchor: '#about-timeline', title: 'Embracing Change'},
+    {anchor: '#about-stats', title: 'Exceptional Experience'},
+    {anchor: '#about-culture', title: 'Culture'},
+    {anchor: '#about-facilities', title: 'Collaborative Facilities'},
+    {anchor: '#about-certifications', title: 'Fully'},
+  ])
 
-  +culture_carousel('blue', [
-    {
-      img: 'images/1640x1800.jpeg',
-      title: 'Title 1',
-      desc: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Earum veniam maiores tenetur veritatis, repellendus ratione, culpa, ab neque voluptate impedit repudiandae doloribus sit atque a ducimus rem dolorem suscipit sunt.',
-      href: 'https://google.com',
-      ctaLabel: 'Whut?',
-    },
-    {
-      img: 'images/1640x1800.jpeg',
-      title: 'Title 2',
-      desc: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Earum veniam maiores tenetur veritatis, repellendus ratione, culpa, ab neque voluptate impedit repudiandae doloribus sit atque a ducimus rem dolorem suscipit sunt.',
-    },
-    {
-      img: 'images/1640x1800.jpeg',
-      title: 'Title 3',
-      desc: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Earum veniam maiores tenetur veritatis, repellendus ratione, culpa, ab neque voluptate impedit repudiandae doloribus sit atque a ducimus rem dolorem suscipit sunt.',
-      href: 'https://google.com',
-      ctaLabel: 'Whut?',
-    },
-  ], 'At TOPPAN Nexus, we\'ve worked hard to foster an internal culture of:', 'culture-carousel-1')
+  div#about-hero
+    include ./_blocks/hero/hero-about
+  div#about-values
+    include ./_blocks/our-values
+  div#about-profiles
+    include ./_blocks/profile-carousel
+  div#about-timeline
+    include ./_blocks/timeline-carousel
+  div#about-stats
+    include ./_blocks/statistics
 
-  +gallery_carousel(
-    'COLLABORATIVE FACILITIES',
-    'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Cum sociis natoque penatibus et magnis dis parturient.',
-    [
+  div#about-culture
+    +culture_carousel('blue', [
       {
+        img: 'images/1640x1800.jpeg',
         title: 'Title 1',
-        body: 'Body 1',
-        src: 'images/3000x1516.jpeg',
+        desc: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Earum veniam maiores tenetur veritatis, repellendus ratione, culpa, ab neque voluptate impedit repudiandae doloribus sit atque a ducimus rem dolorem suscipit sunt.',
+        href: 'https://google.com',
+        ctaLabel: 'Whut?',
       },
       {
+        img: 'images/1640x1800.jpeg',
         title: 'Title 2',
-        body: 'Body 2',
-        src: 'images/3000x1516.jpeg',
+        desc: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Earum veniam maiores tenetur veritatis, repellendus ratione, culpa, ab neque voluptate impedit repudiandae doloribus sit atque a ducimus rem dolorem suscipit sunt.',
       },
       {
+        img: 'images/1640x1800.jpeg',
         title: 'Title 3',
-        body: 'Body 3',
-        src: 'images/3000x1516.jpeg',
+        desc: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Earum veniam maiores tenetur veritatis, repellendus ratione, culpa, ab neque voluptate impedit repudiandae doloribus sit atque a ducimus rem dolorem suscipit sunt.',
+        href: 'https://google.com',
+        ctaLabel: 'Whut?',
       },
-      {
-        title: 'Title 4',
-        body: 'Body 4',
-        src: 'images/3000x1516.jpeg',
-      },
-      {
-        title: 'Title 5',
-        body: 'Body 5',
-        src: 'images/3000x1516.jpeg',
-      },
-    ]
-  )
+    ], 'At TOPPAN Nexus, we\'ve worked hard to foster an internal culture of:', 'culture-carousel-1')
 
-  +certifications([
-    {
-      img: 'images/240x240.jpeg',
-      title: 'ISO 17100',
-      desc: 'Translation Services Management System Certification',
-    },
-    {
-      img: 'images/240x240.jpeg',
-      title: 'ISO 27001',
-      desc: 'Information Security Management System Certification',
-    },
-    {
-      img: 'images/240x240.jpeg',
-      title: 'ISO 9001',
-      desc: 'Quality Management System Certification',
-    },
-    {
-      img: 'images/240x240.jpeg',
-      title: 'ISO 2846-1',
-      desc: 'Offset Printing Ink Certification',
-    },
-  ], ['Fully'], 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit.')
+  div#about-facilities
+    +gallery_carousel(
+      'COLLABORATIVE FACILITIES',
+      'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Cum sociis natoque penatibus et magnis dis parturient.',
+      [
+        {
+          title: 'Title 1',
+          body: 'Body 1',
+          src: 'images/3000x1516.jpeg',
+        },
+        {
+          title: 'Title 2',
+          body: 'Body 2',
+          src: 'images/3000x1516.jpeg',
+        },
+        {
+          title: 'Title 3',
+          body: 'Body 3',
+          src: 'images/3000x1516.jpeg',
+        },
+        {
+          title: 'Title 4',
+          body: 'Body 4',
+          src: 'images/3000x1516.jpeg',
+        },
+        {
+          title: 'Title 5',
+          body: 'Body 5',
+          src: 'images/3000x1516.jpeg',
+        },
+      ]
+    )
+
+  div#about-certifications
+    +certifications([
+      {
+        img: 'images/240x240.jpeg',
+        title: 'ISO 17100',
+        desc: 'Translation Services Management System Certification',
+      },
+      {
+        img: 'images/240x240.jpeg',
+        title: 'ISO 27001',
+        desc: 'Information Security Management System Certification',
+      },
+      {
+        img: 'images/240x240.jpeg',
+        title: 'ISO 9001',
+        desc: 'Quality Management System Certification',
+      },
+      {
+        img: 'images/240x240.jpeg',
+        title: 'ISO 2846-1',
+        desc: 'Offset Printing Ink Certification',
+      },
+    ], ['Fully'], 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit.')

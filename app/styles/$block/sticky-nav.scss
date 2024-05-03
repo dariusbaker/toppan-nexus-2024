@@ -10,7 +10,7 @@ $module: 'sticky-nav';
   z-index: 900;
   margin-inline-end: rem(32);
 
-  @include mq(map-get($grid-breakpoints, 'lg')) {
+  @include mq(map-get($grid-breakpoints, 'xl')) {
     display: inline-block;
   }
 
