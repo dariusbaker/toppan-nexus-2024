@@ -7,8 +7,10 @@ $module: 'hero-247';
     p {
       padding-block-start: 1em;
       margin-block-end: 0;
+      margin-inline: auto;
       font-size: clamp(#{rem(16)}, calc(25 / 1600 * 100vw), #{rem(25)});
       line-height: calc(20 / 16);
+      max-width: rem(768);
     }
   }
 
