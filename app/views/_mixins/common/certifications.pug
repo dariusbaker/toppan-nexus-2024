@@ -6,10 +6,10 @@
 //-     desc: 'Description',
 //-   },
 //- ]
-mixin certifications(items, title, description, classes)
+mixin certifications(items, titles, description, classes)
   section.t-container.certifications
-    if title
-      +animated_header(title, 'lg').text-black.mb-8
+    if titles
+      +animated_header(titles, 'lg').text-black.mb-8
     if description
       p.certifications__desc= description
 
