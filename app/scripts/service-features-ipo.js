@@ -33,7 +33,13 @@ export default class ServiceFeaturesIPO {
           const ratio = this._isMobile ? .75 : .5;
 
           if (activated.intersectionRatio >= ratio) {
-            this._computeProgressBarWidth($items.index(activated.target), $items.length, $progress);
+            if (this._timeout) {
+              clearTimeout(this._timeout);
+            }
+
+            this._timeout = setTimeout(() => {
+              this._computeProgressBarWidth($items.index(activated.target), $items.length, $progress);
+            }, 500);
           }
         }, {
           root:$cards.get(0), threshold:0.8
