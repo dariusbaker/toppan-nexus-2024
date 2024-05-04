@@ -47,7 +47,18 @@ $module: 'ipo-services';
     &__item {
       flex-shrink: 0;
       scroll-snap-align: end;
-      padding: 0 rem(16);
+      padding-inline-start: #{rem($padding-inline)};
+      padding-inline-end: #{rem($padding-inline)};
+
+      &:first-child {
+        @include mq(map-get($grid-breakpoints, 'xl')) {
+          padding-inline-start: calc(((100vw - #{map-get($container-max-widths, 'xl')})/2) + #{rem($padding-inline-xl)} - #{rem(8)});
+        }
+
+        @include mq(map-get($grid-breakpoints, 'xxl')) {
+          padding-inline-start: calc(((100vw - #{map-get($container-max-widths, 'xxl')})/2) + #{rem($padding-inline-xxl)} - #{rem(4)});
+        }
+      }
     }
   }
 

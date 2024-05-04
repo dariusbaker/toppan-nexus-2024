@@ -72,6 +72,7 @@ $module: 'statistics';
 
     &__item {
       flex-shrink: 0;
+      width: 88vw;
       scroll-snap-align: end;
       padding: 0 rem(16);
 
