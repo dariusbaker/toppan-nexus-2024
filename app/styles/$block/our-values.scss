@@ -67,6 +67,7 @@ $module: 'our-values';
       font-size: rem(18);
       opacity: 0;
       transition: opacity 300ms ease-out;
+      flex-shrink: 0;
 
       @include mq(map-get($grid-breakpoints, 'lg')) {
         width: rem(64);
@@ -102,9 +103,6 @@ $module: 'our-values';
     }
 
     &__summary {
-      display: flex;
-      flex-direction: row;
-      align-items: center;
       transition: background-color 300ms linear;
 
       padding: rem(24);
@@ -121,6 +119,17 @@ $module: 'our-values';
 
       [open] & {
         background-color: $color-blue-400;
+      }
+
+      &-header {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        transition: transform 125ms ease-in-out;
+
+        [open] & {
+          transform: translateY(#{rem(8)});
+        }
       }
     }
 

@@ -34,11 +34,12 @@ section.our-values
         li.our-values__content__item
           details.our-values__content__details(name='our-values-content' open=`${i === 0 ? 'true' : 'false'}`)
             summary(role="term" aria-details=`our-values-content-${idx}`).our-values__content__summary
-              span.our-values__content__icon-toggler
-                i.fa-regular.fa-arrow-right
-              span.our-values__content__title.font-extrabold= item.title
-              span.our-values__content__icon
-                i(class=`fa-regular fa-${item.icon}`)
+              div.our-values__content__summary-header
+                span.our-values__content__icon-toggler
+                  i.fa-regular.fa-arrow-right
+                span.our-values__content__title.font-extrabold= item.title
+                span.our-values__content__icon
+                  i(class=`fa-regular fa-${item.icon}`)
           div(role="definition" id=`our-values-content-${idx}` class=`${idx === valuesItem.length - 1 ? 'our-values__content__content--no-divider' : ''}`).font-medium.our-values__content__content!= item.content
 
 
