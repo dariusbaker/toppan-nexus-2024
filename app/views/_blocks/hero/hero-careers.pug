@@ -10,23 +10,25 @@ section.hero-careers(animate-stagger)
     p(animate-fade-up).text-gray-500
       | Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient.
 
-  .hero-careers__images
-    img(
-      loading='lazy'
-      src='https://placehold.co/1000x1000'
-    )&attributes(attributes).hero-careers__tile
-    img(
-      loading='lazy'
-      src='https://placehold.co/1000x1000'
-    )&attributes(attributes).hero-careers__tile
-    img(
-      loading='lazy'
-      src='https://placehold.co/1000x1000'
-    )&attributes(attributes).hero-careers__tile
-    img(
-      loading='lazy'
-      src='https://placehold.co/1000x1000'
-    )&attributes(attributes).hero-careers__tile
+  .hero-careers__media
+    div.hero-careers__images-wrapper(marquee data-pixel-per-second='50')
+      .hero-careers__images(marquee-items)
+        img(
+          loading='lazy'
+          src='https://placehold.co/1000x1000'
+        )&attributes(attributes).hero-careers__tile
+        img(
+          loading='lazy'
+          src='https://placehold.co/1000x1000'
+        )&attributes(attributes).hero-careers__tile
+        img(
+          loading='lazy'
+          src='https://placehold.co/1000x1000'
+        )&attributes(attributes).hero-careers__tile
+        img(
+          loading='lazy'
+          src='https://placehold.co/1000x1000'
+        )&attributes(attributes).hero-careers__tile
 
     svg(xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2065 399" fill="none").hero-careers__svg
       path(stroke="#00D0D1" stroke-width="10" d="M0 254.307h406.968c133.875 0 263.224 24.714 364.145 69.574 100.922 44.861 230.267 69.574 364.147 69.574h584.45")

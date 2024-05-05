@@ -3,8 +3,6 @@ export default class Marquee {
     this._$marquees = $('[marquee]');
     this._PIXELS_PER_SECOND = parseInt(this._$marquees.attr('data-pixel-per-second'));
     this._init();
-
-    console.log('GUFF')
   }
 
   _init() {
