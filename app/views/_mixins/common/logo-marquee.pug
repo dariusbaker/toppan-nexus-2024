@@ -9,8 +9,8 @@ mixin logo_marquee(items, title, classes)
   div(class=`logo-marquee ${classes || ''}`)
     div.t-container.mb-3
       h2.logo-marquee__title.font-medium= title
-    div.logo-marquee__wrapper(logo-marquee)
-      ul.logo-marquee__items(logo-marquee-items)
+    div.logo-marquee__wrapper(marquee data-pixel-per-second='200')
+      ul.logo-marquee__items(marquee-items)
         each item in items
           li.logo-marquee__item
             +img(item.img, item.title).logo-marquee__item-img

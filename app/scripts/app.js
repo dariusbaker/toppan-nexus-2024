@@ -4,7 +4,7 @@ import './polyfill/ie';
 // Initializations
 import './cores/prototype';
 import Header from './header';
-import LogoMarquee from './logo-marquee';
+import Marquee from './marquee';
 import ProfileCarousel from './profile-carousel';
 import CultureCarousel from './culture-carousel';
 import PeopleCarousel from './people-carousel';
@@ -270,7 +270,7 @@ $(document).ready(() => {
   new Header();
 
   // init logo marquee component
-  new LogoMarquee();
+  new Marquee();
 
   // init profile carousel component
   new ProfileCarousel();
