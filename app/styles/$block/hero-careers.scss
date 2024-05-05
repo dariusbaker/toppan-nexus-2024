@@ -60,8 +60,6 @@ $module: 'hero-careers';
     }
 
     gap: var(--gap);
-
-    animation: marquee 20s linear infinite;
   }
 
   &__images {
@@ -72,6 +70,7 @@ $module: 'hero-careers';
     margin-block: clamp(#{rem(32)}, calc(60 / 1440 * 100vw), #{rem(60)});
     flex-shrink: 0;
     width: 100%;
+    animation: marquee 20s linear infinite;
   }
 
   &__body {
@@ -89,28 +88,28 @@ $module: 'hero-careers';
     overflow: hidden;
     z-index: 1;
 
-    &:nth-child(1) {
+    &:nth-child(4n+1) {
       top: 4%;
       left: -2%;
       aspect-ratio: 451 / 321;
       width: calc(min(#{rem(451)}, calc(451 / 1800 * 100vw)));
     }
 
-    &:nth-child(2) {
+    &:nth-child(4n+2) {
       bottom: 0;
       left: 26%;
       aspect-ratio: 256 / 307;
       width: calc(min(#{rem(256)}, calc(256 / 1800 * 100vw)));
     }
 
-    &:nth-child(3) {
+    &:nth-child(4n+3) {
       top: 10%;
       right: 27%;
       aspect-ratio: 451 / 321;
       width: calc(min(#{rem(451)}, calc(451 / 1800 * 100vw)));
     }
 
-    &:nth-child(4) {
+    &:nth-child(4n) {
       top: 0;
       right: -3%;
       aspect-ratio: 496 / 496;
