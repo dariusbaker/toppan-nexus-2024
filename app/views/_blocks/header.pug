@@ -112,7 +112,11 @@ mixin nav_item_with_chevron(label, href, classes)
 
 mixin nav_item_card(img, title, description, href, isMobile = false)
   a(href=href class=`${isMobile ? 'header__mobile-nav__card' : 'header__nav__card'}`)
-    img(class=`${isMobile ? 'header__mobile-nav__card-img' : 'header__nav__card-img'}` src=img alt=title)
+    div(class=`${isMobile ? 'header__mobile-nav__card-img-wrapper' : 'header__nav__card-img-wrapper'}`)
+      img(class=`${isMobile ? 'header__mobile-nav__card-img' : 'header__nav__card-img'}` src=img alt=title)
+      if isMobile === false
+        div.header__nav__card-hover-state
+          i.fa-regular.fa-arrow-right.text-black
     div
       h2(class=`${isMobile ? 'header__mobile-nav__card-title' : 'header__nav__card-title'}`).font-extrabold= title
 

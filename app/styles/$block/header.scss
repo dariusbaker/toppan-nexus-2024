@@ -319,6 +319,32 @@ $module: 'header';
       text-decoration: none;
       color: $color-gray-500;
 
+      &-img-wrapper {
+        position: relative;
+      }
+
+      &-hover-state {
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        bottom: rem(30);
+        right: rem(24);
+        width: rem(48);
+        height: rem(48);
+        border-radius: 50%;
+        background-color: $color-green;
+        opacity: 0;
+
+        transition: opacity 125ms linear;
+
+        .#{$module}__nav__card:hover &,
+        .#{$module}__nav__card:focus-visible & {
+          opacity: 1;
+        }
+      }
+
       &-img {
         width: 100%;
         height: auto;
