@@ -44,36 +44,37 @@ $module: 'our-values';
 
     &__icon-toggler {
       display: block;
-      width: rem(24);
-      margin-right: rem(24);
-      font-size: rem(24);
+      margin-inline-end: 1em;
       color: $color-gray-250;
 
-      transition: all 300ms ease-out;
+      width: clamp(#{rem(12)}, calc(24 / 1800 * 100vw), #{rem(24)});
+      height: clamp(#{rem(12)}, calc(24 / 1800 * 100vw), #{rem(24)});
+      font-size: clamp(#{rem(12)}, calc(24 / 1800 * 100vw), #{rem(24)});
+
+      transition: transform 300ms ease-out;
 
       [open] & {
         color: $color-white;
         transform: rotate(90deg);
       }
+
+      i {
+        vertical-align: text-top;
+      }
     }
 
     &__icon {
       position: relative;
-      width: rem(48);
-      height: rem(48);
       color: $color-white;
       background-color: $color-primary;
       border-radius: 50%;
-      font-size: rem(18);
       opacity: 0;
       transition: opacity 300ms ease-out;
       flex-shrink: 0;
 
-      @include mq(map-get($grid-breakpoints, 'lg')) {
-        width: rem(64);
-        height: rem(64);
-        font-size: rem(24);
-      }
+      font-size: clamp(#{rem(14)}, calc(24 / 1800 * 100vw), #{rem(24)});
+      width: clamp(#{rem(30)}, calc(60 / 1800 * 100vw), #{rem(60)});
+      height: clamp(#{rem(30)}, calc(60 / 1800 * 100vw), #{rem(60)});
 
       i {
         transform: translate(-50%, -50%);
@@ -91,11 +92,9 @@ $module: 'our-values';
       flex: 1 1 auto;
       color: $color-gray-250;
       font-size: rem(20);
+      line-height: 1;
       text-transform: uppercase;
-
-      @include mq(map-get($grid-breakpoints, 'xl')) {
-        font-size: rem(40);
-      }
+      font-size: clamp(#{rem(20)}, calc(32 / 1800 * 100vw), #{rem(32)});
 
       [open] & {
         color: $color-white;
@@ -103,13 +102,9 @@ $module: 'our-values';
     }
 
     &__summary {
-      transition: background-color 300ms linear;
-
-      padding: rem(24);
-
-      @include mq(map-get($grid-breakpoints, 'lg')) {
-        padding: rem(32);
-      }
+      transition: background-color 300ms ease-in-out;
+      padding-block: clamp(#{rem(24), calc(32 / 1800 * 100vw), #{rem(32)}});
+      padding-inline: clamp(#{rem(16), calc(40 / 1800 * 100vw), #{rem(40)}});
 
       &::-webkit-details-marker,
       &::marker {
@@ -134,30 +129,28 @@ $module: 'our-values';
     }
 
     &__content {
+      --lines: 6;
       box-sizing: border-box;
-      max-height: 0;
       overflow: hidden;
       border-block-start: rem(1) solid $color-gray-200;
-      transition: max-height 300ms ease-out, background-color 300ms linear, border 125ms linear 300ms;
       color: $color-white;
       background-color: $color-white;
-      padding-inline-start: rem(72);
-      padding-inline-end: rem(24);
+      transition:
+        height 300ms ease-in-out,
+        background-color 300ms ease-in-out,
+        border 125ms linear 300ms;
+
+      height: 0;
+      padding-inline-start: clamp(#{rem(40)}, calc(88 / 1800 * 100vw), #{rem(88)});
+      padding-inline-end: clamp(#{rem(16)}, calc(40 / 1800 * 100vw), #{rem(40)});
+      font-size: clamp(#{rem(14)}, calc(16 / 1800 * 100vw), #{rem(16)});
+      line-height: 1.5;
 
       &::after {
         content: '';
         display: block;
         width: 100%;
-        height: rem(24);
-
-        @include mq(map-get($grid-breakpoints, 'lg')) {
-          height: rem(32);
-        }
-      }
-
-      @include mq(map-get($grid-breakpoints, 'lg')) {
-        padding-inline-start: rem(80);
-        padding-inline-end: rem(32);
+        height: clamp(#{rem(30)}, calc(60 / 1800 * 100vw), #{rem(60)});
       }
 
       &--no-divider {
@@ -165,10 +158,21 @@ $module: 'our-values';
       }
 
       .#{$module}__content__details[open] + & {
-        // arbitrary value
-        max-height: rem(1000);
         border-block-start: 0;
         background-color: $color-blue-400;
+        height: calc(1.5em * var(--lines) + (60 / 16 * 1em));
+
+        @include mq(map-get($grid-breakpoints, 'md')) {
+          --lines: 5;
+        }
+
+        @include mq(map-get($grid-breakpoints, 'lg')) {
+          --lines: 4;
+        }
+
+        @include mq(map-get($grid-breakpoints, 'xl')) {
+          --lines: 3;
+        }
       }
     }
   }
