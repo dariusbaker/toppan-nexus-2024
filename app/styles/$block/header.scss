@@ -229,6 +229,7 @@ $module: 'header';
     &__cards {
       padding-block-start: rem(24);
       padding-block-end: rem(24);
+
       &__item + &__item {
         margin-block-start: rem(16);
       }
@@ -236,22 +237,23 @@ $module: 'header';
 
     &__submenu {
       padding-inline-start: rem(20);
-      padding-block-end: rem(24);
+      padding-block-end: rem(36);
     }
 
     &__submenu-item {
       &-title {
         font-size: rem(16);
         color: $color-black;
-        margin-block-start: rem(24);
+        margin-block-start: rem(32);
         margin-block-end: rem(16);
 
         &::after {
           content: '';
           display: block;
           width: rem(24);
-          height: rem(2);
+          height: rem(3);
           background-color: $color-primary;
+          transform: translateY(#{rem(6)});
         }
       }
     }
@@ -259,15 +261,16 @@ $module: 'header';
     &__subitem-link {
       text-decoration: none;
       color: $color-black;
+      padding-block: rem(8);
     }
 
     &__submenu-items {
       padding: 0;
+
       &__item {
         display: flex;
         flex-direction: row;
         align-items: center;
-        height: rem(46);
 
         i {
           color: $color-primary;
@@ -379,7 +382,7 @@ $module: 'header';
       display: flex;
       align-items: flex-start;
       justify-content: center;
-      gap: rem(64);
+      gap: rem(200);
       width: 100%;
       padding: rem(32);
       background-color: $color-white;

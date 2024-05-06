@@ -5,8 +5,8 @@ $module: 'h-accordion';
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    padding-block-start: rem(8);
-    padding-block-end: rem(8);
+    padding-block-start: rem(11);
+    padding-block-end: rem(11);
 
     &::-webkit-details-marker,
     &::marker {
