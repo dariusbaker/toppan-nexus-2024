@@ -48,25 +48,11 @@ $module: 'hero-careers';
 
   &__images-wrapper,
   &__marquee-items {
+    --gap: 20vw;
     display: flex;
     flex-direction: row;
-
-    width: 100%;
-    --gap: #{rem(72)};
-
-    @include mq(map-get($grid-breakpoints, 'md')) {
-      --gap: #{rem(116)};
-    }
-
-    @include mq(map-get($grid-breakpoints, 'lg')) {
-      --gap: #{rem(140)};
-    }
-
-    @include mq(map-get($grid-breakpoints, 'xl')) {
-      --gap: #{rem(180)};
-    }
-
     gap: var(--gap);
+    width: 100%;
   }
 
   &__marquee-items {
