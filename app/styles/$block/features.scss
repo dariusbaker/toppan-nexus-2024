@@ -45,12 +45,21 @@ $module: 'features';
       padding-block-end: rem(144);
     }
 
+    &__button {
+      color: $color-cyan !important;
+    }
+
+    &__body {
+      font-size: clamp(#{rem(18)}, calc(28 / 1800 * 100vw), #{rem(28)});
+      line-height: 1.375;
+    }
+
     &__content {
-      padding-block-start: rem(24);
+      margin-block-start: rem(24);
 
       @include mq(map-get($grid-breakpoints, 'lg')) {
-        padding-inline-start: rem(40);
-        padding-block-start: rem(40);
+        margin-inline-start: rem(40);
+        margin-block-start: rem(40);
       }
     }
   }
